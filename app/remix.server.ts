@@ -32,7 +32,7 @@ export class Remix extends DurableObject<Env> {
         sessionId = payload.sessionId;
       } else {
         [userId, sessionId, newAccessToken, newRefreshToken] =
-          await this.createNewUserSession();
+            await this.createNewUserSession();
       }
     } else if (refreshToken) {
       const payload = await this.verifyToken(refreshToken);
@@ -43,11 +43,11 @@ export class Remix extends DurableObject<Env> {
         newRefreshToken = await this.createRefreshToken(userId);
       } else {
         [userId, sessionId, newAccessToken, newRefreshToken] =
-          await this.createNewUserSession();
+            await this.createNewUserSession();
       }
     } else {
       [userId, sessionId, newAccessToken, newRefreshToken] =
-        await this.createNewUserSession();
+          await this.createNewUserSession();
     }
 
     pageSessionId = crypto.randomUUID();
@@ -61,14 +61,14 @@ export class Remix extends DurableObject<Env> {
 
     if (newAccessToken) {
       response.headers.append(
-        "Set-Cookie",
-        `${ACCESS_TOKEN_COOKIE_KEY}=${newAccessToken}; HttpOnly; Secure; SameSite=Strict; Max-Age=900; Path=/`
+          "Set-Cookie",
+          `${ACCESS_TOKEN_COOKIE_KEY}=${newAccessToken}; HttpOnly; Secure; SameSite=Strict; Max-Age=900; Path=/`
       );
     }
     if (newRefreshToken) {
       response.headers.append(
-        "Set-Cookie",
-        `${REFRESH_TOKEN_COOKIE_KEY}=${newRefreshToken}; HttpOnly; Secure; SameSite=Strict; Max-Age=604800; Path=/`
+          "Set-Cookie",
+          `${REFRESH_TOKEN_COOKIE_KEY}=${newRefreshToken}; HttpOnly; Secure; SameSite=Strict; Max-Age=604800; Path=/`
       );
     }
 
@@ -79,8 +79,8 @@ export class Remix extends DurableObject<Env> {
     const cookieHeader = request.headers.get("Cookie");
     if (cookieHeader) {
       const cookies = cookieHeader
-        .split(";")
-        .map((cookie) => cookie.trim().split("="));
+          .split(";")
+          .map((cookie) => cookie.trim().split("="));
       const cookie = cookies.find(([key]) => key === name);
       return cookie ? cookie[1] : undefined;
     }
@@ -90,8 +90,8 @@ export class Remix extends DurableObject<Env> {
   private async verifyToken(token: string) {
     try {
       const verified = await jwtVerify(
-        token,
-        new TextEncoder().encode(this.env.SESSION_JWT_SECRET)
+          token,
+          new TextEncoder().encode(this.env.SESSION_JWT_SECRET)
       );
       return verified.payload as { userId: string; sessionId: string };
     } catch {
@@ -101,20 +101,20 @@ export class Remix extends DurableObject<Env> {
 
   private async createAccessToken(userId: string, sessionId: string) {
     return await new SignJWT({ userId, sessionId })
-      .setProtectedHeader({ alg: "HS256" })
-      .setExpirationTime("15m")
-      .sign(new TextEncoder().encode(this.env.SESSION_JWT_SECRET));
+        .setProtectedHeader({ alg: "HS256" })
+        .setExpirationTime("15m")
+        .sign(new TextEncoder().encode(this.env.SESSION_JWT_SECRET));
   }
 
   private async createRefreshToken(userId: string) {
     return await new SignJWT({ userId })
-      .setProtectedHeader({ alg: "HS256" })
-      .setExpirationTime("7d")
-      .sign(new TextEncoder().encode(this.env.SESSION_JWT_SECRET));
+        .setProtectedHeader({ alg: "HS256" })
+        .setExpirationTime("7d")
+        .sign(new TextEncoder().encode(this.env.SESSION_JWT_SECRET));
   }
 
   private async createNewUserSession(): Promise<
-    [string, string, string, string]
+      [string, string, string, string]
   > {
     const userId = crypto.randomUUID();
     const sessionId = crypto.randomUUID();

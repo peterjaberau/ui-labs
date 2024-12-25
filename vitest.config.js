@@ -1,13 +1,10 @@
 import react from "@vitejs/plugin-react";
-import { defineConfig } from "vitest/config";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { vitePlugin as remix } from "@remix-run/dev";
-import { installGlobals } from "@remix-run/node";
-import { devErrorBoundary } from "@metronome-sh/dev-error-boundary";
+import { defineConfig } from "vitest/config";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tsconfigPaths(), react(), remix(), devErrorBoundary()],
+  plugins: [tsconfigPaths(), react()],
   test: {
     environment: "jsdom",
     setupFiles: ["dotenv/config"],

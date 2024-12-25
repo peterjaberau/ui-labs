@@ -1,5 +1,5 @@
 import { Drawer } from "vaul";
-import type { ScenarioTemplate } from "~/routes/_index";
+import type { ScenarioTemplate } from "~/routes/playground";
 
 interface TemplatesDrawerProps {
   isOpen: boolean;
@@ -56,4 +56,4 @@ export function TemplatesDrawer({
       </div>
     </div>
   );
-} 
+}

@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "ui-labs"
+name = "escuchame"
 main = "dist/index.js"
 compatibility_date = "2024-09-25"
 
@@ -10,7 +10,7 @@ assets = { directory = "./public" }
 "process.env.REMIX_DEV_SERVER_WS_PORT" = "8002"
 
 [vars]
-ACTOR_KIT_HOST = "ui-labs.peterjaberau.dev"
+ACTOR_KIT_HOST = "escuchame.jonathanrmumm.workers.dev"
 
 [[durable_objects.bindings]]
 name = "REMIX"

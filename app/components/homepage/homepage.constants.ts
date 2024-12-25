@@ -1,4 +1,4 @@
-import type { ScenarioTemplate } from "../../routes/_index";
+import type { ScenarioTemplate } from "~/routes/playground";
 
 export const languages = [
   { code: "es", name: "Spanish", nativeName: "Español" },
@@ -252,4 +252,4 @@ export const extraSuggestions: ScenarioTemplate[] = [
     description: "Making purchases and returns online",
     icon: "🛍️",
   },
-]; 
+];

@@ -10,10 +10,12 @@ import {
     Link,
     isRouteErrorResponse,
     useRouteError,
+    useMatches,
     type ErrorResponse,
 } from '@remix-run/react'
 
 export default function ErrorBoundary() {
+
     const error = useRouteError()
 
     if (isRouteErrorResponse(error)) {
@@ -27,6 +29,8 @@ export default function ErrorBoundary() {
 }
 
 function AppError({ message, stack }: { message?: string; stack?: string }) {
+
+
     return (
         <>
             <div className="m-2 rounded bg-red-100 p-4">

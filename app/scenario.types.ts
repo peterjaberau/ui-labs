@@ -57,7 +57,7 @@ export type ScenarioEvent = (
 
 export type ScenarioInputProps = z.infer<typeof ScenarioInputPropsSchema>;
 
-export type ScenarioInput = WithActorKitInput<ScenarioInputProps>;
+export type ScenarioInput = WithActorKitInput<ScenarioInputProps, EnvWithDurableObjects>;
 
 export type ScenarioServerContext = {
   public: ScenarioPublicContext;

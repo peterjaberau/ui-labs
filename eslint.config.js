@@ -61,6 +61,9 @@ export default {
     '@typescript-eslint/lines-between-class-members': 'off',
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/dot-notation': 'off',
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-object-literal-type-assertion": "off",
+    "@typescript-eslint/no-extra-semi": "off",
 
     // General JavaScript/TypeScript rules
     'no-param-reassign': 'off',

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within } from "@storybook/testing-library";
 import { createActorKitMockClient } from "~/packages/actor-kit/test";
 import React from "react";
 import { withRouter } from "storybook-addon-react-router-v6";
@@ -8,6 +7,8 @@ import { ScenarioContext } from "../../scenario.context";
 import type { ScenarioMachine } from "../../scenario.machine";
 import { ScenarioView } from "./scenario-view";
 import { expect, fn } from "@storybook/test";
+import * as TestingLibrary from "@storybook/testing-library";
+const { userEvent, within } = TestingLibrary;
 
 // Sample audio data (base64 encoded short beep)
 const SAMPLE_AUDIO = "data:audio/wav;base64,UklGRnoGAABXQVZFZm10..."; // Use actual base64 audio

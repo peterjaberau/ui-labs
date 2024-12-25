@@ -6,12 +6,12 @@ import {
   ClientEventFrom,
 } from "./types";
 
-export type ActorKitMockClientProps<TMachine extends AnyActorKitStateMachine> = {
-  initialSnapshot: CallerSnapshotFrom<TMachine>;
-  onSend?: (event: ClientEventFrom<TMachine>) => void;
+export type ActorKitMockClientProps<TMachine extends AnyActorKitStateMachine | any> = {
+  initialSnapshot: CallerSnapshotFrom<TMachine | any>;
+  onSend?: (event: ClientEventFrom<TMachine | any>) => void;
 };
 
-export type ActorKitMockClient<TMachine extends AnyActorKitStateMachine> = ActorKitClient<TMachine> & {
+export type ActorKitMockClient<TMachine extends AnyActorKitStateMachine | any> = ActorKitClient<TMachine | any> & {
   produce: (recipe: (draft: Draft<CallerSnapshotFrom<TMachine>>) => void) => void;
 };
 
@@ -22,11 +22,11 @@ export type ActorKitMockClient<TMachine extends AnyActorKitStateMachine> = Actor
  * @param {ActorKitMockClientProps<TMachine>} props - Configuration options for the mock client.
  * @returns {ActorKitMockClient<TMachine>} An object with methods to interact with the mock actor.
  */
-export function createActorKitMockClient<TMachine extends AnyActorKitStateMachine>(
-  props: ActorKitMockClientProps<TMachine>
-): ActorKitMockClient<TMachine> {
+export function createActorKitMockClient<TMachine extends AnyActorKitStateMachine | any>(
+  props: ActorKitMockClientProps<TMachine | any>
+): ActorKitMockClient<TMachine | any> | any {
   let currentSnapshot = props.initialSnapshot;
-  const listeners: Set<(state: CallerSnapshotFrom<TMachine>) => void> = new Set();
+  const listeners: Set<(state: CallerSnapshotFrom<TMachine> | any) => void> = new Set();
 
   /**
    * Notifies all registered listeners with the current state.
@@ -39,7 +39,7 @@ export function createActorKitMockClient<TMachine extends AnyActorKitStateMachin
    * Updates the state using an Immer producer function.
    * @param {(draft: Draft<CallerSnapshotFrom<TMachine>>) => void} recipe - The state update recipe.
    */
-  const produceFn = (recipe: (draft: Draft<CallerSnapshotFrom<TMachine>>) => void) => {
+  const produceFn = (recipe: (draft: Draft<CallerSnapshotFrom<TMachine>> | any) => void) => {
     currentSnapshot = produce(currentSnapshot, recipe);
     notifyListeners();
   };
@@ -48,10 +48,10 @@ export function createActorKitMockClient<TMachine extends AnyActorKitStateMachin
    * Sends an event to the mock client.
    * @param {ClientEventFrom<TMachine>} event - The event to send.
    */
-  const send = (event: ClientEventFrom<TMachine>) => {
+  const send: any = (event: ClientEventFrom<TMachine | any>) => {
     props.onSend?.(event);
     notifyListeners();
-  };
+  } ;
 
   /**
    * Retrieves the current state of the mock actor.
@@ -134,5 +134,5 @@ export function createActorKitMockClient<TMachine extends AnyActorKitStateMachin
     subscribe,
     produce: produceFn,
     waitFor,
-  };
+  } as any;
 }

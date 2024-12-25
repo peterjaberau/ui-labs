@@ -15,23 +15,8 @@ if (process.env.NODE_ENV === "development") {
 
 const router = createActorKitRouter<Env>(["user", "scenario"]);
 
-console.debug(
-    'server.router---', {
-      router: router.name,
-    });
-
-
 export default class Worker extends WorkerEntrypoint<Env> {
-
-
   fetch(request: Request): Promise<Response> | Response {
-
-
-    console.debug(
-        'server.Worker.router---', {
-          router: router.name,
-        });
-
     if (request.url.includes("/api/")) {
       return router(request, this.env, this.ctx);
     }

@@ -17,7 +17,7 @@ import type {
 
 export type EnvWithDurableObjects = {
   ACTOR_KIT_SECRET: string;
-  [key: string]: DurableObjectNamespace<ActorServer<any>> | unknown;
+  [key: string]: any;
 };
 
 export type AnyEvent = z.infer<typeof AnyEventSchema>;
@@ -123,7 +123,7 @@ export type BaseActorKitInput<TEnv = EnvWithDurableObjects> = {
 export type WithActorKitInput<
   TInputProps extends { [key: string]: unknown },
   TEnv extends EnvWithDurableObjects
-> = TInputProps & BaseActorKitInput<TEnv>;
+> = TInputProps & BaseActorKitInput<TEnv | any>;
 
 export type AnyActorKitStateMachine = ActorKitStateMachine<any, any, any>;
 
@@ -184,16 +184,17 @@ export type WithActorKitContext<
   private: Record<string, TPrivateProps>;
 };
 
-export type CallerSnapshotFrom<TMachine extends AnyStateMachine> = {
+export type CallerSnapshotFrom<TMachine extends AnyStateMachine | any> = {
   public: SnapshotFrom<TMachine> extends { context: { public: infer P } }
     ? P
-    : unknown;
+    : unknown | any;
   private: SnapshotFrom<TMachine> extends {
     context: { private: Partial<Record<string, infer PR>> };
   }
     ? PR
-    : unknown;
-  value: SnapshotFrom<TMachine> extends { value: infer V } ? V : unknown;
+    : unknown | any;
+  value: SnapshotFrom<TMachine> extends { value: infer V } ? V : unknown | any;
+
 };
 
 export type ClientEventFrom<T extends AnyActorKitStateMachine> =

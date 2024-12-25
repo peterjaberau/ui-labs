@@ -1,5 +1,5 @@
 import { atom, map } from "nanostores";
-import type { ScenarioTemplate, ScenarioSelection } from "../../routes/_index";
+import type { ScenarioTemplate, ScenarioSelection } from "~/routes/playground";
 
 export function createHomepageStores() {
   return {
@@ -15,4 +15,4 @@ export function createHomepageStores() {
   };
 }
 
-export type HomepageStores = ReturnType<typeof createHomepageStores>; 
+export type HomepageStores = ReturnType<typeof createHomepageStores>;

@@ -4,7 +4,12 @@
     "types": [
       "@remix-run/cloudflare",
       "@types/node",
-      "@cloudflare/workers-types"
+      "@remix-run/node",
+      "@react-router/cloudflare",
+      "@cloudflare/workers-types",
+      "@cloudflare/workers-types/2023-07-01",
+      "vite/client",
+      "vitest/globals"
     ],
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -23,8 +28,6 @@
     },
     "noEmit": true,
 
-
-
     /* Bundler mode */
     "allowImportingTsExtensions": true,
     "moduleDetection": "force",
@@ -36,7 +39,20 @@
     /* other */
     "useDefineForClassFields": true,
 
+    "suppressImplicitAnyIndexErrors": true,
   },
-  "include": ["app/**/*.ts", "app/**/*.tsx", "declarations.d.ts"],
+  "include": [
+    "worker-configuration.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "declarations.d.ts",
+    ".react-router/types/**/*",
+    "**/.server/**/*.ts",
+    "**/.server/**/*.tsx",
+    "**/.client/**/*.ts",
+    "**/.client/**/*.tsx"
+  ],
   "exclude": ["node_modules", "**/*.stories.tsx", "**/*.stories.ts"]
 }
