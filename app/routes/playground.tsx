@@ -13,6 +13,14 @@ import { Button } from "~/components/ui/button";
 import { UserContext } from "~/user.context";
 import { createHomepageStores, type HomepageStores } from "../components/homepage/homepage.stores";
 import { languages, initialSuggestions, extraSuggestions } from "../components/homepage/homepage.constants";
+import { applyMode, applyDensity, Density, Mode } from '@cloudscape-design/global-styles';
+import { Button as ButtonCs, Badge } from '@cloudscape-design/components';
+
+export function ClientOnly({ children }: { children: React.ReactNode }) {
+  return (
+      typeof window === 'undefined' ? null : <>{children}</>
+  );
+}
 
 // Types
 export type ScenarioTemplate = {
@@ -148,6 +156,10 @@ function LanguageSelectors({ stores }: { stores: HomepageStores }) {
 
   return (
     <div className="grid gap-4 sm:grid-cols-2">
+      <ClientOnly>
+        <ButtonCs variant='normal'>Button</ButtonCs>
+        <Badge color='severity-critical'>Badge</Badge>
+      </ClientOnly>
       <LanguageSelector
         label="I speak"
         languages={languages}

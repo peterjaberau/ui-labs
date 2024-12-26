@@ -1,3 +1,15 @@
+import "react18-json-view/src/style.css"
+import "@cloudscape-design/global-styles/index.css"
+import tailwind from "./apps/interactive-routing/tailwind.css";
+import styles from "./apps/interactive-routing/styles.css";
+import actorStyles from "./styles.css";
+import cloudscapeStyles from "./cloudscape.css";
+
+import React from "react";
+import JsonView from "react18-json-view"
+import { TopNavigations } from "~/apps/base/cloudscape/components/TopNavigations"
+
+
 import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
@@ -9,9 +21,7 @@ import {
   useMatches,
     useLoaderData
 } from "@remix-run/react";
-import tailwind from "./apps/interactive-routing/tailwind.css";
-import styles from "./apps/interactive-routing/styles.css";
-import actorStyles from "./styles.css";
+
 import Sidebar from "~/apps/interactive-routing/components/Sidebar";
 import Header from "~/apps/interactive-routing/components/Header";
 import Breadcrumbs from "~/apps/interactive-routing/components/Breadcrumbs";
@@ -21,6 +31,7 @@ import {json, LinksFunction, LoaderFunctionArgs} from "@remix-run/cloudflare";
 import { createAccessToken, createActorFetch } from "~/packages/actor-kit/server";
 import { UserProvider } from "./user.context";
 import { UserMachine } from "./user.machine";
+import {boardItems} from "~/apps/base/cloudscape/components/boardItems.tsx";
 
 
 
@@ -39,9 +50,14 @@ export const meta: MetaFunction = () => {
 };
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: tailwind },
+
+
+    { rel: "stylesheet", href: tailwind },
   { rel: "stylesheet", href: styles },
     { rel: "stylesheet", href: actorStyles },
+    { rel: "stylesheet", href: cloudscapeStyles },
+
+
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     {
         rel: "preconnect",
@@ -49,6 +65,7 @@ export const links: LinksFunction = () => [
         crossOrigin: "anonymous",
     },
     {
+
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
     },
@@ -91,6 +108,9 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 
 export default function App() {
 
+
+
+
     const { NODE_ENV, host, sessionId, accessToken, payload } =
         useLoaderData<typeof loader>();
     const isDevelopment = NODE_ENV === "development";
@@ -110,43 +130,52 @@ export default function App() {
     setIsDarkMode((current) => !current);
   }, []);
 
-  return (
-      <html lang="en" {...themeProps}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body className="bg-white dark:bg-zinc-900 text-black/80 dark:text-zinc-200">
-      <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-      <Sidebar />
-      <div style={{ paddingLeft: "400px" }}>
-        <div className="max-w-3xl mx-auto px-4 pt-20">
-          <Breadcrumbs matches={matches} />
-          <div className="mt-8 px-4">
-            <LayoutWrapper filePath="root.tsx">
-                <UserProvider
-                    host={host}
-                    actorId={sessionId}
-                    checksum={payload.checksum}
-                    accessToken={accessToken}
-                    initialSnapshot={payload.snapshot as any}
-                >
-                    <Outlet />
-                </UserProvider>
-                <ScrollRestoration />
-                <Scripts />
-                {isDevelopment && <LiveReload />}
-            </LayoutWrapper>
-          </div>
-        </div>
-      </div>
 
-      <ScrollRestoration />
-      <Scripts />
-      <LiveReload />
-      </body>
-      </html>
+  return (
+          <html lang="en" {...themeProps}>
+          <head>
+              <meta charSet="utf-8"/>
+              <meta name="viewport" content="width=device-width,initial-scale=1"/>
+              <meta name="emotion-styles"/>
+              <Meta/>
+              <Links/>
+          </head>
+
+          <body className="bg-white dark:bg-zinc-900 text-black/80 dark:text-zinc-200">
+
+              <UserProvider
+                  host={host}
+                  actorId={sessionId}
+                  checksum={payload.checksum}
+                  accessToken={accessToken}
+                  initialSnapshot={payload.snapshot as any}
+              >
+
+                  <>
+
+                     <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
+                      <Sidebar/>
+
+                      <div style={{paddingLeft: "400px"}}>
+                          <div className="max-w-3xl mx-auto px-4 pt-20">
+                              <Breadcrumbs matches={matches}/>
+                              <div className="mt-8 px-4">
+                                  <LayoutWrapper filePath="root.tsx">
+
+                                      <Outlet/>
+
+                                  </LayoutWrapper>
+                              </div>
+                          </div>
+                      </div>
+            </>
+
+              </UserProvider>
+              <ScrollRestoration/>
+              <Scripts/>
+              {isDevelopment && <LiveReload/>}
+
+          </body>
+          </html>
   );
 }

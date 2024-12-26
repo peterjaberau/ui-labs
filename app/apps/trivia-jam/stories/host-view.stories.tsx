@@ -241,7 +241,7 @@ export const QuestionControls: Story = {
 
     // Simulate question being set with new structure
     const questionId = "q1";
-    gameClient.produce((draft) => {
+    gameClient.produce((draft: any) => {
       draft.public.questions[questionId] = {
         id: questionId,
         text: "What year was the Declaration of Independence signed?",
@@ -261,7 +261,7 @@ export const QuestionControls: Story = {
     expect(questionDisplay).toBeInTheDocument();
 
     // Simulate player submitting answer
-    gameClient.produce((draft) => {
+    gameClient.produce((draft: any) => {
       if (draft.public.currentQuestion) {
         draft.public.currentQuestion.answers.push({
           playerId: "player-1",
@@ -276,7 +276,7 @@ export const QuestionControls: Story = {
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     // Simulate scores being updated
-    gameClient.produce((draft) => {
+    gameClient.produce((draft: any) => {
       draft.public.questionResults.push({
         questionId,
         questionNumber: 1,
