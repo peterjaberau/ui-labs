@@ -1,6 +1,5 @@
 import { FC, PropsWithChildren, useEffect, useState, createContext, useContext } from 'react';
 import { applyMode, Mode, applyDensity, Density } from '@cloudscape-design/global-styles';
-
 import '@cloudscape-design/global-styles/index.css';
 
 export interface CloudscapeThemeProviderProps {

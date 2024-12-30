@@ -8,8 +8,8 @@
       "@react-router/cloudflare",
       "@cloudflare/workers-types",
       "@cloudflare/workers-types/2023-07-01",
-      "vite/client",
-      "vitest/globals"
+      "vitest/globals",
+      "vite/client"
     ],
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -24,7 +24,8 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "content-collections": ["./.content-collections/generated"]
     },
     "noEmit": true,
 
@@ -40,8 +41,10 @@
     "useDefineForClassFields": true,
 
     "suppressImplicitAnyIndexErrors": true,
+    "rootDirs": [".", "./.react-router/types"]
   },
   "include": [
+    "env.d.ts",
     "worker-configuration.d.ts",
     "**/*.ts",
     "**/*.tsx",
@@ -52,7 +55,8 @@
     "**/.server/**/*.ts",
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
-    "**/.client/**/*.tsx"
+    "**/.client/**/*.tsx",
+    ".react-router/types/**/*"
   ],
   "exclude": ["node_modules", "**/*.stories.tsx", "**/*.stories.ts"]
 }

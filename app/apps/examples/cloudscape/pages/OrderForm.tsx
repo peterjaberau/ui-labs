@@ -15,7 +15,7 @@
  ******************************************************************************************************************** */
 import React, { FC } from 'react';
 import { useNavigate } from '@remix-run/react';
-import FormRenderer, { componentTypes, validatorTypes } from '@aws-northstar/ui/components/FormRenderer';
+import FormRenderer, { componentTypes, validatorTypes } from '~/apps/design-systems/cloudscape/components/FormRenderer';
 
 export const items = Array.from(Array(8).keys()).map((i) => ({
   label: `Item ${i + 1}`,

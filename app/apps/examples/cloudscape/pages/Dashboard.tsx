@@ -15,8 +15,8 @@
  ******************************************************************************************************************** */
 import React, { FC } from 'react';
 import SpaceBetween from '@cloudscape-design/components/space-between';
-import OrdersTable from './components/OrdersTable';
-import Overview from './components/Overview';
+import OrdersTable from './OrdersTable';
+import Overview from './Overview';
 
 const Dashboard: FC = () => {
   return (

@@ -1,0 +1,646 @@
+[
+  {
+    "name": "canvas-button",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "class-variance-authority"
+    ],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-button.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "color-palette",
+    "type": "registry:ui",
+    "dependencies": [
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/color-palette.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "sketch-input",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "class-variance-authority"
+    ],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "ui-canvas/sketch-input.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "gallery-grid",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/gallery-grid.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "easel-tabs",
+    "type": "registry:ui",
+    "dependencies": [
+      "@radix-ui/react-tabs",
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/easel-tabs.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "palette-navigation",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/palette-navigation.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-modal",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "@radix-ui/react-dialog",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-modal.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "brush-stroke-loader",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/brush-stroke-loader.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-slider",
+    "type": "registry:ui",
+    "dependencies": [
+      "@radix-ui/react-slider",
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-slider.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "art-board-layout",
+    "type": "registry:ui",
+    "dependencies": [
+      "@dnd-kit/core"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/art-board-layout.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "palette-toast",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "ui-canvas/palette-toast.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-drawer",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-drawer.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "texture-overlay",
+    "type": "registry:ui",
+    "dependencies": [],
+    "files": [
+      {
+        "path": "ui-canvas/texture-overlay.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-color-picker",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-color-picker.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-grid",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-grid.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "artistic-navigation",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/artistic-navigation.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-dock",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "next-themes"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-dock.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "studio-light",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "next-themes"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/studio-light.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "sketch-accordion",
+    "type": "registry:ui",
+    "dependencies": [
+      "@radix-ui/react-accordion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/sketch-accordion.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-menu",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "@radix-ui/react-menu"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-menu.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "ink-alert",
+    "type": "registry:ui",
+    "dependencies": [
+      "class-variance-authority",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/ink-alert.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "artistic-tooltip",
+    "type": "registry:ui",
+    "dependencies": [
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/artistic-tooltip.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-annotations",
+    "type": "registry:ui",
+    "dependencies": [],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-annotations.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "layer-manager",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/layer-manager.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "brush-style-selector",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/brush-style-selector.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "pattern-library",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/pattern-library.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "texture-browser",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/texture-browser.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "color-scheme-generator",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/color-scheme-generator.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "art-board-presets",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/art-board-presets.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-timeline",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-timeline.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "artistic-data-viz",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/artistic-data-viz.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "artistic-statistics-card",
+    "type": "registry:ui",
+    "dependencies": [],
+    "files": [
+      {
+        "path": "ui-canvas/artistic-statistics-card.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "stepper",
+    "type": "registry:ui",
+    "dependencies": [
+      "class-variance-authority"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/stepper.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "studio-pagination",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/studio-pagination.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "collapsible-card",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react",
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/collapsible-card.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "gallery-flow",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react",
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/gallery-flow.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "studio-shortcuts-guide",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react",
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/studio-shortcuts-guide.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "creative-otp-input",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/creative-otp-input.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "creative-clipboard-actions",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/creative-clipboard-actions.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "studio-share-module",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react",
+      "qrcode.react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/studio-share-module.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "artistic-settings-panel",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/artistic-settings-panel.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "creative-code-display",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "next-themes",
+      "prismjs"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/creative-code-display.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "sketch-calendar-picker",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "date-fns",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/sketch-calendar-picker.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "texture-blend-transitions",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/texture-blend-transitions.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "artistic-cursor-effects",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/artistic-cursor-effects.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "canvas-voice-commander",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/canvas-voice-commander.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "creative-error-boundaries",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/creative-error-boundaries.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "billing-history-timeline",
+    "type": "registry:ui",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "ui-canvas/billing-history-timeline.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  }
+]

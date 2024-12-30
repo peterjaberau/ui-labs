@@ -19,9 +19,83 @@ export const data = [
                     "children": []
                 },
                 {
+                    "name": "dockview.tsx",
+                    "type": "r",
+                    "path": "/dockview",
+                    "children": []
+                },
+                {
                     "name": "about.tsx",
                     "type": "r",
                     "path": "/about",
+                    "children": []
+                }
+            ]
+        }
+    },
+    {
+        "title": "Design Systems",
+        "tree": {
+            "name": "routes",
+            "type": "f",
+            "path": "",
+            "children": [
+                {
+                    "name": "designsys._index.tsx",
+                    "type": "r",
+                    "path": "/designsys",
+                    "children": []
+                },
+                {
+                    "name": "designsys.cloudscape.tsx",
+                    "type": "r",
+                    "path": "/designsys/cloudscape",
+                    "children": []
+                },
+                {
+                    "name": "designsys.antd.tsx",
+                    "type": "r",
+                    "path": "/designsys/antd",
+                    "children": []
+                },
+                {
+                    "name": "designsys.sourcegraph.tsx",
+                    "type": "r",
+                    "path": "/designsys/sourcegraph",
+                    "children": []
+                }
+            ]
+        }
+    },
+    {
+        "title": "Inspectors",
+        "tree": {
+            "name": "routes",
+            "type": "f",
+            "path": "",
+            "children": [
+                {
+                    "name": "inspectors._index.tsx",
+                    "type": "r",
+                    "path": "/inspectors",
+                    "children": []
+                },
+                {
+                    "name": "inspectors.lab01.tsx",
+                    "type": "r",
+                    "path": "/inspectors/lab01",
+                    "children": []
+                },
+                {
+                    "name": "inspectors.lab02.tsx",
+                    "type": "r",
+                    "path": "/inspectors/lab02",
+                    "children": []
+                },
+                {
+                    "name": "inspectors.tsx",
+                    "type": "l",
+                    "path": "l",
                     "children": []
                 }
             ]

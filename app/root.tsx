@@ -1,181 +1,102 @@
-import "react18-json-view/src/style.css"
-import "@cloudscape-design/global-styles/index.css"
-import tailwind from "./apps/interactive-routing/tailwind.css";
-import styles from "./apps/interactive-routing/styles.css";
-import actorStyles from "./styles.css";
-import cloudscapeStyles from "./cloudscape.css";
+// import {
+//   isRouteErrorResponse,
+//   Links,
+//   Meta,
+//   Outlet,
+//   Scripts,
+//   ScrollRestoration,
+// } from "react-router";
 
-import React from "react";
-import JsonView from "react18-json-view"
-import { TopNavigations } from "~/apps/base/cloudscape/components/TopNavigations"
+// @ts-ignore
+import tailwindCss from "./tailwind.css?url"
+// @ts-ignore
+import customCss from "./styles/custom.css?url"
+// @ts-ignore
 
+// import "./tailwind.css";
+// import "./styles/custom.css?url";
 
-import type { MetaFunction } from "@remix-run/node";
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useMatches,
-    useLoaderData
-} from "@remix-run/react";
+import colorsCss from "./styles/colors.css?url"
+// import { LiveReload, useMatches, useLoaderData } from "@remix-run/react"
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useMatches, useLoaderData, isRouteErrorResponse } from "@remix-run/react"
+import { SearchProvider } from "~/apps/llm-resources/app/context/SearchContext"
+import { CategoryProvider } from "~/apps/llm-resources/app/context/CategoryContext"
 
-import Sidebar from "~/apps/interactive-routing/components/Sidebar";
-import Header from "~/apps/interactive-routing/components/Header";
-import Breadcrumbs from "~/apps/interactive-routing/components/Breadcrumbs";
-import LayoutWrapper from "~/apps/interactive-routing/components/wrappers/LayoutWrapper";
-import { useCallback, useMemo, useState } from "react";
-import {json, LinksFunction, LoaderFunctionArgs} from "@remix-run/cloudflare";
-import { createAccessToken, createActorFetch } from "~/packages/actor-kit/server";
-import { UserProvider } from "./user.context";
-import { UserMachine } from "./user.machine";
-import {boardItems} from "~/apps/base/cloudscape/components/boardItems.tsx";
+import { cssBundleHref } from "@remix-run/css-bundle"
 
+// @ts-ignore
+export const links: LinksFunction = () => {
+  const styles = [
+    { href: tailwindCss, as: "style" },
+    { href: customCss, as: "style" },
+    { href: colorsCss, as: "style" },
+  ]
 
+  const links = [
+    cssBundleHref && { rel: "preload", href: cssBundleHref, as: "style" },
+    ...styles.map(({ href, as }) => ({ rel: "preload", href, as })),
+    ...styles.map(({ href }) => ({ rel: "stylesheet", href })),
+    cssBundleHref && { rel: "stylesheet", href: cssBundleHref },
+  ]
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Remix Routing V2" },
-    {
-      property: "og:title",
-      content: "Home Page",
-    },
-    {
-      name: "description",
-      content: "App to visualize remix routing version 2",
-    },
-  ];
-};
-
-export const links: LinksFunction = () => [
-
-
-    { rel: "stylesheet", href: tailwind },
-  { rel: "stylesheet", href: styles },
-    { rel: "stylesheet", href: actorStyles },
-    { rel: "stylesheet", href: cloudscapeStyles },
-
-
-    { rel: "preconnect", href: "https://fonts.googleapis.com" },
-    {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-    },
-    {
-
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-    },
-
-
-];
-
-export async function loader({ request, context }: LoaderFunctionArgs) {
-    const fetchSession = createActorFetch<UserMachine>({
-        actorType: "user",
-        host: context.env.ACTOR_KIT_HOST,
-    });
-
-    const accessToken = await createAccessToken({
-        signingKey: context.env.ACTOR_KIT_SECRET,
-        actorId: context.sessionId,
-        actorType: "user",
-        callerId: context.userId,
-        callerType: "client",
-    });
-    const payload = await fetchSession({
-        actorId: context.sessionId,
-        accessToken,
-        input: {
-            url: request.url,
-        },
-    });
-
-    // TODO fetch the session here....
-    return json({
-        sessionId: context.sessionId,
-        accessToken,
-        payload,
-        host: context.env.ACTOR_KIT_HOST,
-        NODE_ENV: context.env.NODE_ENV,
-    });
+  return links.filter(Boolean) as Array<any>
 }
 
 
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <Meta />
+        <Links />
+      </head>
+      <body >
+        <CategoryProvider>
+          <SearchProvider>{children}</SearchProvider>
+        </CategoryProvider>
+        <ScrollRestoration />
+        <Scripts />
+        {/*<LiveReload port={8002} />*/}
+        {/*<LiveReload />*/}
+      </body>
+    </html>
+  )
+}
 
 export default function App() {
+  return <Outlet />
+}
 
 
+export function ErrorBoundary({ error }: any) {
+  let message = "Oops!";
+  let details = "An unexpected error occurred.";
+  let stack: string | undefined;
 
-
-    const { NODE_ENV, host, sessionId, accessToken, payload } =
-        useLoaderData<typeof loader>();
-    const isDevelopment = NODE_ENV === "development";
-
-
-    const matches = useMatches();
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const themeProps = useMemo(() => {
-    if (isDarkMode) {
-      return { className: "dark" };
-    }
-    return {};
-  }, [isDarkMode]);
-
-  const toggleDarkMode = useCallback(() => {
-    setIsDarkMode((current) => !current);
-  }, []);
-
+  if (isRouteErrorResponse(error)) {
+    message = error.status === 404 ? "404" : "Error";
+    details =
+      error.status === 404
+        ? "The requested page could not be found."
+        : error.statusText || details;
+  } else if (import.meta.env.DEV && error && error instanceof Error) {
+    details = error.message;
+    stack = error.stack;
+  }
 
   return (
-          <html lang="en" {...themeProps}>
-          <head>
-              <meta charSet="utf-8"/>
-              <meta name="viewport" content="width=device-width,initial-scale=1"/>
-              <meta name="emotion-styles"/>
-              <Meta/>
-              <Links/>
-          </head>
-
-          <body className="bg-white dark:bg-zinc-900 text-black/80 dark:text-zinc-200">
-
-              <UserProvider
-                  host={host}
-                  actorId={sessionId}
-                  checksum={payload.checksum}
-                  accessToken={accessToken}
-                  initialSnapshot={payload.snapshot as any}
-              >
-
-                  <>
-
-                     <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
-                      <Sidebar/>
-
-                      <div style={{paddingLeft: "400px"}}>
-                          <div className="max-w-3xl mx-auto px-4 pt-20">
-                              <Breadcrumbs matches={matches}/>
-                              <div className="mt-8 px-4">
-                                  <LayoutWrapper filePath="root.tsx">
-
-                                      <Outlet/>
-
-                                  </LayoutWrapper>
-                              </div>
-                          </div>
-                      </div>
-            </>
-
-              </UserProvider>
-              <ScrollRestoration/>
-              <Scripts/>
-              {isDevelopment && <LiveReload/>}
-
-          </body>
-          </html>
+    <main className="container mx-auto space-y-4 p-4 pt-16">
+      <div className="space-y-2">
+        <h1 className="text-2xl font-semibold">{message}</h1>
+        <p>{details}</p>
+      </div>
+      {stack && (
+        <pre className="w-full overflow-x-auto rounded-lg bg-destructive/5 p-4 text-sm text-destructive">
+          <code>{stack}</code>
+        </pre>
+      )}
+    </main>
   );
 }
