@@ -1,12 +1,12 @@
 import { useParams, useSearchParams } from "@remix-run/react";
 import { lazy, Suspense, useMemo, useState } from "react";
-import { getComponentInfo } from "~/data/ui-resources.ts";
+import { getComponentInfo } from "~/internals/development/data/ui-resources.ts";
 import * as React from "react";
-import ComponentWrapper from "~/apps/ui-canvas/components/console/component-wrapper.tsx";
-import { cn } from "~/lib/utils.ts";
-import { Button } from "~/apps/ui-canvas/components/ui/button.tsx";
+import ComponentWrapper from "~/internals/development/ui-canvas/components/console/component-wrapper.tsx";
+import { cn } from "~/internals/development/lib/utils.ts";
+import { Button } from "~/internals/development/ui-canvas/components/ui/button.tsx";
 import { RotateCcw } from "lucide-react";
-import { Icons } from "~/apps/ui-canvas/components/console/icons.tsx";
+import { Icons } from "~/internals/development/ui-canvas/components/console/icons.tsx";
 import _ from "lodash";
 
 export default function Preview() {

@@ -27,3 +27,4 @@ build/
 .wrangler/
 storybook-static/
 .content-collections
+!/_info/

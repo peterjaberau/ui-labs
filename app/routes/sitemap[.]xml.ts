@@ -1,6 +1,6 @@
 import type { LoaderFunction } from "@remix-run/node";
-import { resourceBlocks } from "~/apps/llm-resources/app/data/resources";
-import { routes } from "~/apps/llm-resources/app/utils/routes";
+import { resourceBlocks } from "~/internals/development/llm-resources/app/data/resources";
+import { routes } from "~/internals/development/llm-resources/app/utils/routes";
 
 // Loader function to generate the sitemap XML
 export const loader: LoaderFunction = () => {

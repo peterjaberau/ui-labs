@@ -1,7 +1,7 @@
-import dockStyles from "~/apps/examples/dockview/pages/styles/styles.css?url";
-import dockviewStyles from "~/apps/examples/dockview/pages/styles/dockview-origin1.css?url";
+import dockStyles from "~/internals/development/examples/dockview/pages/styles/styles.css?url";
+import dockviewStyles from "~/internals/development/examples/dockview/pages/styles/dockview-origin1.css?url";
 // import dockviewStyles from "~/apps/examples/dockview-nocobase/dockview.css?url";
-import dockAppStyles from "~/apps/examples/dockview/pages/styles/appstyles.css?url";
+import dockAppStyles from "~/internals/development/examples/dockview/pages/styles/appstyles.css?url";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import React, { useEffect } from "react"
 import { Outlet } from "@remix-run/react";

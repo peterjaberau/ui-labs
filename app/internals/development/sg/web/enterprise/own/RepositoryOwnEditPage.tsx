@@ -1,0 +1,72 @@
+import React, { useEffect, useMemo } from 'react'
+
+import { mdiAccount } from '@mdi/js'
+
+import { displayRepoName } from '~/internals/development/sg/shared/components/RepoLink.tsx'
+import type { TelemetryV2Props } from '~/internals/development/sg/shared/telemetry'
+import type { TelemetryProps } from '~/internals/development/sg/shared/telemetry/telemetryService.ts'
+import { H1, Icon, Link, PageHeader, ProductStatusBadge } from '~/internals/development/sg/wildcard'
+
+import type { AuthenticatedUser } from '../../auth.ts'
+import type { BreadcrumbSetters } from '../../components/Breadcrumbs.tsx'
+import { Page } from '../../components/Page.tsx'
+import { PageTitle } from '../../components/PageTitle.tsx'
+import type { RepositoryFields } from '../../graphql-operations.ts'
+
+import { RepositoryOwnPageContents } from './RepositoryOwnPageContents.tsx'
+
+/**
+ * Properties passed to all page components in the repository code navigation area.
+ */
+export interface RepositoryOwnAreaPageProps
+    extends Pick<BreadcrumbSetters, 'useBreadcrumb'>,
+        TelemetryProps,
+        TelemetryV2Props {
+    /** The active repository. */
+    repo: RepositoryFields
+    authenticatedUser: Pick<AuthenticatedUser, 'siteAdmin' | 'permissions'> | null
+}
+
+const EDIT_PAGE_BREADCRUMB = { key: 'edit-own', element: 'Upload CODEOWNERS' }
+
+export const RepositoryOwnEditPage: React.FunctionComponent<Omit<RepositoryOwnAreaPageProps, 'telemetryService'>> = ({
+    useBreadcrumb,
+    repo,
+    authenticatedUser,
+    telemetryRecorder,
+}) => {
+    const breadcrumbSetters = useBreadcrumb(
+        useMemo(() => ({ key: 'own', element: <Link to={`/${repo.name}/-/own`}>Ownership</Link> }), [repo.name])
+    )
+    breadcrumbSetters.useBreadcrumb(EDIT_PAGE_BREADCRUMB)
+
+    useEffect(() => {
+        telemetryRecorder.recordEvent('repo.ownership.edit', 'view')
+    }, [telemetryRecorder])
+
+    return (
+        <Page>
+            <PageTitle title={`Ownership for ${displayRepoName(repo.name)}`} />
+            <PageHeader
+                description={
+                    <>
+                        Code ownership data for this repository can be provided via an upload or a committed CODEOWNERS
+                        file. <Link to="/help/own">Learn more about code ownership.</Link>
+                    </>
+                }
+            >
+                <H1 as="h2" className="d-flex align-items-center">
+                    <Icon svgPath={mdiAccount} aria-hidden={true} />
+                    <span className="ml-2">Ownership</span>
+                    <ProductStatusBadge status="beta" className="ml-2" />
+                </H1>
+            </PageHeader>
+
+            <RepositoryOwnPageContents
+                repo={repo}
+                authenticatedUser={authenticatedUser}
+                telemetryRecorder={telemetryRecorder}
+            />
+        </Page>
+    )
+}

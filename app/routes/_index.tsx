@@ -1,11 +1,11 @@
 import type { MetaFunction } from "@remix-run/node";
-import { SearchProvider } from "~/apps/llm-resources/app/context/SearchContext";
-import { CategoryProvider } from "~/apps/llm-resources/app/context/CategoryContext";
-import SearchBar from "~/apps/llm-resources/app/components/SearchBar";
-import CategoryFilter from "~/apps/llm-resources/app/components/CategoryFilter";
-import ResourceGrid from "~/apps/llm-resources/app/components/ResourceGrid";
-import ContactSection from "~/apps/llm-resources/app/components/ContactSection";
-import { getPageMetadata } from "../data/metadata";
+import { SearchProvider } from "~/internals/development/llm-resources/app/context/SearchContext";
+import { CategoryProvider } from "~/internals/development/llm-resources/app/context/CategoryContext";
+import SearchBar from "~/internals/development/llm-resources/app/components/SearchBar";
+import CategoryFilter from "~/internals/development/llm-resources/app/components/CategoryFilter";
+import ResourceGrid from "~/internals/development/llm-resources/app/components/ResourceGrid";
+import ContactSection from "~/internals/development/llm-resources/app/components/ContactSection";
+import { getPageMetadata } from "~/internals/development/data/metadata";
 
 // Meta function to define the metadata for the page, including SEO properties
 export const meta: MetaFunction = () => {

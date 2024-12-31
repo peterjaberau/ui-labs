@@ -1,5 +1,5 @@
-import DockviewMain from "~/apps/examples/dockview/pages/demo-dockview/main.client.tsx";
-import React, { useEffect, useState } from "react"
+import DockviewMain from "~/internals/development/examples/dockview/pages/demo-dockview/main.client.tsx";
+import React from "react"
 import { useLoaderData } from "@remix-run/react"
 import { ClientOnly } from "remix-utils/client-only"
 

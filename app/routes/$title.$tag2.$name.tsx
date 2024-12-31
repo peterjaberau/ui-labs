@@ -1,8 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useParams } from "@remix-run/react";
-import { resourceBlocks } from "~/apps/llm-resources/app/data/resources";
-import ResourceCard from "~/apps/llm-resources/app/components/resource/ResourceCard";
-import NotFound from "~/apps/llm-resources/app/components/resource/NotFound";
+import { resourceBlocks } from "~/internals/development/llm-resources/app/data/resources";
+import ResourceCard from "~/internals/development/llm-resources/app/components/resource/ResourceCard";
+import NotFound from "~/internals/development/llm-resources/app/components/resource/NotFound";
 
 export const meta: MetaFunction = ({ params, location }) => {
   const { title, tag2, name } = params;

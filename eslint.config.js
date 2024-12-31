@@ -34,7 +34,7 @@ export default {
     'unused-imports': unusedImports, // Unused Imports plugin
   },
   rules: {
-    // React Hooks rules
+     // React Hooks rules
     ...reactHooks.configs.recommended.rules,
 
     // React Refresh rule

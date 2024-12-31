@@ -1,0 +1,197 @@
+import React, { useMemo, useRef } from 'react'
+
+import classNames from 'classnames'
+import MapSearchIcon from 'mdi-react/MapSearchIcon'
+import { Route, Routes } from '@remix-run/react'
+
+import type { SiteSettingFields } from '~/internals/development/sg/shared/graphql-operations.ts'
+import type { PlatformContextProps } from '~/internals/development/sg/shared/platform/context.ts'
+import type { SettingsCascadeProps } from '~/internals/development/sg/shared/settings/settings.tsx'
+import type { TelemetryV2Props } from '~/internals/development/sg/shared/telemetry'
+import type { TelemetryProps } from '~/internals/development/sg/shared/telemetry/telemetryService.ts'
+import { LoadingSpinner, PageHeader } from '~/internals/development/sg/wildcard'
+
+import type { AuthenticatedUser } from '../auth.ts'
+import { withAuthenticatedUser } from '../auth/withAuthenticatedUser.tsx'
+import type { BatchChangesProps } from '../batches'
+import { RouteError } from '../components/ErrorBoundary.tsx'
+import { HeroPage } from '../components/HeroPage.tsx'
+import { Page } from '../components/Page.tsx'
+import { useFeatureFlag } from '../featureFlags/useFeatureFlag.ts'
+import { useUserExternalAccounts } from '../hooks/useUserExternalAccounts.ts'
+import type { RouteV6Descriptor } from '../util/contributions.ts'
+
+import {
+    maintenanceGroupHeaderLabel,
+    maintenanceGroupInstrumentationItemLabel,
+    maintenanceGroupMigrationsItemLabel,
+    maintenanceGroupMonitoringItemLabel,
+    maintenanceGroupTracingItemLabel,
+    maintenanceGroupUpdatesItemLabel,
+} from './sidebaritems.ts'
+import { SiteAdminSidebar, type SiteAdminSideBarGroups } from './SiteAdminSidebar.tsx'
+
+import styles from './SiteAdminArea.module.scss'
+
+const NotFoundPage: React.ComponentType<React.PropsWithChildren<{}>> = () => (
+    <HeroPage
+        icon={MapSearchIcon}
+        title="404: Not Found"
+        subtitle="Sorry, the requested site admin page was not found."
+    />
+)
+
+const NotSiteAdminPage: React.ComponentType<React.PropsWithChildren<{}>> = () => (
+    <HeroPage icon={MapSearchIcon} title="403: Forbidden" subtitle="Only site admins are allowed here." />
+)
+
+export interface SiteAdminAreaRouteContext
+    extends PlatformContextProps,
+        SettingsCascadeProps,
+        BatchChangesProps,
+        TelemetryProps,
+        TelemetryV2Props {
+    site: Pick<SiteSettingFields, '__typename' | 'id'>
+    authenticatedUser: AuthenticatedUser
+    isSourcegraphDotCom: boolean
+
+    /** This property is only used by {@link SiteAdminOverviewPage}. */
+    overviewComponents: readonly React.ComponentType<React.PropsWithChildren<{}>>[]
+
+    codeInsightsEnabled: boolean
+    applianceUpdateTarget: string
+
+    endUserOnboardingEnabled: boolean
+}
+
+export interface SiteAdminAreaRoute extends RouteV6Descriptor<SiteAdminAreaRouteContext> {}
+
+interface SiteAdminAreaProps
+    extends PlatformContextProps,
+        SettingsCascadeProps,
+        BatchChangesProps,
+        TelemetryProps,
+        TelemetryV2Props {
+    routes: readonly SiteAdminAreaRoute[]
+    sideBarGroups: SiteAdminSideBarGroups
+    overviewComponents: readonly React.ComponentType<React.PropsWithChildren<unknown>>[]
+    authenticatedUser: AuthenticatedUser
+    isSourcegraphDotCom: boolean
+    codeInsightsEnabled: boolean
+    applianceUpdateTarget: string
+}
+
+const sourcegraphOperatorSiteAdminMaintenanceBlockItems = new Set([
+    maintenanceGroupInstrumentationItemLabel,
+    maintenanceGroupMonitoringItemLabel,
+    maintenanceGroupMigrationsItemLabel,
+    maintenanceGroupUpdatesItemLabel,
+    maintenanceGroupTracingItemLabel,
+])
+
+const AuthenticatedSiteAdminArea: React.FunctionComponent<React.PropsWithChildren<SiteAdminAreaProps>> = props => {
+    const reference = useRef<HTMLDivElement>(null)
+
+    const { data: externalAccounts, loading: isExternalAccountsLoading } = useUserExternalAccounts(
+        props.authenticatedUser.username
+    )
+    const [endUserOnboardingEnabled] = useFeatureFlag('end-user-onboarding')
+    const [isSourcegraphOperatorSiteAdminHideMaintenance] = useFeatureFlag(
+        'sourcegraph-operator-site-admin-hide-maintenance'
+    )
+    const adminSideBarGroups = useMemo(
+        () =>
+            props.sideBarGroups.map(group => {
+                if (
+                    !isSourcegraphOperatorSiteAdminHideMaintenance ||
+                    group.header?.label !== maintenanceGroupHeaderLabel ||
+                    (!isExternalAccountsLoading &&
+                        externalAccounts.some(account => account.serviceType === 'sourcegraph-operator'))
+                ) {
+                    return group
+                }
+
+                return {
+                    ...group,
+                    items: group.items.filter(
+                        item => !sourcegraphOperatorSiteAdminMaintenanceBlockItems.has(item.label)
+                    ),
+                }
+            }),
+        [
+            props.sideBarGroups,
+            isSourcegraphOperatorSiteAdminHideMaintenance,
+            isExternalAccountsLoading,
+            externalAccounts,
+        ]
+    )
+
+    // If not site admin, redirect to sign in.
+    if (!props.authenticatedUser.siteAdmin) {
+        return <NotSiteAdminPage />
+    }
+
+    const context: SiteAdminAreaRouteContext = {
+        authenticatedUser: props.authenticatedUser,
+        platformContext: props.platformContext,
+        settingsCascade: props.settingsCascade,
+        isSourcegraphDotCom: props.isSourcegraphDotCom,
+        batchChangesEnabled: props.batchChangesEnabled,
+        batchChangesExecutionEnabled: props.batchChangesExecutionEnabled,
+        batchChangesWebhookLogsEnabled: props.batchChangesWebhookLogsEnabled,
+        site: { __typename: 'Site' as const, id: window.context.siteGQLID },
+        overviewComponents: props.overviewComponents,
+        telemetryService: props.telemetryService,
+        telemetryRecorder: props.telemetryRecorder,
+        codeInsightsEnabled: props.codeInsightsEnabled,
+        applianceUpdateTarget: props.applianceUpdateTarget,
+        endUserOnboardingEnabled,
+    }
+
+    return (
+        <Page>
+            <PageHeader>
+                <PageHeader.Heading as="h2" styleAs="h1">
+                    <PageHeader.Breadcrumb>Admin</PageHeader.Breadcrumb>
+                </PageHeader.Heading>
+            </PageHeader>
+            <div className="d-flex my-3 flex-column flex-sm-row" ref={reference}>
+                <SiteAdminSidebar
+                    className={classNames('flex-0 mr-3 mb-4', styles.sidebar)}
+                    groups={adminSideBarGroups}
+                    isSourcegraphDotCom={props.isSourcegraphDotCom}
+                    batchChangesEnabled={props.batchChangesEnabled}
+                    batchChangesExecutionEnabled={props.batchChangesExecutionEnabled}
+                    batchChangesWebhookLogsEnabled={props.batchChangesWebhookLogsEnabled}
+                    codeInsightsEnabled={props.codeInsightsEnabled}
+                    applianceUpdateTarget={props.applianceUpdateTarget}
+                    endUserOnboardingEnabled={endUserOnboardingEnabled}
+                />
+                <div className="flex-bounded">
+                    <React.Suspense fallback={<LoadingSpinner className="m-2" />}>
+                        <Routes>
+                            {props.routes.map(
+                                ({ render, path, condition = () => true }) =>
+                                    condition(context) && (
+                                        <Route
+                                            // see https://github.com/ReactTraining/react-router/issues/4578#issuecomment-334489490
+                                            key="hardcoded-key"
+                                            errorElement={<RouteError />}
+                                            path={path}
+                                            element={render(context)}
+                                        />
+                                    )
+                            )}
+                            <Route path="*" element={<NotFoundPage />} />
+                        </Routes>
+                    </React.Suspense>
+                </div>
+            </div>
+        </Page>
+    )
+}
+
+/**
+ * Renders a layout of a sidebar and a content area to display site admin information.
+ */
+export const SiteAdminArea = withAuthenticatedUser(AuthenticatedSiteAdminArea)

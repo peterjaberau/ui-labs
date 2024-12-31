@@ -1,0 +1,7 @@
+export * from './H1.tsx'
+export * from './H2.tsx'
+export * from './H3.tsx'
+export * from './H4.tsx'
+export * from './H5.tsx'
+export * from './H6.tsx'
+export * from './Heading.tsx'
