@@ -1,22 +1,8 @@
-import type { MetaFunction } from "@remix-run/node";
-import { SearchProvider } from "~/apps/llm-resources/app/context/SearchContext";
-import { CategoryProvider } from "~/apps/llm-resources/app/context/CategoryContext";
-import SearchBar from "~/apps/llm-resources/app/components/SearchBar";
-import CategoryFilter from "~/apps/llm-resources/app/components/CategoryFilter";
-import ResourceGrid from "~/apps/llm-resources/app/components/ResourceGrid";
-import ContactSection from "~/apps/llm-resources/app/components/ContactSection";
-import { getPageMetadata } from "../data/metadata";
 
-// Meta function to define the metadata for the page, including SEO properties
-export const meta: MetaFunction = () => {
-  return getPageMetadata("index");
-};
 
 // Main component for the index route
 export default function Index() {
   return (
-    <CategoryProvider>
-      <SearchProvider>
         <div className="min-h-screen bg-[#1A1A1A] relative overflow-hidden">
           {/* Background effects for visual enhancement */}
           <div className="absolute inset-0 bg-gradient-to-b from-doreturn-gold/5 via-transparent to-transparent pointer-events-none" />
@@ -32,27 +18,7 @@ export default function Index() {
                 excel in your LLM journey.
               </p>
             </section>
-
-            <div className="relative z-10">
-              <SearchBar /> {/* Search bar for querying resources */}
-            </div>
-
-            <div className="mt-12">
-              <CategoryFilter />{" "}
-              {/* Filter component for selecting categories */}
-            </div>
-
-            <div className="mt-12">
-              <ResourceGrid />{" "}
-              {/* Grid displaying resources based on selected filters */}
-            </div>
-
-            <div className="mt-16">
-              <ContactSection /> {/* Section for user contact information */}
-            </div>
           </main>
         </div>
-      </SearchProvider>
-    </CategoryProvider>
   );
 }

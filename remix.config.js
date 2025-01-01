@@ -3,7 +3,7 @@ export default {
     ignoredRouteFiles: ["**/.*", "**/*.stories.{js,jsx,ts,tsx}"],
     routes: async (defineRoutes) => {
         return defineRoutes((route) => {
-            route("/dockview", "apps/examples/dockview-nocobase/dockview._index.tsx");
+            // route("/dockview", "apps/examples/dockview-nocobase/dockview._index.tsx");
         });
     },
     // appDirectory: "app",

@@ -1,4 +1,5 @@
-import experienceStyle from "~/apps/examples/console/styles/console.css?url";
+import experienceStyle from "~/internals/development/console-app/styles/console.css?url";
+// import JsonViewStyle from "react18-json-view/src/style.css"
 import React from "react"
 import { Outlet } from "@remix-run/react";
 import { cssBundleHref } from "@remix-run/css-bundle";

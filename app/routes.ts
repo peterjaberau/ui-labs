@@ -35,11 +35,11 @@ export default [
   // ]),
 
   // User routes
-  layout("routes/layout.tsx", [
-    route("dashboard", "routes/dashboard.tsx"),
-    route("todos", "routes/todos.tsx"),
-    route("change-password", "routes/change-password.tsx"),
-  ]),
+  // layout("routes/layout.tsx", [
+  //   route("dashboard", "routes/dashboard.tsx"),
+  //   route("todos", "routes/todos.tsx"),
+  //   route("change-password", "routes/change-password.tsx"),
+  // ]),
 
   // Better Auth
   // ...prefix("auth", [
