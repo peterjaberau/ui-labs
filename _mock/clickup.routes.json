@@ -1,0 +1,33 @@
+{
+  "history": {
+    "length": 1,
+    "action": "REPLACE",
+    "location": {
+      "pathname": "/",
+      "search": "",
+      "hash": "",
+      "key": "ev1yk2"
+    },
+    "index": 0,
+    "entries": [
+      {
+        "pathname": "/",
+        "search": "",
+        "hash": "",
+        "key": "ev1yk2"
+      }
+    ]
+  },
+  "location": {
+    "pathname": "/",
+    "search": "",
+    "hash": "",
+    "key": "ev1yk2"
+  },
+  "match": {
+    "path": "/",
+    "url": "/",
+    "params": {},
+    "isExact": true
+  }
+}

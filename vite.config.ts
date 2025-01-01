@@ -1,6 +1,13 @@
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { flatRoutes } from "remix-flat-routes"
+
+declare module '@remix-run/node' {
+  interface Future {
+    v3_singleFetch: true
+  }
+}
 
 export default defineConfig({
   plugins: [
@@ -11,13 +18,16 @@ export default defineConfig({
         v3_throwAbortReason: true,
         v3_lazyRouteDiscovery: true,
         // v3_routeConfig: true,
-        v3_singleFetch: true
+        // v3_singleFetch: true
+      },
+      routes: async (defineRoutes) => {
+        return flatRoutes('routes', defineRoutes)
       },
     }),
     tsconfigPaths(),
   ],
   server: {
-    port: 3000,
+    port: 3010,
   },
   // css: {
   //   postcss: true,

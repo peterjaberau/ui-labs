@@ -1,0 +1,3436 @@
+{
+  "value": {
+    "data": {
+      "viewer": {
+        "id": "4028108879559463209",
+        "role": "ADMIN",
+        "workspace": {
+          "id": "4000042183267216234",
+          "__typename": "Workspace"
+        },
+        "creds": [
+          {
+            "id": "3028126756076766317",
+            "url": "https://www.figma.com",
+            "key": null,
+            "app": {
+              "id": "3000034872668596972",
+              "name": "Figma",
+              "nameLong": "Figma",
+              "credCount": 1,
+              "canConnectForUser": false,
+              "canConnectForWorkspace": true,
+              "image": {
+                "value": "figma",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "appSlug": "figma",
+              "requiresProToConnect": false,
+              "requiresProForMultiAccount": false,
+              "excludedFromGlobalLimit": false,
+              "userFeatures": [
+                {
+                  "key": "SEARCH_AND_EXPLORE",
+                  "type": "CONFIGURATION",
+                  "name": "Personal Connected Search",
+                  "description": "Search both public and private files from your connected account.",
+                  "image": {
+                    "value": "searchSmall",
+                    "type": "CLICKUP_ICON",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "scopes": [
+                    "files:read"
+                  ],
+                  "verb": null,
+                  "display": null,
+                  "kind": null,
+                  "onByDefault": false,
+                  "__typename": "AppFeature"
+                },
+                {
+                  "key": "OPEN_APP",
+                  "type": "COMMAND",
+                  "name": "Figma",
+                  "description": "Quickly launch Figma with just a couple of keystrokes",
+                  "image": {
+                    "value": "figma",
+                    "type": "CLICKUP_ICON",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "scopes": [],
+                  "verb": "Open",
+                  "display": "linkOut",
+                  "kind": "OTHER",
+                  "onByDefault": true,
+                  "__typename": "AppFeature"
+                },
+                {
+                  "key": "figma_new_file",
+                  "type": "COMMAND",
+                  "name": "New Figma File",
+                  "description": "Creates a new Figma file and opens it a new tab",
+                  "image": {
+                    "value": "figfile",
+                    "type": "CLICKUP_ICON",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "scopes": [],
+                  "verb": "Create",
+                  "display": "linkOut",
+                  "kind": "CREATE_ASSET",
+                  "onByDefault": true,
+                  "__typename": "AppFeature"
+                },
+                {
+                  "key": "figma_new_jam",
+                  "type": "COMMAND",
+                  "name": "New Figma Jam",
+                  "description": "Creates a new FigJam file and opens it a new tab",
+                  "image": {
+                    "value": "figjam",
+                    "type": "CLICKUP_ICON",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "scopes": [],
+                  "verb": "Create",
+                  "display": "linkOut",
+                  "kind": "CREATE_ASSET",
+                  "onByDefault": true,
+                  "__typename": "AppFeature"
+                }
+              ],
+              "workspaceFeatures": [
+                {
+                  "key": "SEARCH_AND_EXPLORE",
+                  "type": "CONFIGURATION",
+                  "name": "Workspace Connected Search",
+                  "description": "Enable all Workspace members to search for only public files from Figma",
+                  "image": {
+                    "value": "searchSmall",
+                    "type": "CLICKUP_ICON",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "scopes": [
+                    "files:read"
+                  ],
+                  "verb": null,
+                  "display": null,
+                  "kind": null,
+                  "onByDefault": false,
+                  "__typename": "AppFeature"
+                }
+              ],
+              "assetTypes": [
+                "team",
+                "project",
+                "figma_file"
+              ],
+              "ancestorAssetTypes": [
+                "team",
+                "project"
+              ],
+              "fieldTypes": [],
+              "tenantKinds": [
+                "USER",
+                "WORKSPACE"
+              ],
+              "scopes": [
+                "files:read"
+              ],
+              "isUnified": false,
+              "searchFilters": null,
+              "panel": {
+                "quickCommand": null,
+                "groupingOrder": [
+                  "figma_file",
+                  "figma_prototype",
+                  "figma_jam",
+                  "project"
+                ],
+                "__typename": "Panel"
+              },
+              "__typename": "App"
+            },
+            "features": [
+              {
+                "key": "SEARCH_AND_EXPLORE",
+                "type": "CONFIGURATION",
+                "name": "Personal Connected Search",
+                "description": "Search both public and private files from your connected account.",
+                "image": {
+                  "value": "searchSmall",
+                  "type": "CLICKUP_ICON",
+                  "color": null,
+                  "__typename": "Image"
+                },
+                "scopes": [
+                  "files:read"
+                ],
+                "verb": null,
+                "display": null,
+                "kind": null,
+                "onByDefault": false,
+                "__typename": "CredFeature",
+                "config": null,
+                "enabled": false,
+                "isConfigured": false
+              },
+              {
+                "key": "OPEN_APP",
+                "type": "COMMAND",
+                "name": "Figma",
+                "description": "Quickly launch Figma with just a couple of keystrokes",
+                "image": {
+                  "value": "figma",
+                  "type": "CLICKUP_ICON",
+                  "color": null,
+                  "__typename": "Image"
+                },
+                "scopes": [],
+                "verb": "Open",
+                "display": "linkOut",
+                "kind": "OTHER",
+                "onByDefault": true,
+                "__typename": "CredFeature",
+                "config": null,
+                "enabled": true,
+                "isConfigured": true
+              },
+              {
+                "key": "figma_new_file",
+                "type": "COMMAND",
+                "name": "New Figma File",
+                "description": "Creates a new Figma file and opens it a new tab",
+                "image": {
+                  "value": "figfile",
+                  "type": "CLICKUP_ICON",
+                  "color": null,
+                  "__typename": "Image"
+                },
+                "scopes": [],
+                "verb": "Create",
+                "display": "linkOut",
+                "kind": "CREATE_ASSET",
+                "onByDefault": true,
+                "__typename": "CredFeature",
+                "config": null,
+                "enabled": true,
+                "isConfigured": true
+              },
+              {
+                "key": "figma_new_jam",
+                "type": "COMMAND",
+                "name": "New Figma Jam",
+                "description": "Creates a new FigJam file and opens it a new tab",
+                "image": {
+                  "value": "figjam",
+                  "type": "CLICKUP_ICON",
+                  "color": null,
+                  "__typename": "Image"
+                },
+                "scopes": [],
+                "verb": "Create",
+                "display": "linkOut",
+                "kind": "CREATE_ASSET",
+                "onByDefault": true,
+                "__typename": "CredFeature",
+                "config": null,
+                "enabled": true,
+                "isConfigured": true
+              }
+            ],
+            "name": "peterjaberau@gmail.com",
+            "isUnified": false,
+            "assetCount": 0,
+            "scopes": [
+              "file_read"
+            ],
+            "removedAt": null,
+            "indexAppSucceededAt": 1735724799,
+            "indexAppLastErrorAt": null,
+            "commands": [
+              {
+                "credID": "3028126756076766317",
+                "display": "linkOut",
+                "kind": "CREATE_ASSET",
+                "key": "figma_new_file",
+                "view": "FigmaNewFile",
+                "verb": "Create",
+                "name": "New Figma File",
+                "description": "Creates a new Figma file and opens it a new tab",
+                "alias": null,
+                "shortcut": null,
+                "image": {
+                  "value": "figfile",
+                  "type": "CLICKUP_ICON",
+                  "color": null,
+                  "__typename": "Image"
+                },
+                "linkOutURL": "https://www.figma.com/new",
+                "mainAction": {
+                  "label": "Create & Open",
+                  "image": {
+                    "value": "figma",
+                    "type": "CLICKUP_ICON",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "tooltip": "Create & Open in Figma",
+                  "__typename": "CommandMainAction"
+                },
+                "__typename": "Command",
+                "defaultCommand": null
+              },
+              {
+                "credID": "3028126756076766317",
+                "display": "linkOut",
+                "kind": "CREATE_ASSET",
+                "key": "figma_new_jam",
+                "view": "FigmaNewJam",
+                "verb": "Create",
+                "name": "New Figma Jam",
+                "description": "Creates a new FigJam file and opens it a new tab",
+                "alias": null,
+                "shortcut": null,
+                "image": {
+                  "value": "figjam",
+                  "type": "CLICKUP_ICON",
+                  "color": null,
+                  "__typename": "Image"
+                },
+                "linkOutURL": "https://www.figma.com/jam",
+                "mainAction": {
+                  "label": "Create & Open",
+                  "image": {
+                    "value": "media/app-icons/Figma-64.svg",
+                    "type": "COLORFUL",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "tooltip": "Create & Open in Figma",
+                  "__typename": "CommandMainAction"
+                },
+                "__typename": "Command",
+                "defaultCommand": null
+              }
+            ],
+            "activeFeatureKeys": [
+              "OPEN_APP",
+              "figma_new_file",
+              "figma_new_jam"
+            ],
+            "config": {
+              "__typename": "CredConfig"
+            },
+            "data": {
+              "SEARCH_AND_EXPLORE": {
+                "teams": {},
+                "projects": {}
+              }
+            },
+            "status": {
+              "value": "CONNECTED",
+              "label": "Connected",
+              "description": "",
+              "__typename": "CredStatus"
+            },
+            "tenantKind": "USER",
+            "creator": {
+              "id": "4028108879559463209",
+              "externalID": "48763417",
+              "fullName": "Peter Jaber",
+              "__typename": "UserProfile"
+            },
+            "canDisconnect": true,
+            "canMutate": true,
+            "__typename": "Cred"
+          },
+          {
+            "id": "4001310514127298981",
+            "url": "https://app.clickup.com/36698333",
+            "key": null,
+            "app": {
+              "id": "3000049524821753802",
+              "name": "ClickUp",
+              "nameLong": "ClickUp",
+              "credCount": 0,
+              "canConnectForUser": true,
+              "canConnectForWorkspace": true,
+              "image": {
+                "value": "media/app-icons/ClickUpUnified-64.svg",
+                "type": "COLORFUL",
+                "color": null,
+                "__typename": "Image"
+              },
+              "appSlug": "clickupunified",
+              "requiresProToConnect": false,
+              "requiresProForMultiAccount": false,
+              "excludedFromGlobalLimit": false,
+              "userFeatures": [
+                {
+                  "key": "SEARCH_AND_EXPLORE",
+                  "type": "CONFIGURATION",
+                  "name": "Connected Search",
+                  "description": "Enable all Workspace members to search for only public files from ClickUp",
+                  "image": {
+                    "value": "searchSmall",
+                    "type": "CLICKUP_ICON",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "scopes": [],
+                  "verb": null,
+                  "display": null,
+                  "kind": null,
+                  "onByDefault": false,
+                  "__typename": "AppFeature"
+                },
+                {
+                  "key": "OPEN_APP",
+                  "type": "COMMAND",
+                  "name": "ClickUp",
+                  "description": "Quickly launch ClickUp with just a couple of keystrokes",
+                  "image": {
+                    "value": "media/app-icons/ClickUpUnified-64.svg",
+                    "type": "COLORFUL",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "scopes": [],
+                  "verb": "Open",
+                  "display": "linkOut",
+                  "kind": "OTHER",
+                  "onByDefault": true,
+                  "__typename": "AppFeature"
+                }
+              ],
+              "workspaceFeatures": [
+                {
+                  "key": "SEARCH_AND_EXPLORE",
+                  "type": "CONFIGURATION",
+                  "name": "Connected Search",
+                  "description": "Enable all Workspace members to search for only public files from ClickUp",
+                  "image": {
+                    "value": "searchSmall",
+                    "type": "CLICKUP_ICON",
+                    "color": null,
+                    "__typename": "Image"
+                  },
+                  "scopes": [],
+                  "verb": null,
+                  "display": null,
+                  "kind": null,
+                  "onByDefault": false,
+                  "__typename": "AppFeature"
+                }
+              ],
+              "assetTypes": [
+                "clickup_task",
+                "clickup_chat",
+                "clickup_comment",
+                "clickup_clip",
+                "clickup_custom_item",
+                "clickup_dashboard",
+                "clickup_document_page",
+                "clickup_attachment",
+                "clickup_whiteboard",
+                "clickup_form",
+                "clickup_folder",
+                "clickup_list",
+                "clickup_space",
+                "clickup_hidden_space",
+                "clickup_hidden_category",
+                "clickup_document",
+                "clickup_chat_view",
+                "clickup_chat_view_dm",
+                "clickup_chat_view_group_dm",
+                "clickup_board_view",
+                "clickup_hidden_list_view",
+                "clickup_list_view",
+                "clickup_table_view",
+                "clickup_timeline_view",
+                "clickup_calendar_view",
+                "clickup_gantt_view",
+                "clickup_mind_map_view",
+                "clickup_workload_view",
+                "clickup_activity_view",
+                "clickup_map_view",
+                "clickup_embed_view",
+                "clickup_team_view",
+                "clickup_dashboard_view",
+                "orphan"
+              ],
+              "ancestorAssetTypes": [],
+              "fieldTypes": [
+                "PRIORITY",
+                "TAG",
+                "STATUS"
+              ],
+              "tenantKinds": [
+                "WORKSPACE"
+              ],
+              "scopes": [],
+              "isUnified": true,
+              "searchFilters": null,
+              "panel": null,
+              "__typename": "App"
+            },
+            "features": [
+              {
+                "key": "SEARCH_AND_EXPLORE",
+                "type": "CONFIGURATION",
+                "name": "Connected Search",
+                "description": "Enable all Workspace members to search for only public files from ClickUp",
+                "image": {
+                  "value": "searchSmall",
+                  "type": "CLICKUP_ICON",
+                  "color": null,
+                  "__typename": "Image"
+                },
+                "scopes": [],
+                "verb": null,
+                "display": null,
+                "kind": null,
+                "onByDefault": false,
+                "__typename": "CredFeature",
+                "config": null,
+                "enabled": true,
+                "isConfigured": true
+              }
+            ],
+            "name": "",
+            "isUnified": true,
+            "assetCount": 1004,
+            "scopes": [],
+            "removedAt": null,
+            "indexAppSucceededAt": 1668632785,
+            "indexAppLastErrorAt": null,
+            "commands": [],
+            "activeFeatureKeys": [
+              "SEARCH_AND_EXPLORE"
+            ],
+            "config": null,
+            "data": null,
+            "status": {
+              "value": "CONNECTED",
+              "label": "Connected",
+              "description": "",
+              "__typename": "CredStatus"
+            },
+            "tenantKind": "WORKSPACE",
+            "creator": null,
+            "canDisconnect": true,
+            "canMutate": true,
+            "__typename": "Cred"
+          }
+        ],
+        "customCommands": [],
+        "preferences": {
+          "id": "3028131395463553700",
+          "searchPrefs": {
+            "showArchivedByDefault": false
+          },
+          "__typename": "UserPreferences"
+        },
+        "__typename": "User"
+      },
+      "apps": [
+        {
+          "id": "3000019975758659161",
+          "name": "Box",
+          "nameLong": "Box",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "box",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "box",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Personal Connected Search",
+              "description": "Search both public and private files from your connected account.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "FILE_STORAGE",
+              "type": "NORMAL",
+              "name": "Create Attachments",
+              "description": "Quickly attach Box files to your tasks & comments",
+              "image": {
+                "value": "attachment",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Box",
+              "description": "Quickly launch Box with just a couple of keystrokes",
+              "image": {
+                "value": "box",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search for only public files from Box",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "folder",
+            "file",
+            "document"
+          ],
+          "ancestorAssetTypes": [
+            "folder"
+          ],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER",
+            "WORKSPACE"
+          ],
+          "scopes": [],
+          "isUnified": false,
+          "searchFilters": null,
+          "panel": null,
+          "__typename": "App"
+        },
+        {
+          "id": "3000010481701861489",
+          "name": "Confluence",
+          "nameLong": "Confluence",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "confluence",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "confluence",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Confluence",
+              "description": "Quickly launch Confluence with just a couple of keystrokes",
+              "image": {
+                "value": "confluence",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search for only public files from Confluence",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "offline_access",
+                "read:confluence-content.all",
+                "read:confluence-content.summary",
+                "read:group:confluence",
+                "read:page:confluence",
+                "read:space:confluence",
+                "read:me",
+                "read:user:confluence"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "workspace",
+            "space",
+            "page"
+          ],
+          "ancestorAssetTypes": [
+            "workspace"
+          ],
+          "fieldTypes": [
+            "LABEL"
+          ],
+          "tenantKinds": [
+            "WORKSPACE"
+          ],
+          "scopes": [
+            "offline_access",
+            "read:me",
+            "read:confluence-content.all",
+            "read:confluence-content.summary",
+            "read:confluence-space.summary"
+          ],
+          "isUnified": false,
+          "searchFilters": null,
+          "panel": null,
+          "__typename": "App"
+        },
+        {
+          "id": "3000033610397937197",
+          "name": "Dropbox",
+          "nameLong": "Dropbox",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "dropbox",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "dropbox",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Personal Connected Search",
+              "description": "Search both public and private files from your connected account.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "files.metadata.read",
+                "files.content.read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "FILE_STORAGE",
+              "type": "NORMAL",
+              "name": "Create Attachments",
+              "description": "Quickly attach Dropbox files to your tasks & comments",
+              "image": {
+                "value": "attachment",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Dropbox",
+              "description": "Quickly launch Dropbox with just a couple of keystrokes",
+              "image": {
+                "value": "dropbox",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search for only public files from Dropbox",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "files.metadata.read",
+                "files.content.read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "file",
+            "folder",
+            "document",
+            "dropbox_paper"
+          ],
+          "ancestorAssetTypes": [
+            "folder"
+          ],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER",
+            "WORKSPACE"
+          ],
+          "scopes": [
+            "account_info.read"
+          ],
+          "isUnified": false,
+          "searchFilters": null,
+          "panel": null,
+          "__typename": "App"
+        },
+        {
+          "id": "3000034872668596972",
+          "name": "Figma",
+          "nameLong": "Figma",
+          "credCount": 1,
+          "canConnectForUser": false,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "figma",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "figma",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Personal Connected Search",
+              "description": "Search both public and private files from your connected account.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "files:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Figma",
+              "description": "Quickly launch Figma with just a couple of keystrokes",
+              "image": {
+                "value": "figma",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "figma_new_file",
+              "type": "COMMAND",
+              "name": "New Figma File",
+              "description": "Creates a new Figma file and opens it a new tab",
+              "image": {
+                "value": "figfile",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Create",
+              "display": "linkOut",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "figma_new_jam",
+              "type": "COMMAND",
+              "name": "New Figma Jam",
+              "description": "Creates a new FigJam file and opens it a new tab",
+              "image": {
+                "value": "figjam",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Create",
+              "display": "linkOut",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search for only public files from Figma",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "files:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "team",
+            "project",
+            "figma_file"
+          ],
+          "ancestorAssetTypes": [
+            "team",
+            "project"
+          ],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER",
+            "WORKSPACE"
+          ],
+          "scopes": [
+            "files:read"
+          ],
+          "isUnified": false,
+          "searchFilters": null,
+          "panel": {
+            "quickCommand": null,
+            "groupingOrder": [
+              "figma_file",
+              "figma_prototype",
+              "figma_jam",
+              "project"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        },
+        {
+          "id": "3000010359652486137",
+          "name": "G-Drive",
+          "nameLong": "Google Drive",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "googleDrive",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "drive",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Personal Connected Search",
+              "description": "Search both public and private files from your connected account.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/userinfo.email",
+                "https://www.googleapis.com/auth/drive"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "FILE_STORAGE",
+              "type": "NORMAL",
+              "name": "Create Attachments",
+              "description": "Quickly attach Google Drive files to your tasks & comments",
+              "image": {
+                "value": "attachment",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/userinfo.profile",
+                "https://www.googleapis.com/auth/userinfo.email",
+                "https://www.googleapis.com/auth/drive"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview Google Drive links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/userinfo.email",
+                "https://www.googleapis.com/auth/drive"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Google Drive",
+              "description": "Quickly launch Google Drive with just a couple of keystrokes",
+              "image": {
+                "value": "googleDrive",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "open_temp_spreadsheet",
+              "type": "COMMAND",
+              "name": "Scratch Sheet",
+              "description": "Opens an inline Google Sheet for in-flow spreadsheet calculations",
+              "image": {
+                "value": "googleSheetsColored",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/drive.file"
+              ],
+              "verb": "Show",
+              "display": "popup",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "new_doc",
+              "type": "COMMAND",
+              "name": "New Google Doc",
+              "description": "Creates a new Google Doc and opens it in a new tab",
+              "image": {
+                "value": "googleDocsColored",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/drive.file"
+              ],
+              "verb": "Create",
+              "display": "linkOut",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "new_sheet",
+              "type": "COMMAND",
+              "name": "New Google Sheet",
+              "description": "Creates a new Google Sheet and opens it in a new tab",
+              "image": {
+                "value": "googleSheetsColored",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/drive.file"
+              ],
+              "verb": "Create",
+              "display": "linkOut",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "new_slide",
+              "type": "COMMAND",
+              "name": "New Google Slide",
+              "description": "Creates a new Google Slide and opens it in a new tab",
+              "image": {
+                "value": "googleSlidesColored",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/drive.file"
+              ],
+              "verb": "Create",
+              "display": "linkOut",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search for only public files from Google Drive",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/userinfo.email",
+                "https://www.googleapis.com/auth/drive"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "folder",
+            "drive",
+            "document",
+            "google_doc",
+            "google_sheet",
+            "google_slide",
+            "shared_with_me",
+            "file",
+            "orphan"
+          ],
+          "ancestorAssetTypes": [
+            "folder",
+            "drive"
+          ],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER",
+            "WORKSPACE"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.profile",
+            "https://www.googleapis.com/auth/userinfo.email",
+            "https://www.googleapis.com/auth/drive"
+          ],
+          "isUnified": false,
+          "searchFilters": {
+            "assetTypes": [
+              {
+                "alias": "google_doc",
+                "icon": "googleDocsColored",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "google_sheet",
+                "icon": "googleSheetsColored",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "google_slide",
+                "icon": "googleSlidesColored",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              }
+            ],
+            "__typename": "SearchFilters"
+          },
+          "panel": {
+            "quickCommand": null,
+            "groupingOrder": [
+              "google_doc",
+              "google_sheet",
+              "google_slide",
+              "file",
+              "folder"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        },
+        {
+          "id": "3000039523492359846",
+          "name": "GitHub",
+          "nameLong": "GitHub",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "github",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "github",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview GitHub links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "repo"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "EDIT_PACK",
+              "type": "NORMAL",
+              "name": "Create Branches and Pull Requests",
+              "description": "Quickly create & associate Github objects to tasks",
+              "image": {
+                "value": "gitPullRequest",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "repo",
+                "admin:repo_hook"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from GitHub from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "GitHub",
+              "description": "Quickly launch GitHub with just a couple of keystrokes",
+              "image": {
+                "value": "github",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "new_issue",
+              "type": "COMMAND",
+              "name": "New GitHub Issue",
+              "description": "The fastest way to file a Github issue",
+              "image": {
+                "value": "gitIssue",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "repo"
+              ],
+              "verb": "Create",
+              "display": "popup",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "github_new_gist",
+              "type": "COMMAND",
+              "name": "New Github Gist",
+              "description": "Opens a tab to the Gist creation page",
+              "image": {
+                "value": "codeBlock",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Create",
+              "display": "linkOut",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "github_new_branch",
+              "type": "COMMAND",
+              "name": "New GitHub Branch",
+              "description": "The fastest way to create a GitHub Branch",
+              "image": {
+                "value": "gitBranch",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "repo"
+              ],
+              "verb": "Create",
+              "display": "popup",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "github_new_pull",
+              "type": "COMMAND",
+              "name": "New GitHub Pull Request",
+              "description": "The fastest way to create a GitHub Pull Request",
+              "image": {
+                "value": "gitPullRequest",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "repo"
+              ],
+              "verb": "Create",
+              "display": "popup",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search for only public files from GitHub",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "repo"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "SYNC_TASKS_WITH_CLICKUP",
+              "type": "NORMAL",
+              "name": "Sync Activity to Tasks",
+              "description": "Your entire team will always know where projects stand at a glance.",
+              "image": {
+                "value": "swap",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "repo",
+                "admin:repo_hook"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "SYNC_TASK_STATUSES_WITH_CLICKUP",
+              "type": "NORMAL",
+              "name": "Update Task Status from GitHub",
+              "description": "Change the status of your ClickUp tasks directly from GitHub.",
+              "image": {
+                "value": "swap",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "repo",
+                "admin:repo_hook"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview GitHub links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "repo"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from GitHub from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "repository",
+            "issues",
+            "issue",
+            "pulls",
+            "pull",
+            "projects",
+            "branches",
+            "project",
+            "list",
+            "branch",
+            "commit",
+            "column"
+          ],
+          "ancestorAssetTypes": [
+            "repository",
+            "project",
+            "branch"
+          ],
+          "fieldTypes": [
+            "LABEL"
+          ],
+          "tenantKinds": [
+            "USER",
+            "WORKSPACE"
+          ],
+          "scopes": [
+            "read:user"
+          ],
+          "isUnified": false,
+          "searchFilters": {
+            "assetTypes": [
+              {
+                "alias": "pullRequest",
+                "icon": "gitPullRequest",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "branch",
+                "icon": "gitBranch",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              }
+            ],
+            "__typename": "SearchFilters"
+          },
+          "panel": {
+            "quickCommand": null,
+            "groupingOrder": [
+              "pull",
+              "branch",
+              "issue",
+              "commit"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        },
+        {
+          "id": "3000029752209692675",
+          "name": "Google Calendar",
+          "nameLong": "Google Calendar",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "googleCalendar",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "googlecalendar",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "two_way_sync",
+              "type": "NORMAL",
+              "name": "Two way sync to Google Calendar",
+              "description": "See and update Google Calendar events directly in ClickUp",
+              "image": {
+                "value": "swap",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/calendar"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "SYNC_TASKS_WITH_CLICKUP",
+              "type": "NORMAL",
+              "name": "Sync tasks to calendar",
+              "description": "See tasks from a space, folder or list to a calendar in Google Calendar",
+              "image": {
+                "value": "task",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/calendar"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "launch_next_meeting",
+              "type": "NORMAL",
+              "name": "Launch your Next Meeting",
+              "description": "Open Command Bar and hit Enter to launch your next meeting.",
+              "image": {
+                "value": "video",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "REALTIME_SYNC",
+              "type": "NORMAL",
+              "name": "Realtime sync",
+              "description": "See and update events in realtime.",
+              "image": {
+                "value": "sync",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Google Calendar",
+              "description": "Quickly launch Google Calendar with just a couple of keystrokes",
+              "image": {
+                "value": "googleCalendar",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "show_schedule",
+              "type": "COMMAND",
+              "name": "Calendar Schedule",
+              "description": "Check your schedule and join meetings",
+              "image": {
+                "value": "media/app-icons/GoogleCalendar-64.svg",
+                "type": "COLORFUL",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Show",
+              "display": "popup",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "two_way_sync",
+              "type": "NORMAL",
+              "name": "Two way sync to Google Calendar",
+              "description": "See and update Google Calendar events directly in ClickUp",
+              "image": {
+                "value": "swap",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/calendar"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "SYNC_TASKS_WITH_CLICKUP",
+              "type": "NORMAL",
+              "name": "Sync tasks to calendar",
+              "description": "See tasks from a space, folder or list to a calendar in Google Calendar",
+              "image": {
+                "value": "task",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "https://www.googleapis.com/auth/calendar"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "launch_next_meeting",
+              "type": "NORMAL",
+              "name": "Launch your Next Meeting",
+              "description": "Open Command Bar and hit Enter to launch your next meeting.",
+              "image": {
+                "value": "video",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "REALTIME_SYNC",
+              "type": "NORMAL",
+              "name": "Realtime sync",
+              "description": "See and update events in realtime.",
+              "image": {
+                "value": "sync",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "show_schedule",
+              "type": "COMMAND",
+              "name": "Calendar Schedule",
+              "description": "Check your schedule and join meetings",
+              "image": {
+                "value": "media/app-icons/GoogleCalendar-64.svg",
+                "type": "COLORFUL",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Show",
+              "display": "popup",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "google_workspace_calendar",
+            "google_workspace_event"
+          ],
+          "ancestorAssetTypes": [],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ],
+          "isUnified": false,
+          "searchFilters": null,
+          "panel": null,
+          "__typename": "App"
+        },
+        {
+          "id": "3000031633651881479",
+          "name": "Jira",
+          "nameLong": "Jira",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "jira",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "jira",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Personal Connected Search",
+              "description": "Search both public and private files from your connected account.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "offline_access",
+                "read:jira-work",
+                "read:jira-user",
+                "read:board-scope:jira-software",
+                "read:issue-details:jira",
+                "read:project:jira"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview Jira links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "offline_access",
+                "read:jira-work",
+                "read:jira-user"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from Jira from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Jira",
+              "description": "Quickly launch Jira with just a couple of keystrokes",
+              "image": {
+                "value": "jira",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "new_issue",
+              "type": "COMMAND",
+              "name": "New Jira Issue",
+              "description": "The fastest way to create a new Jira issue",
+              "image": {
+                "value": "task",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "write:jira-work"
+              ],
+              "verb": "Create",
+              "display": "popup",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search for only public files from Jira",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "offline_access",
+                "read:jira-work",
+                "read:jira-user",
+                "read:issue-security-level:jira",
+                "read:issue-security-scheme:jira",
+                "read:board-scope:jira-software",
+                "read:issue-details:jira",
+                "read:project:jira"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from Jira from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "project",
+            "epic",
+            "task"
+          ],
+          "ancestorAssetTypes": [
+            "project",
+            "epic"
+          ],
+          "fieldTypes": [
+            "STATUS",
+            "PRIORITY",
+            "COMPONENT"
+          ],
+          "tenantKinds": [
+            "USER",
+            "WORKSPACE"
+          ],
+          "scopes": [
+            "offline_access",
+            "read:me",
+            "read:jira-work",
+            "read:jira-user",
+            "read:board-scope:jira-software",
+            "read:issue-details:jira"
+          ],
+          "isUnified": false,
+          "searchFilters": null,
+          "panel": {
+            "quickCommand": null,
+            "groupingOrder": [
+              "issue",
+              "board"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        },
+        {
+          "id": "3000040612253344598",
+          "name": "Microsoft Teams",
+          "nameLong": "Microsoft Teams",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "msTeams",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "teams",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SYNC_TASKS_WITH_CLICKUP",
+              "type": "NORMAL",
+              "name": "Sync ClickUp Activity to Channels",
+              "description": "Automatically post to Microsoft Teams when things change in ClickUp.",
+              "image": {
+                "value": "refresh",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "Team.ReadBasic.All",
+                "Channel.ReadBasic.All",
+                "TeamsAppInstallation.ReadWriteForTeam"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_CREATE_TASKS",
+              "type": "NORMAL",
+              "name": "Create Tasks from Microsoft Teams",
+              "description": "Quickly create tasks without leaving Microsoft Teams.",
+              "image": {
+                "value": "checkSelect",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links",
+              "type": "NORMAL",
+              "name": "Preview ClickUp links in Microsoft Teams",
+              "description": "See detailed link previews when you paste a ClickUp link into Microsoft Teams.",
+              "image": {
+                "value": "clickupLogo",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_ATTACH_TASK",
+              "type": "NORMAL",
+              "name": "Attach ClickUp Task",
+              "description": "Attach ClickUp tasks in conversations for seamless context sharing within Microsoft Teams.",
+              "image": {
+                "value": "addCircle",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview Microsoft Teams links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "ChannelMember.Read.All",
+                "User.Read.All",
+                "ChannelMessage.Read.All",
+                "Chat.Read",
+                "AppCatalog.Read.All",
+                "TeamMember.Read.All",
+                "OnlineMeetings.Read",
+                "Calendars.ReadBasic"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from Microsoft Teams from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Microsoft Teams",
+              "description": "Quickly launch Microsoft Teams with just a couple of keystrokes",
+              "image": {
+                "value": "msTeams",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [],
+          "assetTypes": [],
+          "ancestorAssetTypes": [],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER"
+          ],
+          "scopes": [
+            "offline_access",
+            "User.Read"
+          ],
+          "isUnified": false,
+          "searchFilters": null,
+          "panel": {
+            "quickCommand": null,
+            "groupingOrder": [
+              "teams_thread",
+              "teams_thread_reply",
+              "teams_message",
+              "teams_team",
+              "channel"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        },
+        {
+          "id": "3000037009991518871",
+          "name": "OneDrive",
+          "nameLong": "Microsoft OneDrive",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "onedrive",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "onedrive",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Personal Connected Search",
+              "description": "Search both public and private files from your connected account.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "Files.Read.All",
+                "Notes.Read.All",
+                "Notes.Read",
+                "Group.Read.All"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview OneDrive links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "Files.Read.All",
+                "Notes.Read.All",
+                "Notes.Read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "FILE_STORAGE",
+              "type": "NORMAL",
+              "name": "Create Attachments",
+              "description": "Quickly attach OneDrive files to your tasks & comments",
+              "image": {
+                "value": "attachment",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from OneDrive from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Microsoft OneDrive",
+              "description": "Quickly launch Microsoft OneDrive with just a couple of keystrokes",
+              "image": {
+                "value": "onedrive",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search selected OneDrive locations.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "Files.Read.All",
+                "Notes.Read.All",
+                "Notes.Read",
+                "Group.Read.All"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from OneDrive from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [],
+          "ancestorAssetTypes": [],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER",
+            "WORKSPACE"
+          ],
+          "scopes": [
+            "offline_access",
+            "User.Read"
+          ],
+          "isUnified": false,
+          "searchFilters": {
+            "assetTypes": [
+              {
+                "alias": "file",
+                "icon": "subpages",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "folder",
+                "icon": "folderOpen",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              }
+            ],
+            "__typename": "SearchFilters"
+          },
+          "panel": {
+            "quickCommand": null,
+            "groupingOrder": [
+              "file",
+              "folder"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        },
+        {
+          "id": "3000040214120247198",
+          "name": "Salesforce",
+          "nameLong": "Salesforce",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "salesforce",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "salesforce",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Personal Connected Search",
+              "description": "Search both public and private files from your connected account.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview Salesforce links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from Salesforce from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Salesforce",
+              "description": "Quickly launch Salesforce with just a couple of keystrokes",
+              "image": {
+                "value": "salesforce",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "salesforce_new_task",
+              "type": "COMMAND",
+              "name": "New Salesforce Task",
+              "description": "The fastest way to create a Salesforce task",
+              "image": {
+                "value": "toDo",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Create",
+              "display": "popup",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "salesforce_new_lead",
+              "type": "COMMAND",
+              "name": "New Salesforce Lead",
+              "description": "The fastest way to create a Salesforce lead",
+              "image": {
+                "value": "salesforceLead",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Create",
+              "display": "popup",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [],
+          "assetTypes": [
+            "tasks",
+            "task",
+            "leads",
+            "lead",
+            "contacts",
+            "contact",
+            "opportunities",
+            "opportunity",
+            "salesforce_accounts",
+            "salesforce_account",
+            "salesforce_contracts",
+            "salesforce_contract",
+            "salesforce_quotes",
+            "salesforce_quote"
+          ],
+          "ancestorAssetTypes": [
+            "lead",
+            "contact",
+            "opportunity",
+            "salesforce_account",
+            "salesforce_contract",
+            "salesforce_quote"
+          ],
+          "fieldTypes": [
+            "PRIORITY",
+            "STATUS",
+            "RELATED_PERSON",
+            "LEAD",
+            "CONTACT"
+          ],
+          "tenantKinds": [
+            "USER"
+          ],
+          "scopes": [],
+          "isUnified": false,
+          "searchFilters": {
+            "assetTypes": [
+              {
+                "alias": "opportunity",
+                "icon": "salesforceOpportunity",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "salesforce_account",
+                "icon": "company",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "task",
+                "icon": "circleCheck",
+                "pinned": false,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "contact",
+                "icon": "userCircle",
+                "pinned": false,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "lead",
+                "icon": "salesforceLead",
+                "pinned": false,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "contract",
+                "icon": "doc",
+                "pinned": false,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "quote",
+                "icon": "tag",
+                "pinned": false,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "case",
+                "icon": "doc",
+                "pinned": false,
+                "__typename": "SearchFilterAssetType"
+              }
+            ],
+            "__typename": "SearchFilters"
+          },
+          "panel": {
+            "quickCommand": null,
+            "groupingOrder": [
+              "opportunity",
+              "task",
+              "salesforce_account",
+              "lead",
+              "contact",
+              "salesforce_case"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        },
+        {
+          "id": "3000024271516592930",
+          "name": "SharePoint",
+          "nameLong": "Microsoft SharePoint",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "sharePoint",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "sharepoint",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Personal Connected Search",
+              "description": "Search both public and private files from your connected account.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "Sites.Read.All",
+                "Files.Read.All",
+                "Notes.Read.All"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview SharePoint links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "Sites.Read.All",
+                "Files.Read.All",
+                "Notes.Read.All"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "FILE_STORAGE",
+              "type": "NORMAL",
+              "name": "Create Attachments",
+              "description": "Quickly attach SharePoint files to your tasks & comments",
+              "image": {
+                "value": "attachment",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from SharePoint from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Microsoft SharePoint",
+              "description": "Quickly launch Microsoft SharePoint with just a couple of keystrokes",
+              "image": {
+                "value": "sharePoint",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search selected SharePoint locations.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "Sites.Read.All",
+                "Files.Read.All",
+                "Notes.Read.All"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from SharePoint from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [],
+          "ancestorAssetTypes": [],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER",
+            "WORKSPACE"
+          ],
+          "scopes": [
+            "offline_access",
+            "User.Read"
+          ],
+          "isUnified": false,
+          "searchFilters": {
+            "assetTypes": [
+              {
+                "alias": "file",
+                "icon": "subpages",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "folder",
+                "icon": "folderOpen",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "page",
+                "icon": "docPage",
+                "pinned": false,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "list",
+                "icon": "listView",
+                "pinned": false,
+                "__typename": "SearchFilterAssetType"
+              }
+            ],
+            "__typename": "SearchFilters"
+          },
+          "panel": {
+            "quickCommand": null,
+            "groupingOrder": [
+              "file",
+              "folder",
+              "sharepoint_site",
+              "sharepoint_site_page",
+              "sharepoint_list",
+              "sharepoint_list_item",
+              "sharepoint_library"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        },
+        {
+          "id": "3000014495577635938",
+          "name": "Slack",
+          "nameLong": "Slack",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "slack",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "slack",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Personal Connected Search",
+              "description": "Search both public and private files from your connected account.",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "channels:read",
+                "channels:history",
+                "groups:read",
+                "groups:history",
+                "im:read",
+                "im:history",
+                "mpim:read",
+                "mpim:history",
+                "users:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "SYNC_TASKS_WITH_CLICKUP",
+              "type": "NORMAL",
+              "name": "Sync ClickUp Activity to Channels",
+              "description": "Automatically post to Slack when things change in ClickUp.",
+              "image": {
+                "value": "refresh",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "chat:write:bot",
+                "chat:write.public:bot",
+                "channels:read:bot",
+                "groups:read:bot",
+                "users:read",
+                "groups:read",
+                "channels:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "NOTIFICATIONS",
+              "type": "NORMAL",
+              "name": "ClickUp Notifications",
+              "description": "Receive ClickUp Notifications in Slack",
+              "image": {
+                "value": "bell",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_CREATE_TASKS",
+              "type": "NORMAL",
+              "name": "Create Tasks from Slack",
+              "description": "Quickly create tasks without leaving Slack.",
+              "image": {
+                "value": "checkSelect",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "commands:bot",
+                "chat:write:bot",
+                "users:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links",
+              "type": "NORMAL",
+              "name": "Preview ClickUp links in Slack",
+              "description": "See detailed link previews when you paste a ClickUp link into Slack.",
+              "image": {
+                "value": "clickupLogo",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "links:read:bot",
+                "links:write:bot"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview Slack links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "channels:history",
+                "im:history",
+                "groups:history",
+                "mpim:history",
+                "im:read",
+                "mpim:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from Slack from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Slack",
+              "description": "Quickly launch Slack with just a couple of keystrokes",
+              "image": {
+                "value": "slack",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "slack_new_status",
+              "type": "COMMAND",
+              "name": "Slack Status",
+              "description": "Quickly update your Slack status",
+              "image": {
+                "value": "emoji",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "users.profile:write"
+              ],
+              "verb": "Update",
+              "display": "popup",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "slack_clear_status",
+              "type": "COMMAND",
+              "name": "Slack Status",
+              "description": "Quickly clear your Slack status",
+              "image": {
+                "value": "eraser",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "users.profile:write"
+              ],
+              "verb": "Clear",
+              "display": "popup",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "SEARCH_AND_EXPLORE",
+              "type": "CONFIGURATION",
+              "name": "Workspace Connected Search",
+              "description": "Enable all Workspace members to search for only public files from Slack",
+              "image": {
+                "value": "searchSmall",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "channels:read",
+                "channels:history",
+                "users:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": false,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "SYNC_TASKS_WITH_CLICKUP",
+              "type": "NORMAL",
+              "name": "Sync ClickUp Activity to Channels",
+              "description": "Automatically post to Slack when things change in ClickUp.",
+              "image": {
+                "value": "refresh",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "chat:write:bot",
+                "chat:write.public:bot",
+                "channels:read:bot",
+                "groups:read:bot",
+                "users:read",
+                "groups:read",
+                "channels:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "channel"
+          ],
+          "ancestorAssetTypes": [],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER",
+            "WORKSPACE"
+          ],
+          "scopes": [
+            "users.profile:read"
+          ],
+          "isUnified": false,
+          "searchFilters": {
+            "assetTypes": [
+              {
+                "alias": "channel",
+                "icon": "number",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              },
+              {
+                "alias": "message",
+                "icon": "chatV4",
+                "pinned": true,
+                "__typename": "SearchFilterAssetType"
+              }
+            ],
+            "__typename": "SearchFilters"
+          },
+          "panel": {
+            "quickCommand": null,
+            "groupingOrder": [
+              "slack_thread",
+              "slack_thread_reply",
+              "slack_message",
+              "channel"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        },
+        {
+          "id": "3000033810534327425",
+          "name": "Zoom",
+          "nameLong": "Zoom",
+          "credCount": 0,
+          "canConnectForUser": true,
+          "canConnectForWorkspace": true,
+          "image": {
+            "value": "zoomLogo",
+            "type": "CLICKUP_ICON",
+            "color": null,
+            "__typename": "Image"
+          },
+          "appSlug": "zoom",
+          "requiresProToConnect": false,
+          "requiresProForMultiAccount": false,
+          "excludedFromGlobalLimit": false,
+          "userFeatures": [
+            {
+              "key": "unfurl_links_in_clickup",
+              "type": "NORMAL",
+              "name": "Preview Zoom links in ClickUp",
+              "description": "Link previews allow you to see live, synced visualizations of links directly in ClickUp.",
+              "image": {
+                "value": "link",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "meeting:read",
+                "recording:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "APP_FEATURE_APP_PANEL",
+              "type": "NORMAL",
+              "name": "App panel in Task view",
+              "description": "View links from Zoom from a central place in Task view.",
+              "image": {
+                "value": "sidebarRight",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "user:read"
+              ],
+              "verb": null,
+              "display": null,
+              "kind": null,
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "OPEN_APP",
+              "type": "COMMAND",
+              "name": "Zoom",
+              "description": "Quickly launch Zoom with just a couple of keystrokes",
+              "image": {
+                "value": "zoomLogo",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "linkOut",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "open_my_meeting",
+              "type": "COMMAND",
+              "name": "Zoom Personal Meeting Room",
+              "description": "Opens your Personal Meeting Room.",
+              "image": {
+                "value": "media/icons/open-64.svg",
+                "type": "MONOCHROME",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "popup",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "create_new_meeting",
+              "type": "COMMAND",
+              "name": "New Zoom Meeting",
+              "description": "Schedule a meeting directly within ClickUp.",
+              "image": {
+                "value": "dateSchedule",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "meeting:write"
+              ],
+              "verb": "Schedule",
+              "display": "popup",
+              "kind": "CREATE_ASSET",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "create_new_instant_meeting",
+              "type": "COMMAND",
+              "name": "Instant Zoom Meeting",
+              "description": "Start meetings from ClickUp task comment, channel, or DM using the /zoom command.",
+              "image": {
+                "value": "commands",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "meeting:write"
+              ],
+              "verb": "Start",
+              "display": "popup",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "workspaceFeatures": [
+            {
+              "key": "open_my_meeting",
+              "type": "COMMAND",
+              "name": "Zoom Personal Meeting Room",
+              "description": "Opens your Personal Meeting Room.",
+              "image": {
+                "value": "media/icons/open-64.svg",
+                "type": "MONOCHROME",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [],
+              "verb": "Open",
+              "display": "popup",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            },
+            {
+              "key": "create_new_instant_meeting",
+              "type": "COMMAND",
+              "name": "Instant Zoom Meeting",
+              "description": "Start meetings from ClickUp task comment, channel, or DM using the /zoom command.",
+              "image": {
+                "value": "commands",
+                "type": "CLICKUP_ICON",
+                "color": null,
+                "__typename": "Image"
+              },
+              "scopes": [
+                "meeting:write"
+              ],
+              "verb": "Start",
+              "display": "popup",
+              "kind": "OTHER",
+              "onByDefault": true,
+              "__typename": "AppFeature"
+            }
+          ],
+          "assetTypes": [
+            "zoom_meeting",
+            "meetings"
+          ],
+          "ancestorAssetTypes": [],
+          "fieldTypes": [],
+          "tenantKinds": [
+            "USER"
+          ],
+          "scopes": [],
+          "isUnified": false,
+          "searchFilters": null,
+          "panel": {
+            "quickCommand": {
+              "key": "create_new_instant_meeting",
+              "name": "Start Meeting",
+              "__typename": "QuickCommand"
+            },
+            "groupingOrder": [
+              "zoom_meeting"
+            ],
+            "__typename": "Panel"
+          },
+          "__typename": "App"
+        }
+      ]
+    }
+  },
+  "children": {
+    "key": null,
+    "ref": null,
+    "props": {},
+    "_owner": null
+  }
+}
