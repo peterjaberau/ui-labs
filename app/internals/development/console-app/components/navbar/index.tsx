@@ -5,18 +5,17 @@ import { memo, useMemo, useState } from "react"
 import { Flexbox } from "react-layout-kit"
 import { useNavigate } from "@remix-run/react"
 import { initialSnapshot } from "../../stores/state"
+import Avatar from './actions/avatar';
+import Documentation from './actions/documentation';
+// import Github from './actions/github';
+import Support from './actions/support';
 
+// const IconTreeMapping: any = {
+//   MessageSquare: MessageSquare,
+//   User: User,
+//   Compass: Compass,
+//   Documentation: Documentation,
 
-const IconTreeMapping: any = {
-  MessageSquare: MessageSquare,
-  User: User,
-  Compass: Compass,
-  Documentation: Documentation,
-}
-import Avatar from "./actions/avatar.tsx"
-import Documentation from "./actions/documentation.tsx"
-import Github from "./actions/github.tsx"
-import Support from "./actions/support.tsx"
 
 const NavBar = () => {
   const navigate = useNavigate()
@@ -26,35 +25,57 @@ const NavBar = () => {
 
   // navigate(`/${item.key}`
 
-  const topActions: any = useMemo(() => {
-    return initialSnapshot.sideNavbar.topActions.map((item) => {
-      const Icon = IconTreeMapping[item.icon]
-      return {
-        key: item.key,
-        icon: Icon,
-        active: headerKey === item.key,
-        size: "large",
-        title: item.title,
-        onClick: () => console.log(`/${item.key}`),
-      }
-    })
-  }, [headerKey])
+  const navigationItems = useMemo(() => {
+    return [
+      {
+        key: 'chat',
+        icon: MessageSquare,
+        label: 'Chat',
+        title: 'Chat',
+      },
+      {
+        key: 'user',
+        icon: User,
+        label: 'User',
+        title: 'User',
+      },
+      {
+        key: 'discover',
+        icon: Compass,
+        label: 'Discover',
+        title: 'Discover',
+      },
+    ];
+  }, []);
 
-  const bottomActions: any = useMemo(() => {
-    return initialSnapshot.sideNavbar.bottomActions.map((item) => {
-      return {
-        key: item.key,
-        children: item.children.map((child) => {
-          const Icon = IconTreeMapping[child.icon]
-          return {
-            key: child.key,
-            icon: Icon,
-            onClick: () => console.log(`/${child.key}`),
-          }
-        }),
-      }
-    })
-  }, [])
+
+  const topActions = useMemo(
+    () =>
+      navigationItems.map((item) => (
+        <ActionIcon
+          key={item.key}
+          icon={item.icon}
+          size="large"
+          active={headerKey === item.key}
+          title={item.title}
+          onClick={() => console.log(`/${item.key}`)}
+        />
+      )),
+    [navigationItems, headerKey],
+  );
+
+
+  const bottomActions = useMemo(
+    () => [
+      <Flexbox key="actions" gap={8}>
+        <Documentation key="doc" />
+        {/*<Github key="github" />*/}
+        <Support key="support" />
+      </Flexbox>,
+    ],
+    [],
+  );
+
 
   return (
     <SideNav

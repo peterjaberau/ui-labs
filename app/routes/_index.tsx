@@ -1,24 +1,17 @@
-
-
+import React from "react"
+import { useLoaderData } from "@remix-run/react"
+import { ClientOnly } from "remix-utils/client-only"
+export async function clientLoader() {
+  await new Promise((r) => setTimeout(r, 500));
+  return { message: "This data came from the client loader" };
+}
 // Main component for the index route
 export default function Index() {
-  return (
-        <div className="min-h-screen bg-[#1A1A1A] relative overflow-hidden">
-          {/* Background effects for visual enhancement */}
-          <div className="absolute inset-0 bg-gradient-to-b from-doreturn-gold/5 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-doreturn-gold/10 via-transparent to-transparent opacity-50 pointer-events-none" />
+  const data = useLoaderData<typeof clientLoader>();
 
-          <main className="container mx-auto px-4 py-8 relative">
-            <section className="text-center mt-8 sm:mt-12 md:mt-16 lg:mt-24 mb-8 sm:mb-12 md:mb-16 space-y-4 sm:space-y-6 md:space-y-8">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/20">
-                Welcome to the MemoryView AI Resources Hub
-              </h1>
-              <p className="text-gray-300 max-w-2xl mx-auto">
-                Your one-stop destination for all the resources you need to
-                excel in your LLM journey.
-              </p>
-            </section>
-          </main>
-        </div>
+  return (
+    <ClientOnly fallback={<div>Loading...</div>}>
+      {() => <div>test</div>}
+    </ClientOnly>
   );
 }
