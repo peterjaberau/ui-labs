@@ -1,9 +1,9 @@
 import * as React from "react"
 
 
+
+
 export const BoardItems = [
-
-
   {
     id: 'board-item-1',
     definition: {},
@@ -12,12 +12,7 @@ export const BoardItems = [
     data: {
       title: 'board-item-1',
       description: '',
-      content: (
-        <>
-          board-item-1 content
-          {/*<RenderFormulePart as={'SchemaPreview'} />*/}
-        </>
-      ),
+      content: 'ButtonAntd',
     },
   },
 
@@ -29,12 +24,7 @@ export const BoardItems = [
     data: {
       title: 'board-item-2',
       description: '',
-      content: (
-        <>
-          board-item-2 content
-          {/*<RenderFormulePart as={'FormPreview'} />*/}
-        </>
-      ),
+      content: 'ButtonCloudscape',
     },
   },
 

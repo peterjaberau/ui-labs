@@ -1,6 +1,6 @@
 
-export const initialConfigSnapshot = {
 
+export const initialConfigSnapshot = {
   sideNavigation: {
     header: {
       href: "#/",
@@ -29,7 +29,6 @@ export const initialConfigSnapshot = {
         type: "section-group",
         title: "Research & Development",
         items: [
-
           {
             type: "section",
             defaultExpanded: false,
@@ -72,8 +71,8 @@ export const initialConfigSnapshot = {
               { type: "link", text: "eg. /components/antd/button", href: "/components/antd/button" },
               { type: "link", text: "eg. /components/antd/demos?=button", href: "/components/antd/demos?=button" },
               { type: "link", text: "eg. /components/ui-canvas", href: "/components/ui-canvas" },
-            ]
-          }
+            ],
+          },
         ],
       },
 
@@ -125,7 +124,6 @@ export const initialConfigSnapshot = {
         type: "divider",
       },
 
-
       {
         type: "section-group",
         title: "Links & Resources",
@@ -134,17 +132,14 @@ export const initialConfigSnapshot = {
             type: "section",
             text: "Design",
             defaultExpanded: false,
-            items: [
-              { type: "link", text: "Google", href: "https://www.google.com", external: true, externalIconAriaLabel: "Opens in a new tab" },
-            ],
+            items: [{ type: "link", text: "Google1", href: "https://www.google1.com", external: true, externalIconAriaLabel: "Opens in a new tab" }],
           },
           {
             type: "section",
             text: "Development",
             defaultExpanded: false,
             items: [
-              { type: "link", text: "Google", href: "https://www.google.com", external: true, externalIconAriaLabel: "Opens in a new tab" },
-            ],
+              { type: "link", text: "Google2", href: "https://www.google2.com", external: true, externalIconAriaLabel: "Opens in a new tab" }],
           },
         ],
       },
@@ -152,7 +147,6 @@ export const initialConfigSnapshot = {
       {
         type: "divider",
       },
-
 
       {
         type: "section-group",
@@ -173,9 +167,8 @@ export const initialConfigSnapshot = {
           },
         ],
       },
-    ]
+    ],
   },
-
 
   navigationItems: [
     { type: "link", text: "/$session", href: "/session-key" },
@@ -197,20 +190,21 @@ export const initialConfigSnapshot = {
     { type: "link", text: "Dynamic1", href: "/cloudscape/components/dynamic-id-1" },
     { type: "link", text: "Dynamic2", href: "/cloudscape/components/dynamic-id-2" },
   ],
+
   components: {
-    'aiAnt': {
-      'internal': {
+    aiAnt: {
+      internal: {
         activeKey: null,
         headerOpen: false,
         attachedFiles: [],
       },
-      'welcome': {
+      welcome: {
         variant: "borderless",
         title: "Hello, I'm Ant Design X",
         description: "Base on Ant Design, AGI product interface solution, create a better intelligent vision~",
-        icon:""
+        icon: "",
       },
-      'promptsItems': {
+      promptsItems: {
         items: [
           {
             key: "1",
@@ -220,9 +214,9 @@ export const initialConfigSnapshot = {
             key: "2",
             description: "Design Guide",
           },
-        ]
+        ],
       },
-      'promptsGroupped': {
+      promptsGroupped: {
         title: "Do you want?",
         items: [
           {
@@ -263,9 +257,9 @@ export const initialConfigSnapshot = {
               },
             ],
           },
-        ]
+        ],
       },
-      'conversationList': {
+      conversationList: {
         items: [
           {
             key: "0",
@@ -308,9 +302,8 @@ export const initialConfigSnapshot = {
             console.log(`Click ${conversation.key} - ${menuInfo.key}`)
           },
         },
-
       },
-      'roles': {
+      roles: {
         ai: {
           placement: "start",
           typing: { step: 5, interval: 20 },
@@ -325,7 +318,7 @@ export const initialConfigSnapshot = {
           variant: "shadow",
         },
       },
-      'throughChain': {
+      throughChain: {
         items: [
           {
             title: "Hello Ant Design X!",
@@ -343,8 +336,46 @@ export const initialConfigSnapshot = {
             status: "pending",
             description: "status: pending",
           },
-        ]
+        ],
+      },
+    },
+  },
+
+  boardItems: [
+    {
+      id: "board-item-1",
+      definition: {},
+      columnSpan: 1,
+      rowSpan: 5,
+      header: "Antd Button",
+      content: {
+        renderer: "dynamic",
+        component: "ButtonAntd",
+        path: "../../../../development/cloudscape-app/widgets/widget-antd-button.tsx",
+        props: {
+          type: "primary",
+          size: "large",
+          children: "Button",
+        },
       }
-    }
-  }
+    },
+
+    {
+      id: "board-item-2",
+      definition: {},
+      columnSpan: 3,
+      rowSpan: 5,
+      header: "Cloudscape Button",
+      content: {
+        renderer: "dynamic",
+        component: "ButtonCloudscape",
+        path: "../../../../development/cloudscape-app/widgets/widget-cloudscape-button.tsx",
+        props: {
+          variant: "primary",
+          children: "Button",
+        },
+      }
+    },
+  ],
 }
+

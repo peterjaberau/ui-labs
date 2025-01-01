@@ -20,7 +20,7 @@
     "@ant-design/pro-editor": "^1.3.0",
     "@ant-design/x": "^1.0.2",
     "@cloudflare/workers-types": "^4.20241224.0",
-    "@cloudscape-design/board-components": "^3.0.85",
+    "@cloudscape-design/board-components": "^3.0.87",
     "@cloudscape-design/collection-hooks": "^1.0.55",
     "@cloudscape-design/component-toolkit": "1.0.0-beta.81",
     "@cloudscape-design/components": "^3.0.839",

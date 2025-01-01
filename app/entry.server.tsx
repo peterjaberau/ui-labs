@@ -11,6 +11,10 @@ import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
+import { componentRegistry } from "~/internals/development/cloudscape-app/utils/componentRegistry"
+import "~/internals/development/cloudscape-app/utils/registerComponents"
+
+
 
 const ABORT_DELAY = 5_000;
 
@@ -95,6 +99,14 @@ function handleBrowserRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
+
+  // Ensure components are registered before rendering
+  if (!componentRegistry.isInitialized) {
+    import("~/internals/development/cloudscape-app/utils/registerComponents");
+    componentRegistry.isInitialized = true; // Track initialization to avoid duplicate imports
+  }
+
+
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(

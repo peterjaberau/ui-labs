@@ -1,9 +1,11 @@
 import * as React from "react"
 import { useCallback, useEffect, useState } from "react"
-import { BoardItems } from "./components/board-items.tsx"
 import { TopNavigations } from "./components/top-navigations.tsx"
 import { PreviewComponent } from "./components/preview-component.tsx"
 import { initialConfigSnapshot } from "./stores/config.ts"
+import { Board, BoardItem } from "@cloudscape-design/board-components"
+import { boardI18nStrings, boardItemI18nStrings } from "./constants/component-constants"
+import DynamicComponentByPath from "./components/dynamic-component/DynamicComponentByPath.tsx"
 import {
   AppLayout,
   ContentLayout,
@@ -16,19 +18,25 @@ import {
   Drawer,
   SideNavigation,
 } from "@cloudscape-design/components"
-import { useNavigate, Routes, Route, useLocation } from "@remix-run/react"
+import { useNavigate, Routes, Route, useLocation, Outlet } from "@remix-run/react"
 import { ClientOnly } from "remix-utils/client-only"
+import { useLoaderData } from "@remix-run/react";
+
+
+
 
 export default function AppConsole({ children }: { children: React.ReactNode }) {
-  const [config, setConfig] = useState(initialConfigSnapshot)
 
+  const [config, setConfig] = useState(initialConfigSnapshot)
+  const [sidenavItems, setSidenavItems] = useState(initialConfigSnapshot.sideNavigation.items)
+  const [boardItems, setBoardItems]: any = useState(initialConfigSnapshot.boardItems)
   const [splitPanelOpen, setSplitPanelOpen] = useState(false)
   const [splitPanelPosition, setSplitPanelPosition] = useState<"side" | "bottom">("side")
   const [navigationOpen, setNavigationOpen] = React.useState(true)
   const [activeDrawerId, setActiveDrawerId] = React.useState<string | null>("drawer-inspector")
-  const [items, setItems] = React.useState<any>(BoardItems)
   const [activeHref, setActiveHref] = useState("/")
   const navigate = useNavigate()
+
   function followLink(e: CustomEvent) {
     e.preventDefault()
     navigate(e.detail.href)
@@ -48,7 +56,7 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
                     header={{ text: "Side Navigation", href: "/" }}
                     activeHref={activeHref}
                     onFollow={followLink}
-                    items={config.sideNavigation.items as any}
+                    items={sidenavItems as any}
                   />
                 </>
               }
@@ -80,7 +88,19 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
                     </Box>
                   }
                 >
-                  <PreviewComponent />
+                  {/*<PreviewComponent />*/}
+
+                  <Board
+                    items={boardItems as any}
+                    renderItem={(item: any) => (
+                      <BoardItem header={<Header>{item.header}</Header>} i18nStrings={boardItemI18nStrings}>
+                        <DynamicComponentByPath loaderData={{path: item.content.path, props: item.content.props}} />
+                      </BoardItem>
+                    )}
+                    i18nStrings={boardI18nStrings}
+                    onItemsChange={(event) => setBoardItems(event.detail.items)}
+                    empty="empty"
+                  />
                 </ContentLayout>
               }
               splitPanel={splitPanelOpen && <SplitPanel header="Splitter">splitter</SplitPanel>}

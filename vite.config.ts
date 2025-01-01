@@ -28,6 +28,17 @@ export default defineConfig({
   ],
   server: {
     port: 3010,
+    // watch: {
+    //   ignored: [
+    //     "**/registerComponents.ts",
+    //     "**/componentRegistry.ts",
+    //     "**/*.stories.{js,jsx,ts,tsx}",
+    //     "**/*.test.{js,jsx,ts,tsx}",
+    //   ],
+    // },
+    hmr: {
+      overlay: true,
+    },
   },
   // css: {
   //   postcss: true,
