@@ -40,11 +40,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
 
-      <RenderViewMachineProvider>
+      {/*<RenderViewMachineProvider>*/}
       {/*<AmisMachineProvider>*/}
         {children}
       {/*</AmisMachineProvider>*/}
-      </RenderViewMachineProvider>
+      {/*</RenderViewMachineProvider>*/}
       <ScrollRestoration />
       <Scripts />
 

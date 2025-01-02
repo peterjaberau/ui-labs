@@ -2,7 +2,7 @@ import React from "react"
 import { useLoaderData } from "@remix-run/react"
 import { ClientOnly } from "remix-utils/client-only"
 export async function clientLoader() {
-  await new Promise((r) => setTimeout(r, 500));
+  await new Promise((r) => setTimeout(r, 100));
   return { message: "This data came from the client loader" };
 }
 // Main component for the index route

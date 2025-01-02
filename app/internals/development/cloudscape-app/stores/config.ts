@@ -1,4 +1,4 @@
-
+import { views, getViews, generateViewLinks, generateDashboardItems } from "./internal-database"
 
 export const initialConfigSnapshot = {
   sideNavigation: {
@@ -43,19 +43,10 @@ export const initialConfigSnapshot = {
           },
           {
             type: "section",
-            text: "Experiments",
-            defaultExpanded: false,
+            text: "Renderers",
+            defaultExpanded: true,
             items: [
-              {
-                type: "link",
-                text: "Experiment 1",
-                href: "/session-key/service-key/experiment1",
-              },
-              {
-                type: "link",
-                text: "Experiment 2",
-                href: "/session-key/service-key/experiment2",
-              },
+              ...generateViewLinks(getViews(views, ["render-dashboard-amis", "render-dashboard-dynamic", "render-page-amis", "render-page-dynamic"])),
             ],
           },
           {
@@ -138,8 +129,7 @@ export const initialConfigSnapshot = {
             type: "section",
             text: "Development",
             defaultExpanded: false,
-            items: [
-              { type: "link", text: "Google2", href: "https://www.google2.com", external: true, externalIconAriaLabel: "Opens in a new tab" }],
+            items: [{ type: "link", text: "Google2", href: "https://www.google2.com", external: true, externalIconAriaLabel: "Opens in a new tab" }],
           },
         ],
       },
@@ -341,6 +331,43 @@ export const initialConfigSnapshot = {
     },
   },
 
+
+  dashboardItems1: [
+    {
+      "id": "render-antd-button",
+      "definition": {},
+      "columnSpan": 1,
+      "rowSpan": 2,
+      "header": "Antd Button 1",
+      "content": {
+        "renderer": "dynamic-component",
+        "component": "ButtonAntd",
+        "path": "../../../../development/cloudscape-app/widgets/widget-antd-button.tsx",
+        "props": {
+          "type": "primary",
+          "size": "large",
+          "children": "Button"
+        }
+      }
+    },
+    {
+      "id": "render-cloudscape-button",
+      "definition": {},
+      "columnSpan": 1,
+      "rowSpan": 2,
+      "header": "Cloudscape Button",
+      "content": {
+        "renderer": "dynamic-component",
+        "component": "ButtonCloudscape",
+        "path": "../../../../development/cloudscape-app/widgets/widget-cloudscape-button.tsx",
+        "props": {
+          "variant": "primary",
+          "children": "Button"
+        }
+      }
+    }
+  ],
+
   boardItems: [
     {
       id: "board-item-1",
@@ -357,7 +384,7 @@ export const initialConfigSnapshot = {
           size: "large",
           children: "Button",
         },
-      }
+      },
     },
 
     {
@@ -374,9 +401,11 @@ export const initialConfigSnapshot = {
           variant: "primary",
           children: "Button",
         },
-      }
+      },
     },
 
+    // "../../../../development/cloudscape-app/widgets/widget-cloudscape-button.tsx"
+    // "../../../../development/cloudscape-app/widgets/widget-cloudscape-button.tsx"
 
     // {
     //   id: "board-item-3",
@@ -396,4 +425,3 @@ export const initialConfigSnapshot = {
     // },
   ],
 }
-

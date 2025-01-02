@@ -8,6 +8,8 @@ export default function DynamicComponentByPath({ loaderData }: DynamicComponentB
   const { path, props } = loaderData;
   const [Component, setComponent] = useState<React.ComponentType<any> | null>(null);
 
+  console.log('DynamicComponentByPath', path, props);
+
   useEffect(() => {
     let isMounted = true;
 

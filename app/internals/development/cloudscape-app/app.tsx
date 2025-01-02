@@ -3,6 +3,7 @@ import { TopNavigations } from "./components/top-navigations.tsx"
 import { initialConfigSnapshot } from "./stores/config.ts"
 import { Board, BoardItem } from "@cloudscape-design/board-components"
 import { boardI18nStrings, boardItemI18nStrings } from "./constants/component-constants"
+import { generateDashboardItems } from "./stores/internal-database.ts"
 import DynamicComponentByPath from "./components/dynamic-component/DynamicComponentByPath.tsx"
 import {
   AppLayout,
@@ -16,18 +17,29 @@ import {
   Drawer,
   SideNavigation,
 } from "@cloudscape-design/components"
-import { useNavigate, Routes, Route, useLocation, Outlet } from "@remix-run/react"
+import { useNavigate, Routes, Route, useLocation, Outlet, useParams } from "@remix-run/react"
 import { ClientOnly } from "remix-utils/client-only"
 import { useLoaderData } from "@remix-run/react"
-
+import { PageBreadcrumbs } from "./components/page-breadcrumbs.tsx"
 
 export async function clientLoader() {
-  await new Promise((r) => setTimeout(r, 500))
-  return { message: "This data came from the client loader" }
+  await new Promise((r) => setTimeout(r, 100));
+  return {
+    message: "This data came from the client loader",
+  };
 }
 
 export default function AppConsole({ children }: { children: React.ReactNode }) {
   const data = useLoaderData<typeof clientLoader>()
+  const params = useParams();
+  const viewId = params.view; // Get viewId from URL parameters
+
+  const [dashboardItems, setDashboardItems] = useState(() => generateDashboardItems({ viewId }));
+  useEffect(() => {
+    setDashboardItems(generateDashboardItems({ viewId }));
+  }, [viewId]);
+
+
   const [config, setConfig] = useState(initialConfigSnapshot)
   const [sidenavItems, setSidenavItems] = useState(initialConfigSnapshot.sideNavigation.items)
   const [boardItems, setBoardItems]: any = useState(initialConfigSnapshot.boardItems)
@@ -42,6 +54,7 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
     e.preventDefault()
     navigate(e.detail.href)
   }
+
 
   return (
     <>
@@ -61,6 +74,7 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
                   />
                 </>
               }
+              breadcrumbs={<PageBreadcrumbs />}
               navigationOpen={navigationOpen}
               onNavigationChange={({ detail }) => setNavigationOpen(detail.open)}
               disableContentPaddings={false}
@@ -95,10 +109,10 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
                     {/*<ClientOnly fallback={<div>Loading...</div>}>{() => <AmisReactPage />}</ClientOnly>*/}
 
                     <Board
-                      items={boardItems as any}
+                      items={dashboardItems as any}
                       renderItem={(item: any) => (
                         <BoardItem header={<Header>{item.header}</Header>} i18nStrings={boardItemI18nStrings}>
-                          {item.content.renderer === "dynamic" ? (
+                          {item.content.renderer === "dynamic-component" ? (
                             <DynamicComponentByPath loaderData={{ path: item.content.path, props: item.content.props }} />
                           ) : item.content.renderer === "amis" ? (
                             <ClientOnly>

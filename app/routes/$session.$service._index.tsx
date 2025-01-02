@@ -6,7 +6,7 @@ import type { HandleCustom } from "~/internals/development/components/breadcrumb
 import RouteWrapper from "~/internals/development/components/layout-wrapper.tsx"
 
 export async function clientLoader() {
-  await new Promise((r) => setTimeout(r, 500))
+  await new Promise((r) => setTimeout(r, 100))
   return { message: "This data came from the client loader" }
 }
 

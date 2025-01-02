@@ -30,6 +30,10 @@ export const renderViewMachine = setup({
     }),
     setPluginsValue:assign(({ context, event }: any) => {
       const pluginsObj = event.output.val
+      console.log('---event---', event);
+      if (!pluginsObj.plugins) return context;
+
+
       const metadataPlugins = pluginsObj.plugins.map((plugin: any) => ({
         value: plugin.rendererName,
         label: plugin.name,
