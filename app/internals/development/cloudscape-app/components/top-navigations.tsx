@@ -1,6 +1,5 @@
-import * as React from "react"
 import { Autosuggest, TopNavigation } from "@cloudscape-design/components"
-
+import React from "react"
 export const TopNavigations = () => {
   const [value, setValue] = React.useState("")
   const handleEnteredTextLabel = (value: string) => `Entered value: ${value}`

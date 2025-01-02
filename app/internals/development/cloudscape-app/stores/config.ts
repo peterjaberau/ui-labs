@@ -346,7 +346,7 @@ export const initialConfigSnapshot = {
       id: "board-item-1",
       definition: {},
       columnSpan: 1,
-      rowSpan: 5,
+      rowSpan: 2,
       header: "Antd Button",
       content: {
         renderer: "dynamic",
@@ -363,8 +363,8 @@ export const initialConfigSnapshot = {
     {
       id: "board-item-2",
       definition: {},
-      columnSpan: 3,
-      rowSpan: 5,
+      columnSpan: 1,
+      rowSpan: 2,
       header: "Cloudscape Button",
       content: {
         renderer: "dynamic",
@@ -376,6 +376,24 @@ export const initialConfigSnapshot = {
         },
       }
     },
+
+
+    // {
+    //   id: "board-item-3",
+    //   definition: {},
+    //   columnSpan: 1,
+    //   rowSpan: 2,
+    //   header: "Amis Renderer",
+    //   content: {
+    //     renderer: "amis",
+    //     component: "ButtonCloudscape",
+    //     path: "../../../../development/cloudscape-app/widgets/widget-cloudscape-button.tsx",
+    //     props: {
+    //       variant: "primary",
+    //       children: "Button",
+    //     },
+    //   }
+    // },
   ],
 }
 

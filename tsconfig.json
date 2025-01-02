@@ -40,7 +40,7 @@
     /* other */
     "useDefineForClassFields": true,
 
-    "suppressImplicitAnyIndexErrors": true,
+//    "suppressImplicitAnyIndexErrors": true,
     "rootDirs": [".", "./.react-router/types"]
   },
   "include": [

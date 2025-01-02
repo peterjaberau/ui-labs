@@ -1,8 +1,17 @@
 // @ts-ignore
 import tailwindCss from "./tailwind.css?url"
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useMatches, useLoaderData, isRouteErrorResponse } from "@remix-run/react"
 
+// amis related imports
+import "amis/lib/themes/cxd.css?url";
+import "amis/lib/helper.css?url";
+import "amis/sdk/iconfont.css?url";
+import "@fortawesome/fontawesome-free/css/all.css?url";
+// import 'amis/lib/themes/antd.css'
+
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useMatches, useLoaderData, isRouteErrorResponse } from "@remix-run/react"
+// import { AmisMachineProvider } from "~/internals/development/cloudscape-app/components/RenderAmisComponent/AmisContextProvider.tsx"
 import { cssBundleHref } from "@remix-run/css-bundle"
+import { RenderViewMachineProvider } from "~/internals/development/cloudscape-app/components/render-view/helpers/RenderViewContextProvider.tsx"
 
 // @ts-ignore
 export const links: LinksFunction = () => {
@@ -31,7 +40,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
 
-      {children}
+      <RenderViewMachineProvider>
+      {/*<AmisMachineProvider>*/}
+        {children}
+      {/*</AmisMachineProvider>*/}
+      </RenderViewMachineProvider>
+      <ScrollRestoration />
+      <Scripts />
 
         {/*<RootMachineProvider>*/}
           {/*<AmisMachineProvider>*/}
@@ -42,8 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {/*  </CoreEditorMachineProvider>*/}
           {/*</AmisMachineProvider>*/}
         {/*</RootMachineProvider>*/}
-        <ScrollRestoration />
-        <Scripts />
+
         {/*<LiveReload port={8002} />*/}
         {/*<LiveReload />*/}
       </body>

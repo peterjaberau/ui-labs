@@ -1,6 +1,6 @@
 import { Outlet } from "@remix-run/react"
 
-export const PreviewComponent = () => {
+const PreviewComponent = () => {
   return <Outlet />
 }
-
+export default PreviewComponent

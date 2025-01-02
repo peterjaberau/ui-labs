@@ -1,7 +1,5 @@
-import * as React from "react"
-import { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { TopNavigations } from "./components/top-navigations.tsx"
-import { PreviewComponent } from "./components/preview-component.tsx"
 import { initialConfigSnapshot } from "./stores/config.ts"
 import { Board, BoardItem } from "@cloudscape-design/board-components"
 import { boardI18nStrings, boardItemI18nStrings } from "./constants/component-constants"
@@ -20,13 +18,16 @@ import {
 } from "@cloudscape-design/components"
 import { useNavigate, Routes, Route, useLocation, Outlet } from "@remix-run/react"
 import { ClientOnly } from "remix-utils/client-only"
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react"
 
 
-
+export async function clientLoader() {
+  await new Promise((r) => setTimeout(r, 500))
+  return { message: "This data came from the client loader" }
+}
 
 export default function AppConsole({ children }: { children: React.ReactNode }) {
-
+  const data = useLoaderData<typeof clientLoader>()
   const [config, setConfig] = useState(initialConfigSnapshot)
   const [sidenavItems, setSidenavItems] = useState(initialConfigSnapshot.sideNavigation.items)
   const [boardItems, setBoardItems]: any = useState(initialConfigSnapshot.boardItems)
@@ -90,17 +91,32 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
                 >
                   {/*<PreviewComponent />*/}
 
-                  <Board
-                    items={boardItems as any}
-                    renderItem={(item: any) => (
-                      <BoardItem header={<Header>{item.header}</Header>} i18nStrings={boardItemI18nStrings}>
-                        <DynamicComponentByPath loaderData={{path: item.content.path, props: item.content.props}} />
-                      </BoardItem>
-                    )}
-                    i18nStrings={boardI18nStrings}
-                    onItemsChange={(event) => setBoardItems(event.detail.items)}
-                    empty="empty"
-                  />
+                  <>
+                    {/*<ClientOnly fallback={<div>Loading...</div>}>{() => <AmisReactPage />}</ClientOnly>*/}
+
+                    <Board
+                      items={boardItems as any}
+                      renderItem={(item: any) => (
+                        <BoardItem header={<Header>{item.header}</Header>} i18nStrings={boardItemI18nStrings}>
+                          {item.content.renderer === "dynamic" ? (
+                            <DynamicComponentByPath loaderData={{ path: item.content.path, props: item.content.props }} />
+                          ) : item.content.renderer === "amis" ? (
+                            <ClientOnly>
+                              {() => (
+                                <div>Amis</div>
+                                // <DynamicAmisRenderer loaderData={{ path: item.content.path, props: item.content.props }} />
+                              )}
+                            </ClientOnly>
+                          ) : (
+                            <div>Not found</div>
+                          )}
+                        </BoardItem>
+                      )}
+                      i18nStrings={boardI18nStrings}
+                      onItemsChange={(event) => setBoardItems(event.detail.items)}
+                      empty="empty"
+                    />
+                  </>
                 </ContentLayout>
               }
               splitPanel={splitPanelOpen && <SplitPanel header="Splitter">splitter</SplitPanel>}

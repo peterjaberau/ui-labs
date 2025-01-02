@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 import { AppLayoutProps } from '@cloudscape-design/components/app-layout';
 import { SplitPanelProps } from '@cloudscape-design/components/split-panel';

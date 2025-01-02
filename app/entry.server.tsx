@@ -11,8 +11,8 @@ import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
-import { componentRegistry } from "~/internals/development/cloudscape-app/utils/componentRegistry"
-import "~/internals/development/cloudscape-app/utils/registerComponents"
+// import { componentRegistry } from "~/internals/development/cloudscape-app/utils/componentRegistry"
+// import "~/internals/development/cloudscape-app/utils/registerComponents"
 
 
 
@@ -101,10 +101,10 @@ function handleBrowserRequest(
 ) {
 
   // Ensure components are registered before rendering
-  if (!componentRegistry.isInitialized) {
-    import("~/internals/development/cloudscape-app/utils/registerComponents");
-    componentRegistry.isInitialized = true; // Track initialization to avoid duplicate imports
-  }
+  // if (!componentRegistry.isInitialized) {
+  //   import("~/internals/development/cloudscape-app/utils/registerComponents");
+  //   componentRegistry.isInitialized = true; // Track initialization to avoid duplicate imports
+  // }
 
 
   return new Promise((resolve, reject) => {
