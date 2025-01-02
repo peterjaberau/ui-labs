@@ -1,7 +1,7 @@
 import { setup, spawnChild, sendTo, assign, fromPromise, fromCallback } from 'xstate';
 import { Ok } from "ts-results-es";
 import { initialContext, plugins, pluginActions, pluginEvents, pluginTpls } from "./config"
-// import { getRenderers } from "amis"
+import { getRenderers } from "amis"
 
 export const renderViewMachine = setup({
   types: {
@@ -29,8 +29,7 @@ export const renderViewMachine = setup({
       }
     }),
     setPluginsValue:assign(({ context, event }: any) => {
-      const pluginsObj = event.output.val
-      console.log('---event---', event);
+      const pluginsObj = event.output.value
       if (!pluginsObj.plugins) return context;
 
 
@@ -48,8 +47,9 @@ export const renderViewMachine = setup({
     }),
 
     setTemplatesValue:assign(({ context, event }: any) => {
+
       return {
-        pluginTpls: event.output.val.pluginTpls,
+        pluginTpls: event.output.value.pluginTpls,
       }
     }),
 

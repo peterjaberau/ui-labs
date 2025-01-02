@@ -1,4 +1,4 @@
-export default {
+export const data =  {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Api specification for Plugins",
   "type": "object",

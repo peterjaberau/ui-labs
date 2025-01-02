@@ -1,44 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { ClientOnly } from "remix-utils/client-only"
+import AmisDocsIntro from "~/internals/development/cloudscape-app/widgets/AmisDocsIntro.tsx"
 
 type DynamicComponentByPathProps = {
   loaderData: { path: string; props: Record<string, any> };
 };
 
-export default function DynamicComponentByPath({ loaderData }: DynamicComponentByPathProps) {
-  const { path, props } = loaderData;
-  const [Component, setComponent] = useState<React.ComponentType<any> | null>(null);
+export default function DirectComponentByPath({ loaderData }: DynamicComponentByPathProps) {
 
-  useEffect(() => {
-    let isMounted = true;
-
-    // Use dynamic import for ES modules
-    import(/* @vite-ignore */ path)
-      .then((mod) => {
-        if (isMounted) {
-          setComponent(() => mod.default || mod);
-        }
-      })
-      .catch((err) => {
-        console.error(`Error loading component at path: ${path}`, err);
-        if (isMounted) {
-          setComponent(() => null);
-        }
-      });
-
-    return () => {
-      isMounted = false; // Clean up if component unmounts
-    };
-  }, [path]);
-
-  if (!Component) {
-    return <div>Loading...</div>;
-  }
 
   return (
-    <ClientOnly fallback={<div>loading...</div>}>
+    // <React.Suspense fallback={<div>Loading...</div>}>
+    //   <AmisDocsIntro />
+    // </React.Suspense>
+
+    <ClientOnly fallback={<div>...loading</div>}>
       {
-        () => <Component {...props} />
+        () => (
+          <AmisDocsIntro />
+        )
       }
     </ClientOnly>
   )

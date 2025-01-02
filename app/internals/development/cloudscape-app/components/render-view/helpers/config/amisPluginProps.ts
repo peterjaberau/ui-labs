@@ -1,4 +1,4 @@
-export default {
+export const data =  {
   'button': {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "ButtonProps",

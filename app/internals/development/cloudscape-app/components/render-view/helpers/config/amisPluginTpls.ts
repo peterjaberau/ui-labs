@@ -1,4 +1,4 @@
-export default {
+export const data =  {
   "switch": {
     "type": "switch",
     "mode": "horizontal",

@@ -1,4 +1,4 @@
-export default [
+export const data =  [
   {
     "order": -9999,
     "rendererName": "error",

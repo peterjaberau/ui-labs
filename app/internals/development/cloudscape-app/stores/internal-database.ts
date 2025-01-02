@@ -12,6 +12,35 @@
 
   }
  */
+
+/*
+  ViewItems
+
+  {
+    viewId: "render-dashboard-amis",
+    itemId: "render-amis-amis-docs-intro",
+    config: {
+      renderAs: "direct-component", //dynamic-component | direct-component
+      renderMethod: "lazyload",
+      component: "AmisDocsIntro",
+      file: "AmisDocsIntro.tsx",
+      props: {
+        variant: "primary",
+        // children: "Button",
+      },
+      extraProps: {
+        definition: {},
+        columnSpan: 1,
+        rowSpan: 2,
+        header: "Amis Docs Intro",
+      }
+    }
+  }
+
+
+ */
+
+
 const dynamicComponentFilePath = "../../../../development/cloudscape-app/widgets/"
 
 export const views: any[] = [
@@ -256,6 +285,26 @@ export const viewItems: any[] = [
         header: "Antd Button",
       }
     }
+  },
+  {
+    viewId: "render-dashboard-amis",
+    itemId: "render-amis-amis-docs-intro",
+    config: {
+      renderAs: "direct-component", //dynamic-component | direct-component
+      renderMethod: "lazyload",
+      component: "AmisDocsIntro",
+      file: "AmisDocsIntro.tsx",
+      props: {
+        variant: "primary",
+        // children: "Button",
+      },
+      extraProps: {
+        definition: {},
+        columnSpan: 1,
+        rowSpan: 2,
+        header: "Amis Docs Intro",
+      }
+    }
   }
 ]
 
@@ -296,7 +345,20 @@ export const viewItemUsages: any[] = [
       rowSpan: 2,
       header: "Cloudscape Button",
     }
-  }
+  },
+
+  {
+    usageId: "use-render-amis-docs-intro-in-card1",
+    viewId: "render-dashboard-amis",
+    itemId: "render-amis-amis-docs-intro",
+    usage: {
+      type: "board",
+      columnSpan: 1,
+      rowSpan: 2,
+      header: "Amis Docs Intro",
+    }
+  },
+
 ]
 
 
@@ -324,8 +386,6 @@ export const generateViewLinks = (views: any[]) => {
 // this directly read from the above viewItems and viewItemUsages and views
 export const generateDashboardItems = ({ viewId }: any) => {
 
-  console.log("viewId----", viewId)
-
   const dashboardItems = viewItems
     .filter((viewItem: any) => viewItem.viewId === viewId)
     .map((viewItem: any) => {
@@ -337,7 +397,8 @@ export const generateDashboardItems = ({ viewId }: any) => {
         rowSpan: usage.usage.rowSpan,
         header: usage.usage.header,
         content: {
-          renderer: viewItem.config.renderAs,
+          renderAs: viewItem.config.renderAs, //dynamic-component | direct-component
+          renderMethod: viewItem.config.renderMethod, //lazyload | direct
           component: viewItem.config.component,
           path: dynamicComponentFilePath + viewItem.config.file,
           props: viewItem.config.props,
@@ -345,7 +406,6 @@ export const generateDashboardItems = ({ viewId }: any) => {
       }
     })
 
-  console.log("dashboardItems----", dashboardItems)
   return dashboardItems
 }
 

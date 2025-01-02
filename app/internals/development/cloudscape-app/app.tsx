@@ -21,6 +21,8 @@ import { useNavigate, Routes, Route, useLocation, Outlet, useParams } from "@rem
 import { ClientOnly } from "remix-utils/client-only"
 import { useLoaderData } from "@remix-run/react"
 import { PageBreadcrumbs } from "./components/page-breadcrumbs.tsx"
+import DirectComponentByPath
+  from "~/internals/development/cloudscape-app/components/dynamic-component/DirectComponentByPath.tsx"
 
 export async function clientLoader() {
   await new Promise((r) => setTimeout(r, 100));
@@ -112,16 +114,12 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
                       items={dashboardItems as any}
                       renderItem={(item: any) => (
                         <BoardItem header={<Header>{item.header}</Header>} i18nStrings={boardItemI18nStrings}>
-                          {item.content.renderer === "dynamic-component" ? (
+                          {item.content.renderAs === "dynamic-component" ? (
                             <DynamicComponentByPath loaderData={{ path: item.content.path, props: item.content.props }} />
-                          ) : item.content.renderer === "amis" ? (
-                            <ClientOnly>
-                              {() => (
-                                <div>Amis</div>
-                                // <DynamicAmisRenderer loaderData={{ path: item.content.path, props: item.content.props }} />
-                              )}
-                            </ClientOnly>
                           ) : (
+                            // <DynamicComponentByPath loaderData={{ path: item.content.path, props: item.content.props }} />
+
+                            // <DirectComponentByPath loaderData={{ path: item.content.path, props: item.content.props }} />
                             <div>Not found</div>
                           )}
                         </BoardItem>

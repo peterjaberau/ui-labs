@@ -1,14 +1,8 @@
 import React, { useEffect, ReactNode, Children } from 'react';
-import _ from 'lodash';
-import { useActorRef, useSelector } from '@xstate/react';
-import Header from '../header';
 import { Flexbox } from 'react-layout-kit';
-import { HEADER_HEIGHT } from '../_shared/const.ts';
 import AppShellPanel from './app-shell-panel.tsx';
 import { useActor } from '@xstate/react';
-import { createBrowserInspector } from '@statelyai/inspect';
 import { appShellMachine } from "./app-shell-machine.tsx";
-import { Flex } from 'antd';
 import { useTheme } from 'antd-style';
 import NavBar from '../navbar';
 

@@ -28,7 +28,7 @@ export default defineConfig({
     //   }
     // }),
 
-    // commonjs(),
+    commonjs(),
     remix({
       future: {
         v3_fetcherPersist: true,
@@ -66,11 +66,17 @@ export default defineConfig({
   // },
 
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx']
+    extensions: ['.js', '.ts', '.jsx', '.tsx'],
+    alias: {
+      lodash: "lodash-es"
+    }
   },
 
   optimizeDeps: {
-    include: ['amis'], // Force Vite to pre-bundle 'amis' as ESM
+    include: ["match-sorter", "remove-accents"],
+    // exclude: ['amis', 'amis-core', 'amis-formula', 'amis-ui'],
+  // 'amis-core', 'amis-formula', , 'amis-ui'
+
   },
 
 

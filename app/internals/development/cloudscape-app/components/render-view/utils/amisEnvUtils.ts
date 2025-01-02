@@ -49,3 +49,6 @@ export const copy = (content: string) => {
 export const notify = (type: ToastLevel, msg: string, conf?: ToastConf) => {
   toast[type] ? toast[type](msg, conf) : console.warn("[Notify]", type, msg);
 };
+
+
+
