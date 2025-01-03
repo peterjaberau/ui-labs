@@ -52,3 +52,4 @@ storybook-static/
 /.react-router/types/app/routes/auth/+types/provider-callback.ts
 /.react-router/types/app/routes/auth/+types/verify.ts
 /pnpm-lock.yaml
+!/Writerside/
