@@ -1,5 +1,6 @@
 import { Autosuggest, TopNavigation } from "@cloudscape-design/components"
 import React from "react"
+
 export const TopNavigations = () => {
   const [value, setValue] = React.useState("")
   const handleEnteredTextLabel = (value: string) => `Entered value: ${value}`
@@ -103,3 +104,4 @@ export const TopNavigations = () => {
     </div>
   )
 }
+export default TopNavigations

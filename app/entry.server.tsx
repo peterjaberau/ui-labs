@@ -1,9 +1,15 @@
-import { isbot } from "isbot";
-import { renderToReadableStream } from "react-dom/server";
-import type { AppLoadContext, EntryContext } from "react-router";
-import { ServerRouter } from "react-router";
+import type { AppLoadContext, EntryContext } from "react-router"
 
-const ABORT_DELAY = 5_000;
+import { PassThrough } from "node:stream"
+import { ServerRouter } from "react-router"
+import { createReadableStreamFromReadable } from "@react-router/node"
+import { isbot } from "isbot"
+import { renderToPipeableStream } from "react-dom/server"
+import { createRemixI18n } from "~/libs/i18n/server.ts"
+
+const ABORT_DELAY = 5_000
+
+import { renderToReadableStream } from "react-dom/server"
 
 export default async function handleRequest(
   request: Request,
@@ -12,40 +18,54 @@ export default async function handleRequest(
   routerContext: EntryContext,
   _loadContext: AppLoadContext,
 ) {
-  let shellRendered = false;
-  const userAgent = request.headers.get("user-agent");
+  const callbackName = isbot(request.headers.get("user-agent")) ? "onAllReady" : "onShellReady"
 
+  const { I18nextProvider, i18nInstance } = await createRemixI18n(request, routerContext)
 
-  const body = await renderToReadableStream(
-    <ServerRouter
-      context={routerContext}
-      url={request.url}
-      // @ts-ignore
-      abortDelay={ABORT_DELAY}
-    />,
-    {
-      onError(error: unknown) {
-        responseStatusCode = 500;
-        // Log streaming rendering errors from inside the shell.  Don't log
-        // errors encountered during initial shell rendering since they'll
-        // reject and get logged in handleDocumentRequest.
-        if (shellRendered) {
-          console.error(error);
-        }
+  return new Promise((resolve, reject) => {
+    let shellRendered = false
+
+    const { pipe, abort } = renderToPipeableStream(
+      <I18nextProvider i18n={i18nInstance as any}>
+        <ServerRouter
+          context={routerContext}
+          url={request.url}
+          // @ts-ignore
+          abortDelay={ABORT_DELAY}
+        />
+      </I18nextProvider>,
+      {
+        [callbackName]: () => {
+          shellRendered = true
+          const body = new PassThrough()
+          const stream = createReadableStreamFromReadable(body)
+
+          responseHeaders.set("Content-Type", "text/html")
+
+          resolve(
+            new Response(stream, {
+              headers: responseHeaders,
+              status: responseStatusCode,
+            }),
+          )
+
+          pipe(body)
+        },
+        onShellError(error: unknown) {
+          reject(error)
+        },
+        onError(error: unknown) {
+          responseStatusCode = 500
+          // Log streaming rendering errors from inside the shell.
+          // Don't log errors encountered during initial shell rendering,
+          // since they'll reject and get logged in handleDocumentRequest.
+          if (shellRendered) {
+            console.error(error)
+          }
+        },
       },
-    },
-  );
-  shellRendered = true;
+    )
 
-  // Ensure requests from bots and SPA Mode renders wait for all content to load before responding
-  // https://react.dev/reference/react-dom/server/renderToPipeableStream#waiting-for-all-content-to-load-for-crawlers-and-static-generation
-  if ((userAgent && isbot(userAgent)) || routerContext.isSpaMode) {
-    await body.allReady;
-  }
-
-  responseHeaders.set("Content-Type", "text/html");
-  return new Response(body, {
-    headers: responseHeaders,
-    status: responseStatusCode,
-  });
+    setTimeout(abort, ABORT_DELAY)
+  })
 }

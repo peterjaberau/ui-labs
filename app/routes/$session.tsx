@@ -2,16 +2,16 @@ import "@cloudscape-design/global-styles/index.css?url"
 import React from "react"
 import { Outlet } from "@remix-run/react"
 import type { HandleCustom } from "~/internals/development/components/breadcrumb-for-wrappers.tsx"
-
+import { filePathLabel } from "~/lib/debug.ts"
 
 export const handle: HandleCustom = {
   links: [{ label: "Session", link: "", key: "session-root" }],
 }
 
-const filePath = "routes/$session.tsx"
-
 export default function SessionLayoutPage() {
-  return <Outlet />
+  return (
+     <Outlet />
+  )
 }
 
 // export default function SessionLayoutPage() {

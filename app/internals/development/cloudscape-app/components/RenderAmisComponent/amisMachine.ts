@@ -15,11 +15,10 @@ import {
   viewItemUsages as dbViewItemUsages,
   getViews as getDbViews,
   generateViewLinks as getDbViewLinks,
-  generateDashboardItems as getDbDashboardItems, generateDashboardItems,
+  generateDashboardItems as getDbDashboardItems,
+  generateDashboardItems,
 } from "../../stores/internal-database"
 import { initialConfigSnapshot as initialInternalConfig } from "../../stores/config.ts"
-
-
 
 export const amisCreateMachine = setup({
   types: {
@@ -36,14 +35,60 @@ export const amisCreateMachine = setup({
       }
     }),
 
-    connectToComponent: assign(({ context, event }: any) => {
+    switchBooleanValue: assign(({ context, event }: any) => {
+      /* event: {
+          scope: "intenalState",
+          key: "splitPanelOpen | navigationOpen",
+          type: "TOGGLE_CHANGE",
+          value: detail.open,
+        }
+      */
 
+
+      if ((event.scope = "internalState")) {
+        if (event.key === "splitPanelOpen" || event.key === "navigationOpen") {
+          return {
+            internalState: {
+              [event.key]: !context.internalState.splitPanelOpen,
+            },
+          }
+        }
+      }
+      return context
+    }),
+
+    updateStringValue: assign(({ context, event }: any) => {
+      /* event: {
+          scope: "intenalState",
+          key: "splitPanelPosition | activeDrawerId",
+          type: "STRING_CHANGE",
+          value: detail.position,
+        }
+      */
+
+
+      if ((event.scope = "internalState")) {
+        if (event.key === "splitPanelPosition" || event.key === "activeDrawerId") {
+          return {
+            internalState: {
+              [event.key]: event.value,
+            },
+          }
+        }
+      }
+      return context
+    }),
+
+
+    connectToComponent: assign(({ context, event }: any) => {
       console.log("connectToComponent", {
         context: context,
         event: event,
       })
 
-      const currentPlugin = context.plugins.find((plugin: any) => plugin.rendererName === event.rendererName)
+      const currentPlugin = context.plugins.find(
+        (plugin: any) => plugin.rendererName === event.rendererName,
+      )
       const currentEvents = context.pluginEvents?.[event.rendererName]
       const currentActions = context.pluginActions?.[event.rendererName]
       context.current = {
@@ -55,7 +100,6 @@ export const amisCreateMachine = setup({
         connected: true,
       }
     }),
-
 
     setValue: assign(({ context, event }: any) => {
       return {
@@ -87,16 +131,10 @@ export const amisCreateMachine = setup({
       const dbValue = event.output.value
       if (!dbValue) return context
 
-      const internalDb = dbValue;
-      const initialConfig = initialInternalConfig;
+      const internalDb = dbValue
+      const initialConfig = initialInternalConfig
 
-
-      console.log("dbValue", dbValue)
-
-      console.log("initialConfig", initialConfig)
-      console.log("event", event)
       //NB: This is a hack to get the initial config to be set - but db not get reflect into this state
-
       const updated = {
         internalDatabase: dbValue,
         internalConfig: {
@@ -104,8 +142,6 @@ export const amisCreateMachine = setup({
           dashboardItems: [],
         },
       }
-      console.log("updated", updated)
-
 
       return {
         internalDatabase: dbValue,
@@ -113,22 +149,20 @@ export const amisCreateMachine = setup({
           ...initialConfig,
           dashboardItems: [],
         },
-
       }
     }),
 
     setDashboardItems: assign(({ context, event }: any) => {
       console.log("setDashboardItems", context.internalState.urlParams.view)
 
-      const dashboardItems =
-        generateDashboardItems(context.internalState.urlParams.view);
+      const dashboardItems = generateDashboardItems(context.internalState.urlParams.view)
       return {
         internalConfig: {
           ...context.internalConfig,
           dashboardItems: dashboardItems,
         },
       }
-    })
+    }),
   },
   actors: {
     getRenderersActor: fromPromise(async ({ input }: any) => {
@@ -180,12 +214,15 @@ export const amisCreateMachine = setup({
     internalDatabase: {
       views: [],
       viewItems: [],
-      viewItemUsages: []
+      viewItemUsages: [],
     },
-    internalConfig: {
-
-    },
+    internalConfig: {},
     internalState: {
+      splitPanelOpen: false,
+      splitPanelPosition: "side", // 'side' | 'bottom'
+      navigationOpen: true,
+      activeDrawerId: null, // 'drawer-inspector'
+      activeHref: "/",
       urlParams: {},
     },
     plugins: [],
@@ -249,14 +286,20 @@ export const amisCreateMachine = setup({
         INCOMING_EVENT: {
           actions: "setValue",
         },
+
+        TOGGLE_CHANGE: {
+          actions: "switchBooleanValue",
+        },
+        STRING_CHANGE: {
+          actions: "updateStringValue",
+        }
       },
     },
     settingDashboardItems: {
       always: {
         target: "ready",
         actions: "setDashboardItems",
-      }
-    }
-
+      },
+    },
   },
 })

@@ -1,6 +1,7 @@
 import { views, getViews, generateViewLinks, generateDashboardItems } from "./internal-database"
 
 export const initialConfigSnapshot = {
+
   sideNavigation: {
     header: {
       href: "#/",

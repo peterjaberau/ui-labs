@@ -1,5 +1,6 @@
 import React from "react"
 import type { HandleCustom } from "~/internals/development/components/breadcrumb-for-wrappers.tsx"
+import { filePathLabel } from "~/lib/debug.ts"
 
 export const handle: HandleCustom = {
   links: [
@@ -8,10 +9,10 @@ export const handle: HandleCustom = {
     { label: "Default", link: "", key: "default" },
   ],
 };
-const filePath = "routes/$session.$service._index.tsx"
 
 export default function SessionServiceIndexPage() {
-  // const data = useLoaderData<typeof clientLoader>()
+  filePathLabel('-----$session.$service._index.tsx-----')
+
   return (
     <div>
       default renderer

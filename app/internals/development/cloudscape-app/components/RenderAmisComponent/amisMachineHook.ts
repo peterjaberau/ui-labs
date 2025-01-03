@@ -8,17 +8,25 @@ export const useAmisMachine: any = () => {
   return {
     actor: actor,
     state: state,
+    ctx: state.context,
+
     isInitializing: state.matches('gettingRenderers') || state.matches('gettingPlugins') || state.matches('gettingTemplates'),
     isReady: state.matches('ready'),
-    // sideNavigation: state.context.internalConfig.sideNavigation,
-    // components: state.context.internalConfig.components,
-    // dashboardItems: state.context.internalConfig.dashboardItems,
-    // parameters: {
-    //   ...state.context.internalState.urlParams,
-    // },
-    // database: state.context.internalState.database,
-    // isCurrentConnected: !!(state.context.current.connected === true && state.matches('ready')),
-    // allPlugins: { plugins: state.context.plugins, pluginEvents: state.context.pluginEvents, pluginActions: state.context.pluginActions },
+    isCurrentConnected: !!(state.context.current.connected === true && state.matches('ready')),
+
+    allPlugins: { plugins: state.context.plugins, pluginEvents: state.context.pluginEvents, pluginActions: state.context.pluginActions },
+
+    database: state.context.internalState.database,
+
+    sideNavigation: state.context.internalConfig.sideNavigation,
+    dashboardItems: state.context.internalConfig.dashboardItems,
+    components: state.context.internalConfig.components,
+
+    parameters: {
+      ...state.context.internalState.urlParams,
+    },
+
+
   }
 }
 

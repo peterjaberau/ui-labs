@@ -27,7 +27,10 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "rootDirs": [".", "./.react-router/types"],
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "@/*": ["./app/*"],
+      "~/public/*": ["./public/*"],
+      "~mock/*": ["./app/__mock__/*"]
     },
     "isolatedModules": true,
     "esModuleInterop": true,

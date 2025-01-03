@@ -1,8 +1,12 @@
-import "@cloudscape-design/global-styles/index.css?url"
 import React from "react"
-import { useParams } from "react-router"
+import { useParams } from "@remix-run/react"
+
 import type { HandleCustom } from "~/internals/development/components/breadcrumb-for-wrappers.tsx"
+import RouteWrapper from "~/internals/development/components/layout-wrapper.tsx"
 import { ClientOnly } from "remix-utils/client-only"
+import { BreadcrumbGroup } from "@cloudscape-design/components"
+import MainConsoleExample from "~/internals/development/cloudscape-app/main.client.tsx"
+
 
 
 export const handle: HandleCustom = {
@@ -22,10 +26,9 @@ export default function SessionServiceViewPage() {
 
   const params = useParams()
 
-  console.log(params)
-
-
-  return <ClientOnly fallback={<div>Loading...</div>}>{() => <div>render Component as client side. /:session/:service/:view</div>}</ClientOnly>
+  return <ClientOnly fallback={<div>Loading...</div>}>{
+    () =>
+  }</ClientOnly>
 }
 
 // export default function SessionServiceViewPage() {
