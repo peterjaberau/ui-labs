@@ -1,6 +1,6 @@
-import { Handle, Position, useReactFlow, useStoreApi } from "reactflow";
+import { Handle, Position, useReactFlow, useStoreApi } from "reactflow"
 
-import { memo } from "react";
+import { memo } from "react"
 
 const options = [
   {
@@ -19,14 +19,14 @@ const options = [
     value: "straight",
     label: "Straight",
   },
-];
+]
 
 function Select({ value, handleId, nodeId }: any) {
-  const { setNodes } = useReactFlow();
-  const store = useStoreApi();
+  const { setNodes } = useReactFlow()
+  const store = useStoreApi()
 
   const onChange = (evt: any) => {
-    const { nodeInternals } = store.getState();
+    const { nodeInternals } = store.getState()
     setNodes(
       Array.from(nodeInternals.values()).map((node) => {
         if (node.id === nodeId) {
@@ -36,13 +36,13 @@ function Select({ value, handleId, nodeId }: any) {
               ...node.data.selects,
               [handleId]: evt.target.value,
             },
-          };
+          }
         }
 
-        return node;
+        return node
       }),
-    );
-  };
+    )
+  }
 
   return (
     <div className="custom-node__select">
@@ -56,7 +56,7 @@ function Select({ value, handleId, nodeId }: any) {
       </select>
       <Handle type="source" position={Position.Right} id={handleId} />
     </div>
-  );
+  )
 }
 
 function CustomNode({ id, data }: any) {
@@ -67,16 +67,11 @@ function CustomNode({ id, data }: any) {
       </div>
       <div className="custom-node__body">
         {Object.keys(data.selects).map((handleId) => (
-          <Select
-            key={handleId}
-            nodeId={id}
-            value={data.selects[handleId]}
-            handleId={handleId}
-          />
+          <Select key={handleId} nodeId={id} value={data.selects[handleId]} handleId={handleId} />
         ))}
       </div>
     </>
-  );
+  )
 }
 
-export default memo(CustomNode);
+export default memo(CustomNode)

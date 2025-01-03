@@ -13,6 +13,8 @@
     "app/**/*.ts",
     "app/**/*.tsx",
     "declarations.d.ts",
+
+    "global.d.ts",
   ],
 
   "compilerOptions": {

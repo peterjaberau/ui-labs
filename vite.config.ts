@@ -6,12 +6,21 @@ import { sessionContextPlugin } from "session-context/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+import pkg from "./package.json";
+
 import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
 
 import { getLoadContext } from "./workers/load-context";
+import dayjs from "dayjs"
 
 export default defineConfig({
+  define: {
+    __APP_INFO__: JSON.stringify({
+      pkg,
+      lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+    }),
+  },
   plugins: [
     reactRouterDevTools({
       client: {

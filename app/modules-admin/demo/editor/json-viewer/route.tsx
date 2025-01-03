@@ -7,7 +7,7 @@ import type { loader } from "./loader";
 import { useLoaderData } from "@remix-run/react";
 
 export function Route() {
-  const { packageJson } = useLoaderData<typeof loader>();
+  const { packageJson }: any = useLoaderData<typeof loader>();
   return (
     <PageContainer>
       <ProCard>

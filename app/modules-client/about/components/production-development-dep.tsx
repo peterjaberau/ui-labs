@@ -3,10 +3,10 @@ import { Descriptions } from "antd";
 import { ProCard } from "@ant-design/pro-components";
 
 export const ProjectDevelopmentDep = () => {
-  const { pkg } = __APP_INFO__;
+  const { pkg }: any = __APP_INFO__;
   return (
     <ProCard>
-      <Descriptions title="开发依赖" column={2} bordered>
+      <Descriptions title="devDependencies" column={2} bordered>
         {Object.keys(pkg.devDependencies)?.map(
           (value: string, number: number) => {
             return (

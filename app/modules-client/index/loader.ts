@@ -1,8 +1,8 @@
-import type * as tn from "@remix-run/node";
+import type * as tn from "react-router";
 import * as us from "~/utils/server";
 
 import { defaultLang } from "~/config";
-import { redirect } from "@remix-run/node";
+import { redirect } from "react-router";
 
 class L {
   static async loader(args: tn.LoaderFunctionArgs) {

@@ -1,5 +1,5 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
-  return [{ title: "remix-antd-admin" }];
+  return [{ title: "ui-labs - client" }];
 };

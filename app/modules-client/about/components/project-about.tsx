@@ -2,7 +2,7 @@ import { Descriptions } from "antd";
 import { ProCard } from "@ant-design/pro-components";
 
 export const ProjectAbout = () => {
-  const { pkg } = __APP_INFO__;
+  const { pkg }: any = __APP_INFO__;
   const allDeps = { ...pkg.dependencies, ...pkg.devDependencies };
 
   const getMajorVersion = (depName: DepType) => {
@@ -12,18 +12,17 @@ export const ProjectAbout = () => {
   type DepType = keyof typeof allDeps;
 
   const description = `
-    ${pkg.name}是基于 @remix-run/react${getMajorVersion("@remix-run/react")}.x、
+    ${pkg.name}is based on @remix-run/react${getMajorVersion("@remix-run/react")}.x、
     Vite${getMajorVersion("vite")}.x、
     Antd${getMajorVersion("antd")}.x 、
     TailwindCSS${getMajorVersion("tailwindcss")}.x 、
     prisma${getMajorVersion("prisma")}.x 、
     @prisma/client${getMajorVersion("@prisma/client")}.x 、
-    TypeScript${getMajorVersion("typescript")}.x 开发，
-    内置了动态路由、权限验证、菜单、数据库全栈管理工具
-  `;
+    TypeScript${getMajorVersion("typescript")}.x develop，
+Built-in dynamic routing, permission verification, menu, and database full-stack management tools  `;
   return (
     <ProCard>
-      <Descriptions title="关于">
+      <Descriptions title="in regard to">
         <Descriptions.Item>{description}</Descriptions.Item>
       </Descriptions>
     </ProCard>

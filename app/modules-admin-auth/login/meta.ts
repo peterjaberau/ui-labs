@@ -1,9 +1,9 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
   return [
     {
-      title: "用户登录",
+      title: "User login",
     },
   ];
 };
