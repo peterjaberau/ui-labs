@@ -5,14 +5,14 @@ import {ToastComponent, AlertComponent, alert, confirm, toast} from 'amis-ui';
 import axios from 'axios';
 import { useLoaderData } from "@remix-run/react"
 
-export async function clientLoader() {
-  await new Promise((r) => setTimeout(r, 100))
-  return { message: "This data came from the client loader" }
-}
+// export async function clientLoader() {
+//   await new Promise((r) => setTimeout(r, 100))
+//   return { message: "This data came from the client loader" }
+// }
 
 
 const AmisDocsIntro = () => {
-  const data = useLoaderData<typeof clientLoader>()
+  // const data = useLoaderData<typeof clientLoader>()
   const [loading, setLoading] = React.useState(true)
   let theme = 'cxd';
 

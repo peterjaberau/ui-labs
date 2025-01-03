@@ -160,27 +160,6 @@ export const initialConfigSnapshot = {
     ],
   },
 
-  navigationItems: [
-    { type: "link", text: "/$session", href: "/session-key" },
-    { type: "link", text: "/$session/$service", href: "/session-key/service-key" },
-    { type: "link", text: "/$session/$service/$view", href: "/session-key/service-key/view-key" },
-    { type: "link", text: "eg. /components", href: "/components" },
-    { type: "link", text: "eg. /components/antd", href: "/components/antd" },
-    { type: "link", text: "eg. /components/antd/button", href: "/components/antd/button" },
-    { type: "link", text: "eg. /components/antd/demos?=button", href: "/components/antd/demos?=button" },
-    { type: "link", text: "eg. /components/ui-canvas", href: "/components/ui-canvas" },
-    { type: "link", text: "/cloudscape/:target", href: "/cloudscape/dynamic" },
-    { type: "link", text: "/cloudscape/:target/", href: "/cloudscape/dynamic/" },
-    { type: "link", text: "/cloudscape/:target/custom", href: "/cloudscape/dynamic/custom" },
-    { type: "link", text: "/cloudscape/:target/:name", href: "/cloudscape/dynamic/dynamic-name" },
-    { type: "link", text: "AI Ant", href: "/cloudscape/components/ai-ant" },
-    { type: "link", text: "Amis Docs Intro", href: "/cloudscape/components/amis-docs-intro" },
-    { type: "link", text: "Amis Get Renderers", href: "/cloudscape/components/amis-get-renderers" },
-    { type: "link", text: "Core Editor", href: "/cloudscape/components/core-editor" },
-    { type: "link", text: "Dynamic1", href: "/cloudscape/components/dynamic-id-1" },
-    { type: "link", text: "Dynamic2", href: "/cloudscape/components/dynamic-id-2" },
-  ],
-
   components: {
     aiAnt: {
       internal: {
@@ -330,43 +309,6 @@ export const initialConfigSnapshot = {
       },
     },
   },
-
-
-  dashboardItems1: [
-    {
-      "id": "render-antd-button",
-      "definition": {},
-      "columnSpan": 1,
-      "rowSpan": 2,
-      "header": "Antd Button 1",
-      "content": {
-        "renderer": "dynamic-component",
-        "component": "ButtonAntd",
-        "path": "../../../../development/cloudscape-app/widgets/widget-antd-button.tsx",
-        "props": {
-          "type": "primary",
-          "size": "large",
-          "children": "Button"
-        }
-      }
-    },
-    {
-      "id": "render-cloudscape-button",
-      "definition": {},
-      "columnSpan": 1,
-      "rowSpan": 2,
-      "header": "Cloudscape Button",
-      "content": {
-        "renderer": "dynamic-component",
-        "component": "ButtonCloudscape",
-        "path": "../../../../development/cloudscape-app/widgets/widget-cloudscape-button.tsx",
-        "props": {
-          "variant": "primary",
-          "children": "Button"
-        }
-      }
-    }
-  ],
 
   boardItems: [
     {

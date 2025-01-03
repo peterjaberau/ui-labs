@@ -1,5 +1,3 @@
-import { initialContext } from "~/internals/development/cloudscape-app/components/RenderAmisComponent/amisConfig.ts"
-
 export { data as initialContext} from './amisInitialContext';
 export { data as pluginActions } from "./amisPluginActions"
 export { data as pluginEvents } from './amisPluginEvents';

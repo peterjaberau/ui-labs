@@ -1,7 +1,25 @@
-import { setup, spawnChild, sendTo, assign, fromPromise, fromCallback } from 'xstate';
-import { Ok } from "ts-results-es";
-import { initialContext, plugins, pluginActions, pluginEvents, tpls } from "./amisConfig.ts"
-import { getRenderers } from 'amis';
+import { setup, spawnChild, sendTo, assign, fromPromise, fromCallback } from "xstate"
+import { Ok } from "ts-results-es"
+import { getRenderers } from "amis"
+
+import {
+  initialContext,
+  plugins,
+  pluginActions,
+  pluginEvents,
+  tpls as pluginTpls,
+} from "./amisConfig.ts"
+import {
+  views as dbViews,
+  viewItems as dbViewItems,
+  viewItemUsages as dbViewItemUsages,
+  getViews as getDbViews,
+  generateViewLinks as getDbViewLinks,
+  generateDashboardItems as getDbDashboardItems, generateDashboardItems,
+} from "../../stores/internal-database"
+import { initialConfigSnapshot as initialInternalConfig } from "../../stores/config.ts"
+
+
 
 export const amisCreateMachine = setup({
   types: {
@@ -9,7 +27,22 @@ export const amisCreateMachine = setup({
     events: {} as any,
   },
   actions: {
-    connectToComponent:assign(({ context, event }: any) => {
+    setUrlParams: assign(({ context, event }: any) => {
+      console.log("setUrlParams", event.urlParams)
+      return {
+        internalState: {
+          urlParams: event.urlParams,
+        },
+      }
+    }),
+
+    connectToComponent: assign(({ context, event }: any) => {
+
+      console.log("connectToComponent", {
+        context: context,
+        event: event,
+      })
+
       const currentPlugin = context.plugins.find((plugin: any) => plugin.rendererName === event.rendererName)
       const currentEvents = context.pluginEvents?.[event.rendererName]
       const currentActions = context.pluginActions?.[event.rendererName]
@@ -23,19 +56,20 @@ export const amisCreateMachine = setup({
       }
     }),
 
-    setValue:assign(({ context, event }: any) => {
-      // console.log("setValue------", event)
-      // console.log("setValueContext------", { renderers: event.output.val })
+
+    setValue: assign(({ context, event }: any) => {
       return {
         renderers: event.output.val,
       }
     }),
-    setPluginsValue:assign(({ context, event }: any) => {
-      const pluginsObj = event.output.val
+    setPluginsValue: assign(({ context, event }: any) => {
+      const pluginsObj = event.output.value
+      if (!pluginsObj.plugins) return context
+
       const metadataPlugins = pluginsObj.plugins.map((plugin: any) => ({
         value: plugin.rendererName,
         label: plugin.name,
-      }));
+      }))
       return {
         ...context,
         ...pluginsObj,
@@ -44,45 +78,115 @@ export const amisCreateMachine = setup({
         },
       }
     }),
-
-    setTemplatesValue:assign(({ context, event }: any) => {
+    setTemplatesValue: assign(({ context, event }: any) => {
       return {
-        tpls: event.output.val.tpls,
+        pluginTpls: event.output.value.pluginTpls,
+      }
+    }),
+    setInternalValue: assign(({ context, event }: any) => {
+      const dbValue = event.output.value
+      if (!dbValue) return context
+
+      const internalDb = dbValue;
+      const initialConfig = initialInternalConfig;
+
+
+      console.log("dbValue", dbValue)
+
+      console.log("initialConfig", initialConfig)
+      console.log("event", event)
+      //NB: This is a hack to get the initial config to be set - but db not get reflect into this state
+
+      const updated = {
+        internalDatabase: dbValue,
+        internalConfig: {
+          ...initialConfig,
+          dashboardItems: [],
+        },
+      }
+      console.log("updated", updated)
+
+
+      return {
+        internalDatabase: dbValue,
+        internalConfig: {
+          ...initialConfig,
+          dashboardItems: [],
+        },
+
       }
     }),
 
+    setDashboardItems: assign(({ context, event }: any) => {
+      console.log("setDashboardItems", context.internalState.urlParams.view)
+
+      const dashboardItems =
+        generateDashboardItems(context.internalState.urlParams.view);
+      return {
+        internalConfig: {
+          ...context.internalConfig,
+          dashboardItems: dashboardItems,
+        },
+      }
+    })
   },
   actors: {
     getRenderersActor: fromPromise(async ({ input }: any) => {
-      await new Promise((resolve: any) => setTimeout(resolve, 1_00));
-      return new Ok(getRenderers());
+      await new Promise((resolve: any) => setTimeout(resolve, 1_00))
+      // return new Ok(getRenderers());
+      return new Ok([])
     }),
     getPlugins: fromPromise(async ({ input }: any) => {
-      await new Promise((resolve: any) => setTimeout(resolve, 1_00));
+      await new Promise((resolve: any) => setTimeout(resolve, 1_00))
       return new Ok({
         plugins: plugins,
         pluginEvents: pluginEvents,
-        pluginActions: pluginActions
-      });
+        pluginActions: pluginActions,
+      })
     }),
     getTemplates: fromPromise(async ({ input }: any) => {
-      await new Promise((resolve: any) => setTimeout(resolve, 1_00));
+      await new Promise((resolve: any) => setTimeout(resolve, 1_00))
       return new Ok({
-        tpls: tpls
-      });
+        pluginTpls: pluginTpls,
+      })
+    }),
+    getInternalDb: fromPromise(async ({ input }: any) => {
+      await new Promise((resolve: any) => setTimeout(resolve, 1_00))
+      return new Ok({
+        views: dbViews,
+        viewItems: dbViewItems,
+        viewItemUsages: dbViewItemUsages,
+      })
+    }),
+    setInternalState: fromPromise(async ({ input }: any) => {
+      await new Promise((resolve: any) => setTimeout(resolve, 1_00))
+      return new Ok({
+        pluginTpls: pluginTpls,
+      })
     }),
   },
   guards: {},
 }).createMachine({
   id: "amis-machine",
-  initial: 'gettingRenderers',
+  initial: "gettingRenderers",
   context: {
     metadata: {
-      plugins: []
+      plugins: [],
     },
     current: {
       connected: false,
       currentPlugin: undefined,
+    },
+    internalDatabase: {
+      views: [],
+      viewItems: [],
+      viewItemUsages: []
+    },
+    internalConfig: {
+
+    },
+    internalState: {
+      urlParams: {},
     },
     plugins: [],
     pluginEvents: {},
@@ -118,8 +222,19 @@ export const amisCreateMachine = setup({
         src: "getTemplates",
         id: "getTemplates",
         onDone: {
-          target: "ready",
+          target: "gettingInternalDb",
           actions: "setTemplatesValue",
+        },
+      },
+    },
+
+    gettingInternalDb: {
+      invoke: {
+        src: "getInternalDb",
+        id: "getInternalDb",
+        onDone: {
+          target: "ready",
+          actions: "setInternalValue",
         },
       },
     },
@@ -127,14 +242,21 @@ export const amisCreateMachine = setup({
     ready: {
       on: {
         CONNECT_TO_COMPONENT: {
-          target: "ready",
-          actions: "connectToComponent",
-
+          target: "settingDashboardItems",
+          actions: ["setUrlParams", "connectToComponent"],
         },
+
         INCOMING_EVENT: {
           actions: "setValue",
         },
       },
     },
+    settingDashboardItems: {
+      always: {
+        target: "ready",
+        actions: "setDashboardItems",
+      }
+    }
+
   },
-});
+})

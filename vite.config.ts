@@ -1,86 +1,91 @@
-import { vitePlugin as remix } from "@remix-run/dev";
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tsconfigPaths from "vite-tsconfig-paths";
-import { flatRoutes } from "remix-flat-routes"
-import commonjs from '@rollup/plugin-commonjs';
+import { reactRouterDevTools } from "react-router-devtools";
+import { reactRouter } from '@react-router/dev/vite'
+import { cloudflareDevProxy } from "@react-router/dev/vite/cloudflare";
 
-declare module '@remix-run/node' {
-  interface Future {
-    v3_singleFetch: true
-  }
-}
+import { sessionContextPlugin } from "session-context/vite";
+import { defineConfig } from "vite";
+import tsconfigPaths from "vite-tsconfig-paths";
+
+import autoprefixer from "autoprefixer";
+import tailwindcss from "tailwindcss";
+
+import { getLoadContext } from "./workers/load-context";
 
 export default defineConfig({
   plugins: [
-
-    // react({
-    //   babel: {
-    //     "presets": [
-    //       "@babel/preset-env",
-    //       "@babel/preset-react",
-    //       "@babel/preset-typescript"
-    //     ],
-    //     "plugins": [
-    //       ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    //       ["@babel/plugin-proposal-class-properties", { "loose": true }]
-    //     ]
-    //   }
-    // }),
-
-    commonjs(),
-    remix({
-      future: {
-        v3_fetcherPersist: true,
-        v3_relativeSplatPath: true,
-        v3_throwAbortReason: true,
-        v3_lazyRouteDiscovery: true,
-        // v3_routeConfig: true,
-        v3_singleFetch: true
+    reactRouterDevTools({
+      client: {
+        position: "top-right",
+        defaultOpen: true,
+        expansionLevel: 1,
+        height: 500,
+        minHeight: 300,
+        maxHeight: 1000,
+        hideUntilHover: true,
+        panelLocation: "bottom",
+        requireUrlFlag: true,
+        urlFlag: "customFlag",
+        routeBoundaryGradient: "gotham",
+        breakpoints: [{name: "lg", min: 0, max: 768}, {name: "xl", min: 768, max: 1024}, {name: "2xl", min: 1024, max: Infinity}],
+        showBreakpointIndicator: false
       },
-      routes: async (defineRoutes) => {
-        return flatRoutes('routes', defineRoutes)
-      },
+      server: {
+        silent: false,
+        logs: {
+          cookies: true,
+          defer: true,
+          loaders: true,
+          cache: true,
+          siteClear: true,
+          serverTimings: true,
+          actions: true,
+        }
+
+      }
     }),
+    cloudflareDevProxy({ getLoadContext } as any),
+    reactRouter(),
     tsconfigPaths(),
+    sessionContextPlugin(),
   ],
+  css: {
+    postcss: {
+      plugins: [tailwindcss, autoprefixer],
+    },
+  },
+  ssr: {
+    resolve: {
+      conditions: ["workerd", "worker", "browser"],
+      externalConditions: ["workerd", "worker"],
+    },
+  },
+
+  build: {
+    minify: true,
+  },
   server: {
     port: 3010,
-    // watch: {
-    //   ignored: [
-    //     "**/registerComponents.ts",
-    //     "**/componentRegistry.ts",
-    //     "**/*.stories.{js,jsx,ts,tsx}",
-    //     "**/*.test.{js,jsx,ts,tsx}",
-    //   ],
-    // },
     hmr: {
       overlay: true,
     },
   },
-
-  // esbuild: {
-  //   jsxInject: `import React from 'react'`,
-  //   loader: 'tsx',
-  //   target: 'esnext'
-  // },
-
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx'],
+    mainFields: ["browser", "module", "main"],
     alias: {
       lodash: "lodash-es"
     }
   },
-
   optimizeDeps: {
-    include: ["match-sorter", "remove-accents"],
+    include: [
+      "beautify",
+      "react-diff-viewer-continued",
+      "classnames",
+      "@bkrem/react-transition-group",
+      "match-sorter",
+      "remove-accents"
+    ],
     // exclude: ['amis', 'amis-core', 'amis-formula', 'amis-ui'],
-  // 'amis-core', 'amis-formula', , 'amis-ui'
-
+    // 'amis-core', 'amis-formula', , 'amis-ui'
   },
-
-
-  // css: {
-  //   postcss: true,
-  // },
 });

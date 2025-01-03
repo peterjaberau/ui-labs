@@ -249,7 +249,7 @@ export const viewItems: any[] = [
     viewId: "render-dashboard-dynamic",
     itemId: "render-antd-button",
     config: {
-      renderAs: "dynamic-component",
+      renderAs: "managed-builtin-widget",
       renderMethod: "lazyload",
       component: "ButtonAntd",
       file: "widget-antd-button.tsx",
@@ -270,7 +270,7 @@ export const viewItems: any[] = [
     viewId: "render-dashboard-dynamic",
     itemId: "render-cloudscape-button",
     config: {
-      renderAs: "dynamic-component",
+      renderAs: "managed-builtin-widget",
       renderMethod: "lazyload",
       component: "ButtonCloudscape",
       file: "widget-cloudscape-button.tsx",
@@ -290,7 +290,7 @@ export const viewItems: any[] = [
     viewId: "render-dashboard-amis",
     itemId: "render-amis-amis-docs-intro",
     config: {
-      renderAs: "direct-component", //dynamic-component | direct-component
+      renderAs: "managed-amis-widget", //dynamic-component | direct-component
       renderMethod: "lazyload",
       component: "AmisDocsIntro",
       file: "AmisDocsIntro.tsx",
@@ -384,10 +384,10 @@ export const generateViewLinks = (views: any[]) => {
 
 
 // this directly read from the above viewItems and viewItemUsages and views
-export const generateDashboardItems = ({ viewId }: any) => {
-
+export const generateDashboardItems = ({ view }: any) => {
+  console.log("generateDashboardItems", view)
   const dashboardItems = viewItems
-    .filter((viewItem: any) => viewItem.viewId === viewId)
+    .filter((viewItem: any) => viewItem.viewId === view)
     .map((viewItem: any) => {
       const usage = viewItemUsages.find((usage: any) => usage.viewId === viewItem.viewId && usage.itemId === viewItem.itemId)
       return {

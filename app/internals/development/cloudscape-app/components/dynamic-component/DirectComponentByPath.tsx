@@ -6,7 +6,7 @@ type DynamicComponentByPathProps = {
   loaderData: { path: string; props: Record<string, any> };
 };
 
-export default function DirectComponentByPath({ loaderData }: DynamicComponentByPathProps) {
+export default function DirectComponentByPath({ children }: { children: React.ReactNode }) {
 
 
   return (
@@ -14,42 +14,14 @@ export default function DirectComponentByPath({ loaderData }: DynamicComponentBy
     //   <AmisDocsIntro />
     // </React.Suspense>
 
-    <ClientOnly fallback={<div>...loading</div>}>
-      {
-        () => (
-          <AmisDocsIntro />
-        )
-      }
-    </ClientOnly>
+    <>{children}</>
+
+    // <ClientOnly fallback={<div>...loading</div>}>
+    //   {
+    //     () => (
+    //       <AmisDocsIntro />
+    //     )
+    //   }
+    // </ClientOnly>
   )
 }
-
-
-
-
-// import React, { ComponentType } from "react";
-//
-// type DynamicComponentProps = {
-//   loaderData: { path: string; props: Record<string, any> };
-// };
-//
-// export default function DynamicComponentByPath({ loaderData }: DynamicComponentProps) {
-//   const { path, props } = loaderData;
-//
-//   // Dynamically resolve the component
-//   const Component = React.useMemo<ComponentType<any> | null>(() => {
-//     try {
-//       const module = require(path);
-//       return module.default || module;
-//     } catch (err) {
-//       console.error(`Error loading component at path: ${path}`, err);
-//       return null;
-//     }
-//   }, [path]);
-//
-//   if (!Component) {
-//     return <div>Failed to load component</div>;
-//   }
-//
-//   return <Component {...props} />;
-// }

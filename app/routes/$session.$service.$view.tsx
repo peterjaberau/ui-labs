@@ -1,16 +1,9 @@
-import "@cloudscape-design/global-styles/index.css"
+import "@cloudscape-design/global-styles/index.css?url"
 import React from "react"
-import { Outlet, useParams } from "@remix-run/react"
-import { cssBundleHref } from "@remix-run/css-bundle"
-import LayoutWrapper from "~/internals/development/components/router-wrapper.tsx"
+import { useParams } from "react-router"
 import type { HandleCustom } from "~/internals/development/components/breadcrumb-for-wrappers.tsx"
-import RouteWrapper from "~/internals/development/components/layout-wrapper.tsx"
 import { ClientOnly } from "remix-utils/client-only"
-import { BreadcrumbGroup } from "@cloudscape-design/components"
 
-export const links = () => {
-  return [...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : [])].filter(Boolean)
-}
 
 export const handle: HandleCustom = {
   links: [

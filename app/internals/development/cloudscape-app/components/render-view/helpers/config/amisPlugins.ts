@@ -3800,7 +3800,7 @@ export const data =  [
           "type": "editor",
           "label": "Code Editor",
           "name": "editor",
-          "value": "console.log(\"Hello world.\");"
+          "value": ""
         }
       ]
     },

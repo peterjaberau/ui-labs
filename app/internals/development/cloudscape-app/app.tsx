@@ -21,30 +21,72 @@ import { useNavigate, Routes, Route, useLocation, Outlet, useParams } from "@rem
 import { ClientOnly } from "remix-utils/client-only"
 import { useLoaderData } from "@remix-run/react"
 import { PageBreadcrumbs } from "./components/page-breadcrumbs.tsx"
-import DirectComponentByPath
-  from "~/internals/development/cloudscape-app/components/dynamic-component/DirectComponentByPath.tsx"
+import DirectComponentByPath from "~/internals/development/cloudscape-app/components/dynamic-component/DirectComponentByPath.tsx"
+import AmisDocsIntro from "~/internals/development/cloudscape-app/widgets/AmisDocsIntro.tsx"
+import { useAmisMachine } from "~/internals/development/cloudscape-app/components/RenderAmisComponent/amisMachineHook.ts"
+import { BoardItemPreview } from "~/internals/development/cloudscape-app/components/RenderAmisComponent/board-cards/BoardItemPreview.tsx"
+import { BoardItemEmpty } from "~/internals/development/cloudscape-app/components/RenderAmisComponent/board-cards/BoardItemEmpty.tsx"
+import { BoardItemLoading } from "~/internals/development/cloudscape-app/components/RenderAmisComponent/board-cards/BoardItemLoading.tsx"
 
-export async function clientLoader() {
-  await new Promise((r) => setTimeout(r, 100));
-  return {
-    message: "This data came from the client loader",
-  };
+// export async function clientLoader() {
+//   await new Promise((r) => setTimeout(r, 100))
+//   return {
+//     message: "This data came from the client loader",
+//   }
+// }
+
+// managed: cannot be customized by the user
+// dynamic: can be customized by the user
+
+const ComponentsMapping = {
+  "managed-amis-widget": BoardItemPreview,
+  "dynamic-amis-widget": BoardItemPreview,
+  "managed-builtin-widget": BoardItemPreview,
+  "dynamic-builtin-widget": BoardItemPreview,
+
+  // boardItemComponentsList: BoardItemComponentsList,
+  // boardItemPlugin: BoardItemPlugin,
+  // boardItemTpls: BoardItemTpls,
+  // boardItemAllPlugins: BoardItemAllPlugins,
+  // boardItemAllTemplates: BoardItemAllTemplates,
+  // boardItemStateContext: BoardItemStateContext,
+} as any
+
+const initialRendererProps = {
+  "managed-amis-widget": {},
+  "dynamic-amis-widget": {},
+  "managed-builtin-widget": {},
+  "dynamic-builtin-widget": {},
+  boardItemComponentsList: {},
+  boardItemPreview: {},
+  boardItemPlugin: {},
+  boardItemTpls: {},
+  boardItemAllPlugins: {},
+  boardItemAllTemplates: {},
+  boardItemStateContext: {},
 }
 
 export default function AppConsole({ children }: { children: React.ReactNode }) {
-  const data = useLoaderData<typeof clientLoader>()
-  const params = useParams();
-  const viewId = params.view; // Get viewId from URL parameters
+  // const data = useLoaderData<typeof clientLoader>()
 
-  const [dashboardItems, setDashboardItems] = useState(() => generateDashboardItems({ viewId }));
+  const { session, service, view } = useParams()
+  const location = useLocation()
+  const [rendererProps, setRendererProps] = React.useState<any>(initialRendererProps)
+
+  // sideNavigation, dashboardItems, parameters, database, components
+  const { actor, state, allPlugins, isInitializing, isCurrentConnected, isReady,  } =
+    useAmisMachine()
+
   useEffect(() => {
-    setDashboardItems(generateDashboardItems({ viewId }));
-  }, [viewId]);
+    if (view && isReady) {
+      actor.send({
+        type: "CONNECT_TO_COMPONENT",
+        rendererName: view,
+        urlParams: { session, service, view },
+      })
+    }
+  }, [view, isReady, actor])
 
-
-  const [config, setConfig] = useState(initialConfigSnapshot)
-  const [sidenavItems, setSidenavItems] = useState(initialConfigSnapshot.sideNavigation.items)
-  const [boardItems, setBoardItems]: any = useState(initialConfigSnapshot.boardItems)
   const [splitPanelOpen, setSplitPanelOpen] = useState(false)
   const [splitPanelPosition, setSplitPanelPosition] = useState<"side" | "bottom">("side")
   const [navigationOpen, setNavigationOpen] = React.useState(true)
@@ -56,8 +98,6 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
     e.preventDefault()
     navigate(e.detail.href)
   }
-
-
   return (
     <>
       <ClientOnly>
@@ -68,12 +108,16 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
             <AppLayout
               navigation={
                 <>
-                  <SideNavigation
-                    header={{ text: "Side Navigation", href: "/" }}
-                    activeHref={activeHref}
-                    onFollow={followLink}
-                    items={sidenavItems as any}
-                  />
+                  {
+                    isReady && isCurrentConnected && (
+                      <SideNavigation
+                        header={{ ...state.context.internalConfig.sideNavigation.header }}
+                        items={state.context.internalConfig.sideNavigation.items as any}
+                        activeHref={activeHref}
+                        onFollow={followLink}
+                      />
+                    )
+                  }
                 </>
               }
               breadcrumbs={<PageBreadcrumbs />}
@@ -105,27 +149,56 @@ export default function AppConsole({ children }: { children: React.ReactNode }) 
                     </Box>
                   }
                 >
-                  {/*<PreviewComponent />*/}
-
                   <>
-                    {/*<ClientOnly fallback={<div>Loading...</div>}>{() => <AmisReactPage />}</ClientOnly>*/}
-
                     <Board
-                      items={dashboardItems as any}
-                      renderItem={(item: any) => (
-                        <BoardItem header={<Header>{item.header}</Header>} i18nStrings={boardItemI18nStrings}>
-                          {item.content.renderAs === "dynamic-component" ? (
-                            <DynamicComponentByPath loaderData={{ path: item.content.path, props: item.content.props }} />
-                          ) : (
-                            // <DynamicComponentByPath loaderData={{ path: item.content.path, props: item.content.props }} />
+                      items={state.context.internalConfig.dashboardItems as any}
+                      renderItem={(item: any) => {
+                        const Comp = {
+                          componentName: item.config.name,
+                          componentRenderer: ComponentsMapping[item.config.renderAs],
+                          componentFile: item.config.file,
+                          componentProps: item.config.props,
+                          renderMethod: item.config.renderMethod,
+                        }
 
-                            // <DirectComponentByPath loaderData={{ path: item.content.path, props: item.content.props }} />
-                            <div>Not found</div>
-                          )}
-                        </BoardItem>
-                      )}
+                        const readyAndConnected: boolean = isReady && isCurrentConnected
+                        const isManaged: boolean = item.config.renderAs.includes("managed")
+                        const isAmis: boolean = item.config.renderAs.includes("amis")
+
+                        if (!isReady && isCurrentConnected) {
+                          return <div>Loading dashboard...</div>
+                        }
+
+                        if (!Comp.componentRenderer) {
+                          return <BoardItemEmpty />
+                        }
+
+                        return (
+                          <BoardItem header={<Header>{item.title}</Header>} i18nStrings={boardItemI18nStrings as any}>
+                            {isInitializing && <BoardItemLoading />}
+
+                            {isReady && isCurrentConnected && (
+                              <>
+                                {isManaged && isAmis ? (
+                                  <BoardItem header={<Header>{item.header}</Header>} i18nStrings={boardItemI18nStrings as any}>
+                                    <BoardItemPreview {...rendererProps["managed-amis-widget"].props} />
+                                  </BoardItem>
+                                ) : !isManaged && isAmis ? (
+                                  <BoardItem header={<Header>{item.header}</Header>} i18nStrings={boardItemI18nStrings}>
+                                    <BoardItemPreview {...rendererProps["dynamic-amis-widget"].props} />
+                                  </BoardItem>
+                                ) : isManaged && !isAmis ? (
+                                  <BoardItemPreview {...rendererProps["managed-builtin-widget"].props} />
+                                ) : (
+                                  <BoardItemPreview {...rendererProps["dynamic-builtin-widget"].props} />
+                                )}
+                              </>
+                            )}
+                          </BoardItem>
+                        )
+                      }}
                       i18nStrings={boardI18nStrings}
-                      onItemsChange={(event) => setBoardItems(event.detail.items)}
+                      onItemsChange={(event) => console.log(event.detail.items as any)}
                       empty="empty"
                     />
                   </>

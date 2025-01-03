@@ -10,6 +10,7 @@ export const renderViewMachine = setup({
   },
   actions: {
     connectToComponent:assign(({ context, event }: any) => {
+
       const currentPlugin = context.plugins.find((plugin: any) => plugin.rendererName === event.rendererName)
       const currentEvents = context.pluginEvents?.[event.rendererName]
       const currentActions = context.pluginActions?.[event.rendererName]
@@ -29,6 +30,7 @@ export const renderViewMachine = setup({
       }
     }),
     setPluginsValue:assign(({ context, event }: any) => {
+
       const pluginsObj = event.output.value
       if (!pluginsObj.plugins) return context;
 

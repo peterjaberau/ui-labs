@@ -1,59 +1,45 @@
-/*
-import {
-  type RouteConfig,
-  index,
-  layout,
-  prefix,
-  route,
-} from "@react-router/dev/routes";
-
-/!*
-route(
-  "path?: string",
-  "index?: boolean",
-  "caseSensitive?: boolean",
-  "id: string",
-  "parentId?: string",
-  "file: string",
-)
-
-
-
-
-
-
- *!/
-
-
+import { type RouteConfig, index, layout, prefix, route } from "@react-router/dev/routes"
 
 export default [
-  index("routes/home.tsx"),
+  index("routes/index.tsx"),
 
-  // // dockview
-  // layout("routes/dockview.tsx", [
-  //   route("dockview", "apps/examples/dockview/pages/main.client.tsx"),
-  // ]),
+  layout("routes/cloudscape.tsx", [
+    index("routes/cloudscape._index.tsx"),
+    route("custom", "routes/cloudscape.custom.tsx"),
+  ]),
 
   // User routes
-  // layout("routes/layout.tsx", [
-  //   route("dashboard", "routes/dashboard.tsx"),
-  //   route("todos", "routes/todos.tsx"),
-  //   route("change-password", "routes/change-password.tsx"),
-  // ]),
+  layout("routes/layout.tsx", [
+    route("home", "routes/home.tsx"),
+    route("todos", "routes/todos.tsx"),
+  ]),
 
-  // Better Auth
+  // Auth
+  ...prefix("auth", [
+    layout("routes/auth/layout.tsx", [
+      route(":provider/callback", "routes/auth/provider-callback.tsx"),
+      route(":provider", "routes/auth/provider.tsx"),
+      route("login", "routes/auth/login.tsx"),
+      route("verify", "routes/auth/verify.tsx"),
+    ]),
+    route("logout", "routes/auth/logout.tsx"),
+  ]),
+
+  //  route("*?", "routes/catchall.tsx"),
+  // // User routes
+  // layout("routes/layout.tsx", [
+  //   route("home", "routes/home.tsx"),
+  //   route("todos", "routes/todos.tsx"),
+  // ]),
+  //
+  // // Auth
   // ...prefix("auth", [
   //   layout("routes/auth/layout.tsx", [
-  //     route("sign-in", "routes/auth/sign-in.tsx"),
-  //     route("sign-up", "routes/auth/sign-up.tsx"),
-  //     route("sign-out", "routes/auth/sign-out.tsx"),
-  //     route("reset-password", "routes/auth/reset-password.tsx"),
-  //     route("forget-password", "routes/auth/forget-password.tsx"),
+  //     route(":provider/callback", "routes/auth/provider-callback.tsx"),
+  //     route(":provider", "routes/auth/provider.tsx"),
+  //     route("login", "routes/auth/login.tsx"),
+  //     route("verify", "routes/auth/verify.tsx"),
   //   ]),
+  //   route("logout", "routes/auth/logout.tsx"),
   // ]),
-
-  // Better Auth API
-  // route("api/auth/error", "routes/auth/better-error.tsx"),
-  // route("api/auth/!*", "routes/auth/better.tsx"),
-] satisfies RouteConfig;
-*/
+] satisfies RouteConfig

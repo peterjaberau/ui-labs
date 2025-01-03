@@ -1,16 +1,34 @@
 {
+  "include": [
+    "worker-configuration.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/.server/**/*.ts",
+    "**/.server/**/*.tsx",
+    "**/.client/**/*.ts",
+    "**/.client/**/*.tsx",
+    ".react-router/types/**/*",
+
+    "env.d.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "declarations.d.ts",
+  ],
+
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "types": [
-      "@remix-run/cloudflare",
-      "@types/node",
-      "@remix-run/node",
       "@react-router/cloudflare",
       "@cloudflare/workers-types",
-      "@cloudflare/workers-types/2023-07-01",
+      "@react-router/node",
+      "vite/client",
+      "@types/node",
       "vitest/globals",
-      "vite/client"
     ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "rootDirs": [".", "./.react-router/types"],
+    "paths": {
+      "~/*": ["./app/*"]
+    },
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
@@ -23,10 +41,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "paths": {
-      "~/*": ["./app/*"],
-      "content-collections": ["./.content-collections/generated"]
-    },
+
     "noEmit": true,
 
     /* Bundler mode */
@@ -41,22 +56,7 @@
     "useDefineForClassFields": true,
 
 //    "suppressImplicitAnyIndexErrors": true,
-    "rootDirs": [".", "./.react-router/types"]
   },
-  "include": [
-    "env.d.ts",
-    "worker-configuration.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "app/**/*.ts",
-    "app/**/*.tsx",
-    "declarations.d.ts",
-    ".react-router/types/**/*",
-    "**/.server/**/*.ts",
-    "**/.server/**/*.tsx",
-    "**/.client/**/*.ts",
-    "**/.client/**/*.tsx",
-    ".react-router/types/**/*"
-  ],
+
   "exclude": ["node_modules", "**/*.stories.tsx", "**/*.stories.ts"]
 }
