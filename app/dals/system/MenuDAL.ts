@@ -4,7 +4,7 @@ import prisma from "@/libs/prisma";
 export class MenuDAL {
   permMenuType = 3;
   /**
-   * Get quantity
+   * 获取数量
    * @returns
    */
   async getCount() {
@@ -12,14 +12,14 @@ export class MenuDAL {
   }
 
   /**
-   * Get all parameters
+   * 获取所有的参数
    */
   async getAll() {
     return await prisma.menu.findMany();
   }
 
   /**
-   * Get menu list
+   * 获取菜单列表
    * @returns
    */
   async getList({ page, pageSize }: { page: number; pageSize: number }) {
@@ -30,7 +30,7 @@ export class MenuDAL {
   }
 
   /**
-   * Get filter permission menu list
+   * 获取过滤权限菜单列表
    * @returns
    */
   async getAllFilterPermMenu() {
@@ -45,7 +45,7 @@ export class MenuDAL {
   }
 
   /**
-   * getMenuTreeByUserId
+   * 根据用户id获取菜单树
    */
   async getMenuTreeByUserId(userId: number) {
     // userId -> UserRole -> roles -> MenuRole -> menus
@@ -70,22 +70,22 @@ export class MenuDAL {
   }
 
   /**
-   * Create menu
+   * 创建菜单
    * @param data
    * @returns
    */
-  async create(data: any) {
+  async create(data: Prisma.MenuUncheckedCreateInput) {
     return await prisma.menu.create({
       data,
     });
   }
 
   /**
-   * Update menu
+   * 更新菜单
    * @param data
    * @returns
    */
-  async update(data: any) {
+  async update(data: Prisma.MenuUncheckedUpdateInput) {
     return await prisma.menu.update({
       where: {
         id: data.id as number,
@@ -106,7 +106,7 @@ export class MenuDAL {
   }
 
   /**
-   * Delete menu based on ids
+   * 根据 ids 删除菜单
    * @param ids
    * @returns
    */

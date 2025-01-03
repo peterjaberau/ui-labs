@@ -4,12 +4,12 @@ import { PassThrough } from "node:stream"
 import { ServerRouter } from "react-router"
 import { createReadableStreamFromReadable } from "@react-router/node"
 import { isbot } from "isbot"
-import { renderToPipeableStream } from "react-dom/server"
+import * as ReactDOMServer from "react-dom/server";
 import { createRemixI18n } from "~/libs/i18n/server.ts"
 
-const ABORT_DELAY = 5_000
+const { renderToPipeableStream } = ReactDOMServer;
 
-import { renderToReadableStream } from "react-dom/server"
+const ABORT_DELAY = 5_000
 
 export default async function handleRequest(
   request: Request,
