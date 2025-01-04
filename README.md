@@ -1,3 +1,69 @@
+# Prisma
+```bash
+
+# prisma folder
+--prisma
+  |--migrations
+    --|--20220101000000_init
+  |--schema.prisma
+  |--seeds.ts
+  |--_dev.db_
+
+
+# setup [.env]
+DATABASE_URL="file:./dev.db"
+USER_EMAIL=admin@example.com
+USER_PASSWORD=password123
+
+# setup database
+npx prisma migrate deploy
+npx prisma generate
+//pnpm seed
+node ./prisma/seed.js   
+
+
+/prisma/schema.prisma
+/prisma/seeds.ts
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+1. npx prisma migrate deploy
+2. npx prisma generate
+3. node ./prisma/seed.js
+
+
+
+
+# schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String         @id @default(uuid())
+  name         String
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String?
+}
+
+
+```
+
+
 # React Router v7 with Remix Auth.
 
 A production-ready authentication template featuring React Router v7 and Remix Auth, demonstrating multiple authentication strategies:
