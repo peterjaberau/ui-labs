@@ -27,7 +27,7 @@ export default function SessionServiceViewPage() {
   const params = useParams()
 
   return <ClientOnly fallback={<div>Loading...</div>}>{
-    () =>
+    () => <div>...</div>
   }</ClientOnly>
 }
 

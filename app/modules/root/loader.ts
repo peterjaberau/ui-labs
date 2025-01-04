@@ -1,8 +1,11 @@
+import type * as tn from "react-router"
 import { rps } from "~/utils/server/response-json";
-import { LoaderFunctionArgs } from "react-router"
 
-export const loader = (args: LoaderFunctionArgs) => {
+
+export const loader = (args: tn.LoaderFunctionArgs) => {
   return rps.rfj({
     lang: args.params.lang,
   });
 };
+
+

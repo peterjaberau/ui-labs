@@ -1,9 +1,20 @@
-import { AmisMachineProvider } from "~/internals/development/cloudscape-app/components/RenderAmisComponent/AmisContextProvider.tsx"
+"use client";
+
+import { type AppStore, makeStore } from "~/libs/store";
+
+import { Provider } from "react-redux";
+import { useRef } from "react";
 
 export default function StoreProvider({
-  children,
-}: {
+                                        children,
+                                      }: {
   children: React.ReactNode;
 }) {
-  return <AmisMachineProvider>{children}</AmisMachineProvider>;
+  const storeRef = useRef<AppStore>();
+  if (!storeRef.current) {
+    // Create the store instance the first time this renders
+    storeRef.current = makeStore();
+  }
+
+  return <Provider store={storeRef.current}>{children}</Provider>;
 }

@@ -1,4 +1,4 @@
-import type * as rrn from "@remix-run/node";
+import type * as rrn from "react-router";
 
 import { getSystemInfo$ } from "@/libs/systemInfo";
 import { lastValueFrom } from "rxjs";

@@ -14,13 +14,13 @@ const AppClient = () => {
   })
   const [lang, setLang] = useState("en-US")
   return (
-    <AmisMachineProvider>
+    <StoreProvider>
       <SettingContext.Provider value={{ theme, setTheme, lang, setLang }}>
         <I18nextProvider i18n={i18next}>
           <BrowserRouter />
         </I18nextProvider>
       </SettingContext.Provider>
-    </AmisMachineProvider>
+    </StoreProvider>
   )
 }
 

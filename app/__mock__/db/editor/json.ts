@@ -36,7 +36,7 @@ export const packageJson = {
     "@bytemd/plugin-gfm": "^1.21.0",
     "@bytemd/react": "^1.21.0",
     "@remix-run/css-bundle": "^1.16.0",
-    "@remix-run/node": "^1.16.0",
+    "react-router": "^1.16.0",
     "@remix-run/react": "^1.16.0",
     "@remix-run/serve": "^1.16.0",
     "@tinymce/tinymce-react": "^4.3.0",
