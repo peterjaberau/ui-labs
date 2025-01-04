@@ -74,7 +74,7 @@ export class MenuDAL {
    * @param data
    * @returns
    */
-  async create(data: Prisma.MenuUncheckedCreateInput) {
+  async create(data: any) {
     return await prisma.menu.create({
       data,
     });
@@ -85,7 +85,7 @@ export class MenuDAL {
    * @param data
    * @returns
    */
-  async update(data: Prisma.MenuUncheckedUpdateInput) {
+  async update(data: any) {
     return await prisma.menu.update({
       where: {
         id: data.id as number,

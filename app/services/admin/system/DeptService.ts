@@ -33,7 +33,7 @@ class DeptService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     if (dto.parent_department_id) {
       const parent = await deptDAL.getById(dto.parent_department_id);
       if (!parent) {
@@ -55,7 +55,7 @@ class DeptService {
    * @returns
    */
   async update(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const result = await deptDAL.update(dto);
     return result;
   }
@@ -66,7 +66,7 @@ class DeptService {
    * @returns
    */
   async deleteByIds(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const result = await deptDAL.deleteByIds(dto.ids);
     return result;
   }

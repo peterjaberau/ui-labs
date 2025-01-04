@@ -8,6 +8,6 @@ export const loader: LoaderFunction = async ({
   request,
   params,
 }: LoaderFunctionArgs) => {
-  const _data = await lastValueFrom(getSearchProjectCardList$());
+  const _data: any = await lastValueFrom(getSearchProjectCardList$());
   return { data: _data };
 };

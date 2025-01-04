@@ -1,6 +1,6 @@
 import React from "react"
 import { useAmisMachine } from "./amisMachineHook"
-import { useParams, useLocation } from "@remix-run/react"
+import { useParams, useLocation } from "react-router"
 import { useEffect } from "react"
 import { Board, BoardItem } from "@cloudscape-design/board-components"
 import { Header } from "@cloudscape-design/components"

@@ -44,7 +44,7 @@ class LinkCategoryService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
 
     const data = {
@@ -62,7 +62,7 @@ class LinkCategoryService {
    * @returns
    */
   async deleteByIds(args: any) {
-    const { ids } = args.request.json();
+    const { ids }: any = args.request.json();
     const result = await profileLinkCategoryDAL.deleteByIds(ids);
     return result;
   }
@@ -73,7 +73,7 @@ class LinkCategoryService {
    * @returns
    */
   async update(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
     const data = {
       ...dto,

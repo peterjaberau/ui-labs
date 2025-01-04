@@ -49,7 +49,7 @@ export class StorageDAL {
    * @param data
    * @returns
    */
-  public async create(data: Prisma.StorageCreateInput) {
+  public async create(data: any) {
     return await prisma.storage.create({ data });
   }
 

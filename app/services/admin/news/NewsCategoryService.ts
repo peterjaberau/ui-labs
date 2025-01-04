@@ -43,7 +43,7 @@ class NewsCategoryService {
    * @returns
    */
   async create(args: any) {
-    const dto = args.request.json();
+    const dto: any = args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
 
     const data = {
@@ -61,7 +61,7 @@ class NewsCategoryService {
    * @returns
    */
   async deleteByIds(args: any) {
-    const { ids } = await args.request.json();
+    const { ids }: any = await args.request.json();
     const result = await newsCategoryDAL.deleteByIds(ids);
     return result;
   }
@@ -72,7 +72,7 @@ class NewsCategoryService {
    * @returns
    */
   async update(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
     const data = {
       ...dto,

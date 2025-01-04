@@ -6,8 +6,8 @@ import { useSelectUserInfo } from "@/apis-client/common/user-info";
 
 export function Route() {
   const userInfo = useSelectUserInfo();
-  const _data = useGetDashboardQuery("");
-  const { data, isLoading } = _data || {};
+  const _data: any = useGetDashboardQuery("");
+  const { data, isLoading }: any = _data || {};
 
   return (
     <PageContainer loading={isLoading}>

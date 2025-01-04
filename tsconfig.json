@@ -7,7 +7,7 @@
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
     "**/.client/**/*.tsx",
-    ".react-router/types/**/*",
+
 
     "env.d.ts",
     "app/**/*.ts",
@@ -63,5 +63,5 @@
 //    "suppressImplicitAnyIndexErrors": true,
   },
 
-  "exclude": ["node_modules", "**/*.stories.tsx", "**/*.stories.ts"]
+  "exclude": ["node_modules", "**/*.stories.tsx", "**/*.stories.ts", ".react-router/types/**/*"]
 }

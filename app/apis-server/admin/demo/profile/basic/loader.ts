@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import type { LoaderFunction, LoaderFunctionArgs } from "react-router";
 
 import { getTableListDataSource$ } from "~/__mock__/profile/profile.server";

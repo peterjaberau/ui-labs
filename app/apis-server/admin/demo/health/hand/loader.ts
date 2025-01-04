@@ -4,6 +4,6 @@ import { gethandData$ } from "~/__mock__/health/hand";
 import { lastValueFrom } from "rxjs";
 
 export const loader: LoaderFunction = async () => {
-  const data = await lastValueFrom(gethandData$());
+  const data: any = await lastValueFrom(gethandData$());
   return data;
 };

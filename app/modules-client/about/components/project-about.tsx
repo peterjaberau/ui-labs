@@ -12,7 +12,7 @@ export const ProjectAbout = () => {
   type DepType = keyof typeof allDeps;
 
   const description = `
-    ${pkg.name}is based on @remix-run/react${getMajorVersion("@remix-run/react")}.x、
+    ${pkg.name}is based on react-router${getMajorVersion("react-router")}.x、
     Vite${getMajorVersion("vite")}.x、
     Antd${getMajorVersion("antd")}.x 、
     TailwindCSS${getMajorVersion("tailwindcss")}.x 、

@@ -38,7 +38,7 @@ class ChangelogService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
     const data = {
       ...dto,
@@ -54,7 +54,7 @@ class ChangelogService {
    * @returns
    */
   async deleteByIds(args: any) {
-    const { ids } = await args.request.json();
+    const { ids }: any = await args.request.json();
     const result = await changelogDAL.deleteByIds(ids);
     return result;
   }
@@ -65,7 +65,7 @@ class ChangelogService {
    * @returns
    */
   async update(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
     const data = {
       ...dto,

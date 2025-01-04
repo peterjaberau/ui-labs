@@ -52,7 +52,7 @@ class StorageService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
 
     const data = {
@@ -70,7 +70,7 @@ class StorageService {
    * @returns
    */
   async deleteById(args: any) {
-    const dto = args.request.json();
+    const dto: any = args.request.json();
     const result = await storageDAL.deleteByIds(dto.ids);
     return result;
   }

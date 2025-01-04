@@ -63,7 +63,7 @@ class LoginService {
    * @returns
    */
   async loginAction(args: ActionFunctionArgs) {
-    const vDto = await args.request.json();
+    const vDto: any = await args.request.json();
     const user = await this.findUserByName(vDto);
     this.matchPassword(vDto, user);
     this.recordLoginLog(args, user);

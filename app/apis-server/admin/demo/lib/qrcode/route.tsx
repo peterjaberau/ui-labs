@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import QRCode from "qrcode";
 import QrCodeList from "~/modules-admin/demo/lib/qrcode/components/qr-code-list";
 import type { loader } from "./loader";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 
 const ReactQrCode = ({ url }: any) => {
   const cRef = useRef<any>();
@@ -13,7 +13,7 @@ const ReactQrCode = ({ url }: any) => {
   const drawQrCode = async () => {
     let canvas = document.createElement("canvas");
 
-    await QRCode.toCanvas(canvas, url, { width: 132 }).catch((err) => {
+    await QRCode.toCanvas(canvas, url, { width: 132 }).catch((err: any) => {
       console.log();
     });
     cRef.current.appendChild(canvas);
@@ -28,7 +28,7 @@ const ReactQrCode = ({ url }: any) => {
 };
 
 export function Route() {
-  const { list } = useLoaderData<typeof loader>();
+  const { list }: any = useLoaderData<typeof loader>();
 
   return (
     <PageContainer>

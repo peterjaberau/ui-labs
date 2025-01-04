@@ -9,7 +9,7 @@ export class LoginLogDAL {
    * @param data
    * @returns
    */
-  async create(data: Prisma.LoginlogCreateInput) {
+  async create(data: any) {
     return await prisma.loginlog.create({
       data,
     });

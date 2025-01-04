@@ -17,7 +17,7 @@ export function Route() {
         <Editor
           value={value}
           plugins={plugins}
-          onChange={(v) => {
+          onChange={(v: any) => {
             setValue(v);
           }}
         />

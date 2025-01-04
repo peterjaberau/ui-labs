@@ -11,7 +11,7 @@ import {
 import { PlusOutlined } from "@ant-design/icons";
 import type { ProColumns } from "@ant-design/pro-components";
 import type { loader } from "./loader";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 
 export type TableListItem = {
   key: number;
@@ -51,7 +51,7 @@ function AddButtonModal() {
 
 export function Route() {
   const { token } = theme.useToken();
-  const data = useLoaderData<typeof loader>();
+  const data: any = useLoaderData<typeof loader>();
   const columns: ProColumns<TableListItem>[] = [
     {
       title: "规则名称",

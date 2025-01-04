@@ -13,7 +13,7 @@ import {
 import TopNavigations from "~/internals/development/cloudscape-app/components/top-navigations"
 import { Outlet } from "react-router"
 import type { HandleCustom } from "~/internals/development/components/breadcrumb-for-wrappers.tsx"
-import { useNavigate, useParams } from "@remix-run/react"
+import { useNavigate, useParams } from "react-router"
 import { useAmisMachine } from "~/internals/development/cloudscape-app/components/RenderAmisComponent/amisMachineHook.ts"
 
 export const handle: HandleCustom = {

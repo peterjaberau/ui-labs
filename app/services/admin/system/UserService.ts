@@ -35,7 +35,7 @@ class UserService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     if (dto.password) {
       dto.password = bcryptUtil.hashPassword(dto.password);
     }
@@ -48,7 +48,7 @@ class UserService {
    * @returns
    */
   async update(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const result = await userDAL.update(dto);
     return result;
   }
@@ -58,7 +58,7 @@ class UserService {
    * @returns
    */
   async deleteByIds(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const result = await userDAL.deleteByIds(dto.ids);
     return result;
   }

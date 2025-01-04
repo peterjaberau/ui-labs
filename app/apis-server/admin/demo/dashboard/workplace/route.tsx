@@ -7,10 +7,10 @@ import {
 import { PageContainer } from "@ant-design/pro-components";
 import { Row } from "antd";
 import type { loader } from "./loader";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 
 export function Route() {
-  const data = useLoaderData<typeof loader>().data;
+  const data = useLoaderData<typeof loader | any>().data;
   return (
     <PageContainer breadcrumb={{}} content={<ContainerContent data={data} />}>
       <Row gutter={[8, 8]}>

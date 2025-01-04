@@ -45,7 +45,7 @@ export class FeedbackDAL {
    * @param data
    * @returns
    */
-  async create(data: Prisma.FeedBackCreateInput): Promise<any> {
+  async create(data: any): Promise<any> {
     return await prisma.feedBack.create({
       data: {
         userId: data.userId,
@@ -60,7 +60,7 @@ export class FeedbackDAL {
    * @param data
    * @returns
    */
-  async update(data: Prisma.FeedBackUpdateInput & { id: number }) {
+  async update(data: any & { id: number }) {
     return await prisma.feedBack.update({
       where: {
         id: data.id,

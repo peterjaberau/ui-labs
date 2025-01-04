@@ -4,3 +4,11 @@ declare const __APP_INFO__: {
   };
   lastBuildTime: string;
 };
+
+declare module 'js-export-excel';
+
+declare module 'allotment';
+
+// declare module 'qrcode';
+//
+// declare module 'file-saver';

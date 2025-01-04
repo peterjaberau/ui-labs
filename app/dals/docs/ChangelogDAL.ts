@@ -43,7 +43,7 @@ export class ChangeLogDAL {
    * @param data
    * @returns
    */
-  async create(data: Prisma.ChangeLogCreateInput) {
+  async create(data: any) {
     data.publish_time = new Date(data.publish_time);
     return await prisma.changeLog.create({ data });
   }
@@ -52,7 +52,7 @@ export class ChangeLogDAL {
    * @param data
    * @returns
    */
-  async update(data: Prisma.ChangeLogUpdateInput & { id: number }) {
+  async update(data: any & { id: number }) {
     return await prisma.changeLog.update({
       where: {
         id: data.id,

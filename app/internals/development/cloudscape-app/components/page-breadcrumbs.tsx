@@ -1,6 +1,6 @@
 import * as React from "react";
 import { BreadcrumbGroup } from "@cloudscape-design/components";
-import { useParams } from "@remix-run/react";
+import { useParams } from "react-router";
 
 export const PageBreadcrumbs = () => {
   const params = useParams();

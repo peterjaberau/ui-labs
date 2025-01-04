@@ -15,8 +15,8 @@ export const ProjectAbout = () => {
     <ProCard>
       <Descriptions title="关于">
         <Descriptions.Item>
-          {pkg.name} is based on @remix-run/react$
-          <Tag color="purple">{getMajorVersion("@remix-run/react")}.x</Tag>,
+          {pkg.name} is based on react-router$
+          <Tag color="purple">{getMajorVersion("react-router")}.x</Tag>,
           Vite<Tag color="purple">{getMajorVersion("vite")}.x</Tag>, Antd
           <Tag color="purple">{getMajorVersion("antd")}.x</Tag>、 TailwindCSS
           <Tag color="purple">{getMajorVersion("tailwindcss")}.x</Tag>, prisma

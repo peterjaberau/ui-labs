@@ -4,14 +4,14 @@ import { LocalModels } from "./components";
 import { Ollama } from "ollama/browser";
 import { ProChat } from "@ant-design/pro-chat";
 import type { loader } from "./loader";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 
 type Typee = null | Ollama;
 
 let ollama: Typee = null;
 
 export function Route() {
-  const data = useLoaderData<typeof loader>();
+  const data: any = useLoaderData<typeof loader>();
   const [localList, setLocalList] = useState([]);
   const [showComponent, setShowComponent] = useState(false);
   if (!ollama) {
@@ -34,7 +34,7 @@ export function Route() {
             // eslint-disable-next-line no-constant-condition
             while (true) {
               const s = await reader?.next(); // 调用next方法获取下一个值
-              const { value } = s!;
+              const { value }: any = s!;
               const { done } = value;
               const { content } = value.message;
               if (done) {

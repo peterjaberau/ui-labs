@@ -1,6 +1,6 @@
 import React from "react"
 import { useAmisMachine } from "../amisMachineHook"
-import { useNavigate } from "@remix-run/react"
+import { useNavigate } from "react-router"
 import { Autosuggest } from "@cloudscape-design/components"
 
 export const BoardItemComponentsList = React.memo((props: any) => {

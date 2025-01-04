@@ -45,7 +45,7 @@ class LinkService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
     const data = {
       ...dto,
@@ -60,7 +60,7 @@ class LinkService {
    * @returns
    *  */
   async deleteByIds(args: any) {
-    const dto = args.request.json();
+    const dto: any = args.request.json();
     const result = await profileLinkDAL.deleteByIds(dto.ids);
     return result;
   }
@@ -71,7 +71,7 @@ class LinkService {
    * @returns
    *  */
   async update(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
     const data = {
       ...dto,

@@ -73,7 +73,7 @@ class RegisterService {
    * @returns
    */
   async register(args: ActionFunctionArgs) {
-    const vDto = await args.request.json();
+    const vDto: any = await args.request.json();
     if (vDto.password !== vDto.passwordRe) throw Error(ERROR_PASSWWORD);
     const user = await this.simplefindUserByName(vDto);
     if (user) throw Error("用户已存在");

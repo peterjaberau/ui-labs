@@ -45,7 +45,7 @@ class MailTemplateService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const result = await mailTemplateDAL.create(dto);
     return result;
   }
@@ -55,7 +55,7 @@ class MailTemplateService {
    * @returns
    */
   async deleteByIds(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const result = await mailTemplateDAL.deleteByIds(dto.ids);
     return result;
   }

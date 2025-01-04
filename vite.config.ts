@@ -1,17 +1,17 @@
-import { reactRouterDevTools } from "react-router-devtools";
-import { reactRouter } from '@react-router/dev/vite'
-import { cloudflareDevProxy } from "@react-router/dev/vite/cloudflare";
+import { reactRouterDevTools } from "react-router-devtools"
+import { reactRouter } from "@react-router/dev/vite"
+import { cloudflareDevProxy } from "@react-router/dev/vite/cloudflare"
 
-import { sessionContextPlugin } from "session-context/vite";
-import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { sessionContextPlugin } from "session-context/vite"
+import { defineConfig } from "vite"
+import tsconfigPaths from "vite-tsconfig-paths"
 
-import pkg from "./package.json";
+import pkg from "./package.json"
 
-import autoprefixer from "autoprefixer";
-import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer"
+import tailwindcss from "tailwindcss"
 
-import { getLoadContext } from "./workers/load-context";
+import { getLoadContext } from "./workers/load-context"
 import dayjs from "dayjs"
 
 export default defineConfig({
@@ -35,8 +35,12 @@ export default defineConfig({
         requireUrlFlag: true,
         urlFlag: "customFlag",
         routeBoundaryGradient: "gotham",
-        breakpoints: [{name: "lg", min: 0, max: 768}, {name: "xl", min: 768, max: 1024}, {name: "2xl", min: 1024, max: Infinity}],
-        showBreakpointIndicator: false
+        breakpoints: [
+          { name: "lg", min: 0, max: 768 },
+          { name: "xl", min: 768, max: 1024 },
+          { name: "2xl", min: 1024, max: Infinity },
+        ],
+        showBreakpointIndicator: false,
       },
       server: {
         silent: false,
@@ -48,9 +52,8 @@ export default defineConfig({
           siteClear: true,
           serverTimings: true,
           actions: true,
-        }
-
-      }
+        },
+      },
     }),
     cloudflareDevProxy({ getLoadContext } as any),
     reactRouter(),
@@ -78,12 +81,29 @@ export default defineConfig({
       overlay: true,
     },
   },
+  ssr: {
+    noExternal: [
+      "@ant-design/icons",
+      "@ant-design/pro-chat",
+      "@ant-design/pro-editor",
+      "react-intersection-observer",
+    ],
+    optimizeDeps: {
+      include: [
+        "@ant-design/icons",
+        "@ant-design/pro-chat",
+        "@ant-design/pro-editor",
+        "react-intersection-observer",
+      ],
+    },
+  },
+
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx'],
+    extensions: [".js", ".ts", ".jsx", ".tsx"],
     mainFields: ["browser", "module", "main"],
     alias: {
-      lodash: "lodash-es"
-    }
+      lodash: "lodash-es",
+    },
   },
   optimizeDeps: {
     include: [
@@ -92,9 +112,9 @@ export default defineConfig({
       "classnames",
       "@bkrem/react-transition-group",
       "match-sorter",
-      "remove-accents"
+      "remove-accents",
     ],
     // exclude: ['amis', 'amis-core', 'amis-formula', 'amis-ui'],
     // 'amis-core', 'amis-formula', , 'amis-ui'
   },
-});
+})

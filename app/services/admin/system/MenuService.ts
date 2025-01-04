@@ -87,7 +87,7 @@ class MenuService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     if (dto.parent_menu_id < 0) {
       dto.parent_menu_id = null;
     }
@@ -101,7 +101,7 @@ class MenuService {
    * @returns
    */
   async update(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     if (dto.parent_menu_id < 0) {
       dto.parent_menu_id = null;
     }
@@ -115,7 +115,7 @@ class MenuService {
    * @returns
    */
   async delete(args: any) {
-    const { ids } = await args.request.json();
+    const { ids }: any = await args.request.json();
     const result = await menuDAL.deleteByIds(ids);
     return result;
   }

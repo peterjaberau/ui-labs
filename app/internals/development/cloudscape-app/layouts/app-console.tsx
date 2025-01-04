@@ -16,9 +16,9 @@ import {
   Drawer,
   SideNavigation,
 } from "@cloudscape-design/components"
-import { useNavigate, Routes, Route, useLocation, Outlet, useParams } from "@remix-run/react"
+import { useNavigate, Routes, Route, useLocation, Outlet, useParams } from "react-router"
 import { ClientOnly } from "remix-utils/client-only"
-import { useLoaderData } from "@remix-run/react"
+import { useLoaderData } from "react-router"
 import { PageBreadcrumbs } from "./components/page-breadcrumbs.tsx"
 import DirectComponentByPath from "~/internals/development/cloudscape-app/components/dynamic-component/DirectComponentByPath.tsx"
 import AmisDocsIntro from "~/internals/development/cloudscape-app/widgets/AmisDocsIntro.tsx"

@@ -1,6 +1,6 @@
 import "@cloudscape-design/global-styles/index.css?url"
 import React from "react"
-import { Outlet } from "@remix-run/react"
+import { Outlet } from "react-router"
 import type { HandleCustom } from "~/internals/development/components/breadcrumb-for-wrappers.tsx"
 import { filePathLabel } from "~/lib/debug.ts"
 

@@ -14,8 +14,8 @@ import { useChangeLanguage } from "remix-i18next/react"
 
 export function RootRoute() {
   const params = useParams()
-  const _data = useLoaderData<typeof loader>()
-  const { lang } = _data as any
+  const _data: any = useLoaderData<typeof loader>()
+  const { lang }: any = _data as any
 
   useChangeLanguage(lang!)
 

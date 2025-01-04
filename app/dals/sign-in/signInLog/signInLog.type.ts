@@ -7,7 +7,7 @@ import type { Prisma } from "@prisma/client";
 
 export interface IUserSignInLog {
   count$(): any;
-  createUserSignInLog$(data: Prisma.LoginlogCreateInput): Observable<any>;
+  createUserSignInLog$(data: any): Observable<any>;
   updateUserSignInLog$(
     data: Prisma.LoginlogUncheckedUpdateInput,
   ): Observable<any>;

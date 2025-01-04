@@ -1,5 +1,5 @@
 import React from "react"
-import { useParams } from "@remix-run/react"
+import { useParams } from "react-router"
 
 import type { HandleCustom } from "~/internals/development/components/breadcrumb-for-wrappers.tsx"
 import RouteWrapper from "~/internals/development/components/layout-wrapper.tsx"

@@ -3,7 +3,7 @@ import { render as renderAmis } from "amis"
 import copy from 'copy-to-clipboard';
 import {ToastComponent, AlertComponent, alert, confirm, toast} from 'amis-ui';
 import axios from 'axios';
-import { useLoaderData } from "@remix-run/react"
+import { useLoaderData } from "react-router"
 
 // export async function clientLoader() {
 //   await new Promise((r) => setTimeout(r, 100))

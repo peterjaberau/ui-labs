@@ -45,7 +45,7 @@ class FeedbackService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const pyload = await joseJwt.getTokenUserIdByArgs(args);
 
     const data = {
@@ -62,7 +62,7 @@ class FeedbackService {
    * @returns
    */
   async deleteByIds(args: ActionFunctionArgs) {
-    const { ids } = await args.request.json();
+    const { ids }: any = await args.request.json();
 
     const result = await feedBackDAL.deleteByIds(ids);
     return result;
@@ -74,7 +74,7 @@ class FeedbackService {
    * @returns
    */
   async update(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const pyload = await joseJwt.getTokenUserIdByArgs(args);
     const data = {
       ...dto,

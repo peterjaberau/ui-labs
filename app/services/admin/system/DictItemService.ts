@@ -32,7 +32,7 @@ class DictItemService {
    * @returns
    */
   async create(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const result = await dictItemDAL.create({
       ...dto,
     });
@@ -45,7 +45,7 @@ class DictItemService {
    * @returns
    */
   async update(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const result = await dictItemDAL.update(dto);
     return result;
   }
@@ -56,7 +56,7 @@ class DictItemService {
    * @returns
    */
   async deleteByIds(args: any) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const result = await dictItemDAL.deleteByIds(dto.ids);
     return result;
   }

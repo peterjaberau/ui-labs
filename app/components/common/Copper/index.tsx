@@ -24,7 +24,8 @@ export const Cropper = ({
   const onImageLoad = useCallback(() => {
 const { width: displayedWidth, height: displayedHeight } = imgRef.current!; // The width and height of the display area
 
-    // If you want to keep the crop box at a specific pixel size, you need to limit it based on the display size    const initW = Math.min(initialWidth, displayedWidth);
+    // If you want to keep the crop box at a specific pixel size, you need to limit it based on the display size
+    const initW = Math.min(initialWidth, displayedWidth);
     const initH = Math.min(initialHeight, displayedHeight);
 
     // Center crop box

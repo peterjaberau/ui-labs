@@ -28,7 +28,7 @@ class BlogCategoryService {
    * @returns
    */
   public async create(args: ActionFunctionArgs) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
     const data = {
       ...dto,
@@ -43,7 +43,7 @@ class BlogCategoryService {
    * @returns
    */
   public async deleteByIds(args: ActionFunctionArgs) {
-    const { ids } = await args.request.json();
+    const { ids }: any = await args.request.json();
     const result = await blogCategoryDAL.deleteByIds(ids);
     return result;
   }
@@ -54,7 +54,7 @@ class BlogCategoryService {
    * @returns
    */
   public async update(args: ActionFunctionArgs) {
-    const dto = await args.request.json();
+    const dto: any = await args.request.json();
     const payload = await joseJwt.getTokenUserIdByArgs(args);
     const data = {
       ...dto,

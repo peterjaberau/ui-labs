@@ -10,12 +10,11 @@ import { rps } from "./response-json";
 import { userPermsDAL } from "@/dals/system/UserPermsDAL";
 
 export class RemixApi {
-  /**
-   * 创建 Remix API 基于 action loader 的方式
+/**
+   * Create Remix API based on action loader
    * @param options
    * @returns
-   */
-  createApi(options: Op) {
+   */  createApi(options: Op) {
     const that = this;
     return {
       async action(args: ActionFunctionArgs) {
@@ -37,8 +36,8 @@ export class RemixApi {
       },
     };
   }
-  /**
-   * 创建 Remix API 基于实现，在进入 action loader 之前，直接调用函数完成验证等内容
+/**
+   * Create Remix API based on implementation. Before entering the action loader, directly call the function to complete verification and other content
    * @param args
    * @param options
    * @param handler
